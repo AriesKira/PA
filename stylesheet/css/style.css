@@ -6,6 +6,10 @@
     column-fill: 0, 0, 0, 10;
 }
 
+#loginBody {
+    background-color: #2d2d2d;
+}
+
 #registerBody {
     background-color: rgb(21, 21, 20);
 }
@@ -16,6 +20,10 @@ nav {
 
 .nav-link {
     color: #fff;
+}
+
+.nav-link:hover {
+    color: #EF0B0B;
 }
 
 .bloc {
