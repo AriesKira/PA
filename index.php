@@ -24,4 +24,4 @@ require "functions.php";
 </body>
 </html>
 
-<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/header.php";?>
+<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/footer.php";?>
