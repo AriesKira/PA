@@ -37,11 +37,7 @@
 		          <a class="nav-link" href="login.php">Se connecter</a>
 		        </li>
 
-
 	      	<?php } ?>
-	        
-
-
 	        
 	    </div>
 	  </div>

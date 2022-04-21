@@ -54,4 +54,4 @@
 	</div>
 </body>
 </html>
-<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/footer.php";?>
+<?php include "../PA/stylesheet/template/footer.php";?>
