@@ -5,7 +5,7 @@ require "functions.php";
 
 ?>
 
-<?php include "/stylesheet/template/header.php";?>
+<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/header.php";?>
 
 <!DOCTYPE html>
 <html>
@@ -24,4 +24,4 @@ require "functions.php";
 </body>
 </html>
 
-<?php include "/stylesheet/template/footer.php";?>
+<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/header.php";?>
