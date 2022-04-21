@@ -5,7 +5,7 @@ require "functions.php";
 
 ?>
 
-<?php include "header.php";?>
+<?php include "/stylesheet/template/header.php";?>
 
 <!DOCTYPE html>
 <html>
@@ -23,3 +23,5 @@ require "functions.php";
     
 </body>
 </html>
+
+<?php include "/stylesheet/template/footer.php";?>
