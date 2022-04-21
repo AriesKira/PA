@@ -3,7 +3,7 @@
 	require "functions.php";
 ?>
 
-<?php include "header.php";?>
+<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/header.php";?>
 <div class="container">
 	<div class="row mt-4">
 		<div class="col-md-3"></div>
@@ -50,3 +50,5 @@
 		</div>
 	</div>
 </div>
+
+<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/footer.php";?>
