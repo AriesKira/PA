@@ -19,6 +19,7 @@ require "functions.php";
    <body>
       <div id="animatedBackground" class="bloc">
          <video autoplay="autoplay" muted="" loop="infinite" src="stylesheet/videos/earth.mp4"></video> 
+         <img src="/PA/stylesheet/images/logo/logo-articles.png" alt="Articles">
       </div>
       
    </body>

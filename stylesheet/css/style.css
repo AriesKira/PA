@@ -7,7 +7,7 @@
 }
 
 #loginBody {
-    background-color: #2d2d2d;
+    background-color: rgb(21, 21, 20);
 }
 
 #registerBody {
@@ -23,6 +23,20 @@ nav {
     color: #2d2d2d;
 }
 
+#searchbar {
+    border: #fff solid 1px;
+    border-radius: 12px;
+    background-color: #2d2d2d;
+}
+
+#searchbar:hover {
+    border: #EF0B0B solid 1px;
+}
+
+#searchbar::placeholder {
+    color: #fff;
+}
+
 body {
     color: #2d2d2d;
 }
@@ -33,6 +47,14 @@ body {
 
 #ModeButton:hover::before {
     content: "Light Mode";
+}
+
+header {
+    border-bottom: #fff solid 1px;
+}
+
+header:hover {
+    border-bottom: #EF0B0B solid 1px;
 }
 
 .nav-link {
