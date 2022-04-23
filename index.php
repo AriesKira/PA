@@ -3,7 +3,21 @@
 <div id="animatedBackground" class="bloc">
    <video autoplay="autoplay" muted="" loop="infinite" src="stylesheet/videos/earth.mp4"></video>
    <div id="pageIconsSelection">
-      
+      <a href="">
+         <i id="articlePageIcon"class="fa-solid fa-book fa-7x zoom-box"></i>
+      </a>
+      <a href="">
+         <i id="trainigPageIcon"class="fa-solid fa-gamepad fa-7x zoom-box"></i>
+      </a>
+      <a href="">
+         <i id="forumPageIcon" class="fa-solid fa-people-group fa-7x zoom-box"></i>
+      </a>
+      <a href="">
+         <i id="advicePageIcon" class="fa-solid fa-comment-medical fa-7x zoom-box"></i>
+      </a>
+      <a href="">
+         <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
+      </a>
    </div>
 </div>
 <div hidden id="registerBody">
