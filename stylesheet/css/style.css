@@ -7,11 +7,25 @@
 }
 
 #loginBody {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27%;
     background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+}
+
+#loginBody>input {
+    width: 100%;
 }
 
 #registerBody {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27.5%;
     background-color: rgb(21, 21, 20);
+    border-radius: 12px;
 }
 
 nav {
@@ -39,6 +53,20 @@ nav {
 
 body {
     color: #2d2d2d;
+}
+
+#pageIconsSelection {
+    position: absolute;
+    top: 325px;
+    left: 50px;
+}
+
+.zoom-box {
+    transition: transform .2sc;
+}
+
+.zoom-box:hover {
+    transform: scale(1.5);
 }
 
 #ModeButton {

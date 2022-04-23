@@ -1,19 +1,7 @@
-<?php
-	session_start();
-	require "functions.php";
-?>
-
-<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/header.php";?>
 
 
-<head>
-    <meta charset="utf-8">
-	<meta name="Description" content="::" lang="FR">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheet/css/style.css">
-    <title></title>
-</head>
-<body id="registerBody">
+
+
 	<div class="container">
 		<div class="row mt-4">
 			<div class="col-md-3"></div>
@@ -55,4 +43,3 @@
 	</div>
 </body>
 
-<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/footer.php";?>
