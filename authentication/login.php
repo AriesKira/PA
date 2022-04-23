@@ -1,11 +1,8 @@
-
-
 <div>
-    <div class="container" >
-        <div class="row pt-4" id="loginBorder">  
+    <div class="container">
+        <div class="row pt-4" id="loginBorder">
             <div class="col-md-6">
                 <?php
-                    echo "poulet";
                 if (!empty($_POST['email']) &&  !empty($_POST['pwd']) && count($_POST) == 2) {
 
                     //Récupérer en bdd le mot de passe hashé pour l'email provenant du formulaire

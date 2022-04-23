@@ -38,14 +38,14 @@ require "functions.php";
 
 						<?php } else { ?>
 							<li class="nav-item">
-								<button class="nav-link" onclick="popUpRegister()">S'inscrire</button>
+								<a class="nav-link" onclick="popUpRegister()">S'inscrire</a>
 							</li>
 							<li class="nav-item">
-								<button class="nav-link" onclick="popUpLogin()">Se connecter</button>
+								<a class="nav-link" onclick="popUpLogin()">Se connecter</a>
 							</li>
 
 						<?php } ?>
-						<button id="ModeButton" type="button" class="btn btn-outline-light"></button>
+						<a id="ModeButton" type="button" class="btn btn-outline-light"></a>
 				</div>
 			</div>
 		</nav>
