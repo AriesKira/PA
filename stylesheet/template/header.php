@@ -16,6 +16,7 @@ require "functions.php";
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" href="/PA/stylesheet/css/style.css">
 	<script src="/PA/authentication/authentification.js"></script>
+	<script src="https://kit.fontawesome.com/ae4e8edb66.js" crossorigin="anonymous"></script>
 	<title>aROOTS - Home</title>
 </head>
 
@@ -45,7 +46,9 @@ require "functions.php";
 							</li>
 
 						<?php } ?>
-						<a id="ModeButton" type="button" class="btn btn-outline-light"></a>
+						<a id="ModeButton" type="button" class="btn btn-outline-light">
+							<i id="LightModeSwitch" class="fa-solid fa-sun fa-2x"></i>
+						</a>
 				</div>
 			</div>
 		</nav>

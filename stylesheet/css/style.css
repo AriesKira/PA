@@ -13,10 +13,7 @@
     width: 27%;
     background-color: rgb(21, 21, 20);
     border-radius: 12px;
-}
-
-#loginBody>input {
-    width: 100%;
+    margin: auto;
 }
 
 #registerBody {
@@ -26,6 +23,16 @@
     width: 27.5%;
     background-color: rgb(21, 21, 20);
     border-radius: 12px;
+}
+
+.submitButton:hover {
+    border: #EF0B0B solid 1px;
+    color: #EF0B0B;
+    background-color: #2d2d2d;
+}
+
+label {
+    color: #fff;
 }
 
 nav {
@@ -71,10 +78,12 @@ body {
 
 #ModeButton {
     border-radius: 12px;
+    background-color: #2d2d2d;
 }
 
-#ModeButton:hover::before {
-    content: "Light Mode";
+#ModeButton:hover {
+    border: #EF0B0B solid 1px;
+    color: #EF0B0B;
 }
 
 header {

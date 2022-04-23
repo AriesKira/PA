@@ -29,9 +29,9 @@
 					<option value="ml">Mali</option>
 				</select>
 
-				<input type="checkbox" name="cgu" required="required"> CGU <br>
+				<input type="checkbox" id="cguCheckbox" name="cgu" class=" mt-4" required="required"> <label for="cguCheckbox">CGU</label> <br>
 
-				<input type="submit" class="btn btn-primary" value="S'inscrire">
+				<input type="submit"  class="btn btn-outline-light mb-4 mt-4 submitButton" value="S'inscrire">
 
 			</form>
 		</div>

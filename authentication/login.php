@@ -1,6 +1,7 @@
 <div>
     <div class="container">
         <div class="row pt-4" id="loginBorder">
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <?php
                 if (!empty($_POST['email']) &&  !empty($_POST['pwd']) && count($_POST) == 2) {
@@ -34,7 +35,7 @@
 
                     <input type="password" class="form-control" name="pwd" placeholder="Votre mot de passe" required="required"><br>
 
-                    <input type="submit" class="btn btn-primary mb-4" value="Se connecter">
+                    <input type="submit"  class="btn btn-outline-light mb-4 submitButton" value="Se connecter">
 
                 </form>
             </div>

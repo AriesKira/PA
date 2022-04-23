@@ -3,7 +3,7 @@
 <div id="animatedBackground" class="bloc">
    <video autoplay="autoplay" muted="" loop="infinite" src="stylesheet/videos/earth.mp4"></video>
    <div id="pageIconsSelection">
-      <img id="articlePageIcon" src="/PA/stylesheet/images/logo/logo-articles.png" class="float-left zoom-box" alt="Articles">
+      
    </div>
 </div>
 <div hidden id="registerBody">
