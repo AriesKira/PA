@@ -2,28 +2,27 @@
 
 <div>
     <div class="container" >
-        <div class="row pt-4" id="loginBorder">
-            <div class="col-md-3"></div>
+        <div class="row pt-4" id="loginBorder">  
             <div class="col-md-6">
                 <?php
-
+                    echo "poulet";
                 if (!empty($_POST['email']) &&  !empty($_POST['pwd']) && count($_POST) == 2) {
 
                     //Récupérer en bdd le mot de passe hashé pour l'email provenant du formulaire
 
                     $pdo = connectDB();
-                    $queryPrepared = $pdo->prepare("SELECT * FROM pa_user WHERE email_user=:email_user");
+                    $queryPrepared = $pdo->prepare("SELECT * FROM aroots_user WHERE email=:email");
                     $queryPrepared->execute(["email" => $_POST['email']]);
                     $results = $queryPrepared->fetch();
 
-                    if (!empty($results) && password_verify($_POST['pwd_user'], $results['pwd_user'])) {
+                    if (!empty($results) && password_verify($_POST['pwd'], $results['pwd'])) {
 
 
                         $token = createToken();
                         updateToken($results["id"], $token);
                         //Insertion dans la session du token
-                        $_SESSION['email_user'] = $_POST['email_user'];
-                        $_SESSION['id_user'] = $results["id_user"];
+                        $_SESSION['email'] = $_POST['email'];
+                        $_SESSION['id'] = $results["id"];
                         $_SESSION['token'] = $token;
                         header("location: index.php");
                     } else {

@@ -9,13 +9,19 @@ function getRegisterPopUp() {
 
 function popUpLogin() {
     const loginPopUp = getLoginPopUp();
-    getRegisterPopUp().hidden = true;
-    loginPopUp.hidden = !loginPopUp.hidden;
+    hideElement(getRegisterPopUp(), true);
+    hideElement(loginPopUp, !loginPopUp.hidden);
 }
 
 function popUpRegister() {
     const registerPopUp = getRegisterPopUp();
-    getLoginPopUp().hidden = true;
-    registerPopUp.hidden = !registerPopUp.hidden;
+    hideElement(getLoginPopUp(), true);
+    hideElement(registerPopUp, !registerPopUp.hidden);
+
+}
+
+function hideElement(element, hidden) {
+    element.hidden = hidden;
+    element.style.zIndex = hidden ? -1 : 100;
 
 }
