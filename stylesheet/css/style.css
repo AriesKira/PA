@@ -18,16 +18,33 @@ nav {
     background-color: #2d2d2d;
 }
 
+#homebutton {
+    background-color: #2d2d2d;
+    color: #2d2d2d;
+}
+
 body {
     color: #2d2d2d;
 }
 
+#ModeButton {
+    border-radius: 12px;
+}
+
+#ModeButton:hover::before {
+    content: "Light Mode";
+}
+
 .nav-link {
     color: #fff;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    margin-right: 10px;
 }
 
 .nav-link:hover {
     color: #EF0B0B;
+    border: #EF0B0B 1px solid;
 }
 
 .bloc {
