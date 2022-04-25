@@ -87,28 +87,52 @@ body {
 }
 
 #articlePageIcon {
-    color: #EF0B0B;
+    color: #fff;
     margin-left: 30px;
 }
 
-#trainigPageIcon {
+#articlePageIcon:hover {
     color: #EF0B0B;
+}
+
+#trainingPageIcon {
+    color: #fff;
     margin-left: 250px;
+}
+
+#trainingPageIcon:hover {
+    color: #EF0B0B;
 }
 
 #forumPageIcon {
-    color: #EF0B0B;
+    color: #fff;
     margin-left: 240px;
 }
 
-#advicePageIcon {
+#forumPageIcon:hover {
     color: #EF0B0B;
+}
+
+#advicePageIcon {
+    color: #fff;
     margin-left: 250px;
 }
 
-#userProfilePageIcon {
+#advicePageIcon:hover {
     color: #EF0B0B;
+}
+
+#userProfilePageIcon {
+    color: #fff;
     margin-left: 280px;
+}
+
+#userProfilePageIcon:hover {
+    color: #EF0B0B;
+}
+
+a {
+    text-decoration: none;
 }
 
 header {

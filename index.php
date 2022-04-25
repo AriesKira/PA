@@ -7,7 +7,7 @@
          <i id="articlePageIcon"class="fa-solid fa-book fa-7x zoom-box"></i>
       </a>
       <a href="">
-         <i id="trainigPageIcon"class="fa-solid fa-gamepad fa-7x zoom-box"></i>
+         <i id="trainingPageIcon"class="fa-solid fa-gamepad fa-7x zoom-box"></i>
       </a>
       <a href="">
          <i id="forumPageIcon" class="fa-solid fa-people-group fa-7x zoom-box"></i>
