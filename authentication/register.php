@@ -4,7 +4,7 @@
 		<div class="col-md-6">
 			<?php
 			if (!empty($_SESSION['errors'])) {
-				print_r($_SESSION['errors']);
+				?><p> <?php print_r($_SESSION['errors']);?></p><?php
 				unset($_SESSION['errors']);
 				//session_destroy();
 			}

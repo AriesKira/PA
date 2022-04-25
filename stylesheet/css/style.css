@@ -171,3 +171,53 @@ header:hover {
     z-index: -100;
     transform: translate(-50%, -50%);
 }
+
+footer {
+    position: sticky;
+    background-color: #2d2d2d;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: #EF0B0B solid 1px;
+}
+
+footer:hover {
+    color: #fff
+}
+
+#footerIcons {
+    margin-left: 50px;
+}
+
+.footerIcons {
+    color: #EF0B0B;
+    border: #EF0B0B solid 1px;
+    border-radius: 50px;
+}
+
+.footerIcons:hover {
+    border: #fff solid 1px;
+    color: #fff;
+    background-color: #2d2d2d;
+}
+
+#cguAdnPrivacyIcon {
+    float: right;
+    margin-right: 70px;
+}
+
+#cguAdnPrivacyIcon:hover::after {
+    content: " CGU et Politique de confidentialité ";
+}
+
+#supportIcon {
+    float: right;
+    margin-right: 20px;
+}
+
+#supportIcon:hover::after {
+    content: "  Besoin d'aide ";
+}
+
+p {
+    color: #fff;
+}

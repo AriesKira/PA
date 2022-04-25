@@ -47,7 +47,7 @@ require "functions.php";
 
 						<?php } ?>
 						<a id="ModeButton" type="button" class="btn btn-outline-light">
-							<i id="LightModeSwitch" class="fa-solid fa-sun fa-2x"></i>
+							<i id="modeSwitch" class="fa-solid fa-sun fa-2x"></i>
 						</a>
 				</div>
 			</div>
