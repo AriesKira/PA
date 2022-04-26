@@ -15,7 +15,7 @@
       <a href="">
          <i id="advicePageIcon" class="fa-solid fa-comment-medical fa-7x zoom-box"></i>
       </a>
-      <a href="">
+      <a href="./userProfile.php">
          <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
       </a>
    </div>
