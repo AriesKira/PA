@@ -16,9 +16,13 @@
     margin: auto;
 }
 
-#userProfileBody {
-    background-color: #3F4451;
-    opacity: 54%;
+#div1 {
+    background-color: #EF0B0B;
+    height: 50%;
+}
+
+#div2 {
+    background-color: aqua;
 }
 
 #registerBody {
