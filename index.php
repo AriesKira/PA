@@ -14,18 +14,19 @@
       </a>
       <a href="">
          <i id="advicePageIcon" class="fa-solid fa-comment-medical fa-7x zoom-box"></i>
-      </a>
+      </a>  
       <a href="./userProfile.php">
          <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
       </a>
    </div>
 </div>
-<div hidden id="registerBody">
-   <?php include "./authentication/register.php" ?>
-</div>
 <div hidden id="loginBody">
    <?php include "./authentication/login.php" ?>
 </div>
+<div hidden id="registerBody">
+   <?php include "./authentication/register.php" ?>
+</div>
+
 
 
 

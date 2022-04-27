@@ -22,9 +22,9 @@
                         $_SESSION['email'] = $_POST['email'];
                         $_SESSION['id'] = $results["id"];
                         $_SESSION['token'] = $token;
-                        header("location: index.php");
+                        header("location: /PA/index.php");
                     } else {
-                        echo "Identifiants incorrects";
+                        ?> <p><?php print_r("Identifiants incorrects");?></p> <?php
                     }
                 }
 
