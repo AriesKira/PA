@@ -16,6 +16,11 @@
     margin: auto;
 }
 
+#userProfileBody {
+    background-color: #3F4451;
+    opacity: 54%;
+}
+
 #registerBody {
     position: absolute;
     top: 7.5%;
@@ -173,7 +178,10 @@ header:hover {
 }
 
 footer {
-    position: sticky;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     background-color: #2d2d2d;
     padding-top: 20px;
     padding-bottom: 20px;

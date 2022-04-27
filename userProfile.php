@@ -1,4 +1,10 @@
 <?php include "../PA/stylesheet/template/header.php"; ?>
+
+<div id="userProfileBody">
+   <i id="" class="fa-solid fa-user"></i>
+</div>
+
+
 <div hidden id="loginBody">
    <?php include "./authentication/login.php" ?>
 </div>
@@ -7,4 +13,4 @@
 </div>
 
 
-<?php include "/Applications/MAMP/htdocs/PA/stylesheet/template/footer.php"; ?>
+<?php include "../PA/stylesheet/template/footer.php"; ?>
