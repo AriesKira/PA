@@ -14,7 +14,7 @@ require "functions.php";
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link id="myCss" rel="stylesheet" href="/PA/stylesheet/css/styleDark.css">
+	<link id="myCss" rel="stylesheet" href="/PA/stylesheet/css/style.css">
 	<script src="/PA/authentication/authentification.js"></script>
 	<script src="https://kit.fontawesome.com/ae4e8edb66.js" crossorigin="anonymous"></script>
 	<title>aROOTS - Home</title>
@@ -23,6 +23,9 @@ require "functions.php";
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg ">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon" id="toggle-color"></span>
+			</button>
 			<div class="container-fluid">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
@@ -42,9 +45,6 @@ require "functions.php";
 					</li>
 				</ul>
 				<input id="searchbar" alt="Barre de recherche" type="text" name="search" placeholder="     ---Recherche---">
-				<button class="navbar-toggler" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 				<div id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -63,7 +63,7 @@ require "functions.php";
 
 						<?php } ?>
 						<a id="ModeButton" type="button" class="btn btn-outline-light">
-							<i id="modeSwitch" class="fa-solid fa-sun fa-2x"></i>
+						<i id="modeSwitch" class="fa-solid fa-sun fa-2x"></i>
 						</a>
 					</ul>
 				</div>
