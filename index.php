@@ -28,6 +28,4 @@
 </div>
 
 
-
-
 <?php include "../PA/stylesheet/template/footer.php"; ?>
