@@ -62,7 +62,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	$queryPrepared->execute(["email" => $email]);
 
 	if (!empty($queryPrepared->fetch())) {
-		$errors[] = "L'email existe déjà en bdd";
+		$errors[] = "L'email existe déjà";
 	}
 }
 
@@ -76,9 +76,18 @@ if (strlen($lastname) == 1 || strlen($lastname) > 100) {
 	$errors[] = "Votre nom doit faire plus de 2 caractères";
 }
 
-//pseudo : Min 4 Max 60
+//pseudo : Min 4 Max 60 et uicité
 if (strlen($pseudo) < 4 || strlen($pseudo) > 60) {
 	$errors[] = "Votre pseudo doit faire entre 4 et 60 caractères";
+}else{
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id from aroots_user WHERE pseudo=:pseudo");
+
+	$queryPrepared->execute(["pseudo" => $pseudo]);
+
+	if (!empty($queryPrepared->fetch())) {
+		$errors[] = "Ce pseudo est déjà pris";
+	}
 }
 
 //Date anniversaire : YYYY-mm-dd
@@ -89,8 +98,8 @@ if (count($birthdayExploded) != 3 || !checkdate($birthdayExploded[1], $birthdayE
 	$errors[] = "date incorrecte";
 } else {
 	$age = (time() - strtotime($birthday)) / 60 / 60 / 24 / 365.2425;
-	if ($age < 16 || $age > 100) {
-		$errors[] = "Vous êtes trop jeune ou trop vieux";
+	if ($age < 16) {
+		$errors[] = "Vous devez avoir plus de 16 ans pour vous inscrire";
 	}
 }
 

@@ -24,7 +24,7 @@
                         $_SESSION['token'] = $token;
                         header("location: /PA/index.php");
                     } else {
-                        ?> <p><?php print_r("Identifiants incorrects");?></p> <?php
+                        echo '<div class="alert alert-danger mt-4 pb-1 " role="alert"><h5 class="fw-bold">Identifiants Incorrects</h5></div>';
                     }
                 }
 

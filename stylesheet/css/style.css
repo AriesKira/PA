@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+header {
+    background-color: #2d2d2d;
+}
+
 .video {
     column-fill: 0, 0, 0, 10;
 }
@@ -56,6 +60,7 @@ nav {
 }
 
 #searchbar {
+    margin-left: 25%;
     border: #fff solid 1px;
     border-radius: 12px;
     background-color: #2d2d2d;
@@ -234,4 +239,48 @@ footer:hover {
 
 p {
     color: #fff;
+}
+
+.userProfileBody {
+    background-color: #2d2d2d;
+}
+
+.userIcon {
+    border-radius: 100%;
+    box-sizing: border-box;
+    position: relative;
+    width: 150px;
+    height: 150Px;
+    background: #C4C4C4;
+    border: 1px solid #000000;
+    margin-left: -150px;
+}
+
+#userIconImg {
+    border-radius: 100%;
+    width: 150px;
+    z-index: 2000;
+    content-visibility: hidden;
+}
+
+#userIconImg:hover {
+    border: #EF0B0B 3px solid;
+}
+
+.userNickname {
+    color: #fff;
+}
+
+.userInfo {
+    margin-top: 15px;
+    height: 200px;
+    border: #000000 2px solid;
+    border-radius: 15px;
+    background-color: #4f4d4d;
+    color: #fff;
+}
+
+#userBirthday {
+    font-size: small;
+    padding-top: 9px;
 }

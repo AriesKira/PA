@@ -2,6 +2,10 @@
 
 session_start();
 require "functions.php";
+if(isConnected()) {
+	$userID = $_SESSION['id'];
+}
+
 
 ?>
 <!doctype html>
@@ -22,31 +26,33 @@ require "functions.php";
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg ">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon" id="toggle-color"></span>
-			</button>
-			<div class="container-fluid">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" alt="Page d'accueil" href="/PA/index.php">Accueil</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" alt="Page articles" href="">Articles</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" alt="Page d'entrainement" href="">Entrainement</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" alt="Page forum" href="">Forum</a>
-					</li>
-					<li>
-						<a class="nav-link" alt="Page conseil" href="">Nos conseils</a>
-					</li>
-				</ul>
-				<input id="searchbar" alt="Barre de recherche" type="text" name="search" placeholder="     ---Recherche---">
-				<div id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg ">
+				<div class="col-sm">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" alt="Page d'accueil" href="/PA/index.php">Accueil</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" alt="Page articles" href="">Articles</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" alt="Page d'entrainement" href="">Entrainement</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" alt="Page forum" href="">Forum</a>
+						</li>
+						<li>
+							<a class="nav-link" alt="Page conseil" href="">Nos conseils</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm">
+					<input id="searchbar" alt="Barre de recherche" type="text" name="search" placeholder="     ---Recherche---">
+				</div>
+				<div class="col-sm ">
+
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
 
 						<?php if (isConnected()) { ?>
 							<li class="nav-item">
@@ -63,10 +69,10 @@ require "functions.php";
 
 						<?php } ?>
 						<a id="ModeButton" type="button" class="btn btn-outline-light">
-						<i id="modeSwitch" class="fa-solid fa-sun fa-2x"></i>
+							<i id="modeSwitch" class="fa-solid fa-sun fa-2x"></i>
 						</a>
 					</ul>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</div>
 	</header>
