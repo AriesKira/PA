@@ -1,82 +1,22 @@
+@font-face {
+    font-family: 'technoid';
+    src: url("../fonts/technoid.ttf");
+}
+
 * {
     margin: 0;
-}
-
-header {
-    background-color: #2d2d2d;
-}
-
-.video {
-    column-fill: 0, 0, 0, 10;
-}
-
-#loginBody {
-    position: absolute;
-    top: 7.5%;
-    right: 0%;
-    width: 27%;
-    background-color: rgb(21, 21, 20);
-    border-radius: 12px;
-    margin: auto;
-}
-
-#div1 {
-    background-color: #EF0B0B;
-    height: 50%;
-}
-
-#div2 {
-    background-color: aqua;
-}
-
-#registerBody {
-    position: absolute;
-    top: 7.5%;
-    right: 0%;
-    width: 27.5%;
-    background-color: rgb(21, 21, 20);
-    border-radius: 12px;
-}
-
-.submitButton:hover {
-    border: #EF0B0B solid 1px;
-    color: #EF0B0B;
-    background-color: #2d2d2d;
-}
-
-label {
-    color: #fff;
-}
-
-nav {
-    background-color: #2d2d2d;
-    margin-left: 0%;
-    margin-right: 0%;
-}
-
-#homebutton {
-    background-color: #2d2d2d;
-    color: #2d2d2d;
-}
-
-#searchbar {
-    margin-left: 25%;
-    border: #fff solid 1px;
-    border-radius: 12px;
-    background-color: #2d2d2d;
-}
-
-#searchbar:hover {
-    border: #EF0B0B solid 1px;
-}
-
-#searchbar::placeholder {
-    color: #fff;
 }
 
 body {
     color: #2d2d2d;
 }
+
+a {
+    text-decoration: none;
+}
+
+
+/*-----INDEX----*/
 
 #pageIconsSelection {
     position: absolute;
@@ -90,16 +30,6 @@ body {
 
 .zoom-box:hover {
     transform: scale(1.5);
-}
-
-#ModeButton {
-    border-radius: 12px;
-    background-color: #2d2d2d;
-}
-
-#ModeButton:hover {
-    border: #EF0B0B solid 1px;
-    color: #EF0B0B;
 }
 
 #articlePageIcon {
@@ -147,9 +77,28 @@ body {
     color: #EF0B0B;
 }
 
-a {
-    text-decoration: none;
+
+/*----HEADER---*/
+
+header {
+    background-color: #2d2d2d;
 }
+
+
+/*---MODE BUTTON----*/
+
+#ModeButton {
+    border-radius: 12px;
+    background-color: #2d2d2d;
+}
+
+#ModeButton:hover {
+    border: #EF0B0B solid 1px;
+    color: #EF0B0B;
+}
+
+
+/*-----FIN MODE BUTTON-----*/
 
 header {
     border-bottom: #fff solid 1px;
@@ -171,6 +120,80 @@ header:hover {
     border: #EF0B0B 1px solid;
 }
 
+nav {
+    background-color: #2d2d2d;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+#homebutton {
+    background-color: #2d2d2d;
+    color: #2d2d2d;
+}
+
+#searchbar {
+    margin-left: 25%;
+    border: #fff solid 1px;
+    border-radius: 12px;
+    background-color: #2d2d2d;
+}
+
+#searchbar:hover {
+    border: #EF0B0B solid 1px;
+}
+
+#searchbar::placeholder {
+    color: #fff;
+}
+
+
+/*-----LOGIN CSS-----*/
+
+#loginBody {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27%;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+    margin: auto;
+}
+
+
+/*-----Fin du LOGIN CSS---*/
+
+
+/*----REGISTER CSS------*/
+
+#registerBody {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27.5%;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+}
+
+.submitButton:hover {
+    border: #EF0B0B solid 1px;
+    color: #EF0B0B;
+    background-color: #2d2d2d;
+}
+
+label {
+    color: #fff;
+}
+
+
+/*----FIN DU REGISTER----*/
+
+
+/*----Vidéo INDEX-----*/
+
+.video {
+    column-fill: 0, 0, 0, 10;
+}
+
 .bloc {
     position: relative;
     height: 100vh;
@@ -187,6 +210,12 @@ header:hover {
     z-index: -100;
     transform: translate(-50%, -50%);
 }
+
+
+/*----FIN VIDEO-----*/
+
+
+/*-----FOOTER-----*/
 
 footer {
     position: fixed;
@@ -241,30 +270,14 @@ p {
     color: #fff;
 }
 
+
+/*-----FIN FOOTER CSS---*/
+
+
+/*-----PAGE DE myProfile----*/
+
 .userProfileBody {
     background-color: #2d2d2d;
-}
-
-.userIcon {
-    border-radius: 100%;
-    box-sizing: border-box;
-    position: relative;
-    width: 150px;
-    height: 150Px;
-    background: #C4C4C4;
-    border: 1px solid #000000;
-    margin-left: -150px;
-}
-
-#userIconImg {
-    border-radius: 100%;
-    width: 150px;
-    z-index: 2000;
-    content-visibility: hidden;
-}
-
-#userIconImg:hover {
-    border: #EF0B0B 3px solid;
 }
 
 .userNickname {
@@ -280,7 +293,72 @@ p {
     color: #fff;
 }
 
-#userBirthday {
-    font-size: small;
-    padding-top: 9px;
+.table {
+    color: #fff;
 }
+
+
+/*---- page Article-----
+
+
+a {
+    text-decoration: none;
+    font-style: none;
+    list-style-type: none;
+}
+
+.main-logo {
+    font-family: "technoid";
+    font-size: 2.8em;
+}
+
+.logo-color {
+    color: #A32227;
+}
+
+#register-form {
+    text-align: center;
+}
+
+#wrapper {
+    border-top: #A32227 2px solid;
+    border-bottom: #A32227 2px solid;
+    font-size: small;
+    text-align: center;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.btn-info {
+    background-color: #1c1c1e;
+    border: #A32227 1px solid;
+    color: #fefefe;
+}
+
+.btn-info:hover {
+    background-color: #A32227;
+    border: #A32227 1px solid;
+    color: #fefefe;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+#add-btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    background-color: #A32227;
+}
+
+#add-btn a {
+    background-color: #A32227;
+    font-weight: bold;
+}
+
+#add-btn a:hover {
+    color: black;
+    font-weight: bold;
+}
+*/

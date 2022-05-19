@@ -51,3 +51,7 @@ function isConnected()
 
 	return $queryPrepared->fetch();
 }
+
+/*function isUser() {
+	if($_SESSION['id'] == )
+}*/

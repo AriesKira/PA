@@ -14,7 +14,7 @@
       unset($_SESSION['errors']);
    } ?>
    <div id="pageIconsSelection">
-      <a href="">
+      <a href="./articles.php">
          <i id="articlePageIcon" class="fa-solid fa-book fa-7x zoom-box"></i>
       </a>
       <a href="">
@@ -27,7 +27,7 @@
          <i id="advicePageIcon" class="fa-solid fa-comment-medical fa-7x zoom-box"></i>
       </a>
       <?php if (isConnected()) { ?>
-         <a href="./userProfile.php">
+         <a href="./myProfile.php">
             <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
          </a>
       <?php } ?>
