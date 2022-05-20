@@ -52,6 +52,19 @@ function isConnected()
 	return $queryPrepared->fetch();
 }
 
-/*function isUser() {
-	if($_SESSION['id'] == )
-}*/
+
+
+function displayCountryFlag($results)
+{
+
+	if ($results["country"] == "fr") {
+		$countryFlag = 'france';
+	} elseif ($results["country"] == "pl") {
+		$countryFlag = 'pologne';
+	} elseif ($results["country"] == "ml") {
+		$countryFlag = 'mali';
+	}
+
+	$countryDisplay = '<img src="./stylesheet/images/flags/' . $countryFlag . '.png">';
+	echo '' . $countryDisplay . '';
+}

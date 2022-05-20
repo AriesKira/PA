@@ -1,16 +1,19 @@
 <?php include "../PA/stylesheet/template/header.php"; ?>
 
+<?php if (!isConnected()) {
+   header("Location: /PA/index.php");
+}
+
+?>
 <?php
 $pdo = connectDB();
 
 $queryPrepared = $pdo->prepare("SELECT * FROM aroots_user where id= ?");
 $queryPrepared->execute(array($_SESSION['id']));
 $results = $queryPrepared->fetch();
-
-
 ?>
 
-<div class="d-flex justify-content-center userProfileBody ">
+<div class="  userProfileBody ">
 
    <div class="container-fluid userProfileBody">
       <div class="row">
@@ -23,10 +26,8 @@ $results = $queryPrepared->fetch();
       <div class="row">
          <div class="col-sm"></div>
          <?php
-         $countryDisplay = "<img src=" . './stylesheet/images/flags/france.png' . ">";
-         echo  '<div class="col-sm userInfo">
-                  <table class="table ">
-                     
+         echo  '<div class=" col-sm table-responsive userInfo">
+                  <table class="table  table-borderless ">
                      <tbody>
                         <tr>
                            <th scope="row">Nom</th>
@@ -39,12 +40,9 @@ $results = $queryPrepared->fetch();
                            <td>' . $results["firstname"] . '</td>
                            <th scope="row">Pays</th>
                            <td>';
-         if ($results["country"] == "fr") {
-            echo '' . $countryDisplay . '';
-         };
-         echo '</td>
-                           
-                        </tr>
+         displayCountryFlag($results);
+         echo '  
+                       </tr>
                         <tr >
                            <th scope="row">Date de naissance</th>
                            <td id="birthdayRow">' . $results["birthday"] . '</td>
@@ -59,21 +57,61 @@ $results = $queryPrepared->fetch();
          ?>
          <div class="col-sm"></div>
       </div>
-   </div>
+      <div class="row">
+         <div class="col-sm">
+            <div class="container-fluid overflow-auto userLikedArticles">
+               <!-- Is going to contain liked articles: need article bdd + favorite article -->
+               <div class="row">
+                  <h3 class="text-center">Articles Préféré</h3>
+               </div>
 
+
+            </div>
+         </div>
+         <div class="col-sm">
+            <div class="container-fluid overflow-auto userStats">
+               <!-- Is going to contain user xp level-->
+               <div class="row">
+                  <div class="col-sm">
+                     <h3 class="text-center">Niveau 0</h3>
+                  </div>
+               </div>
+               <!-- current exercise-->
+               <div class="row">
+                  <div class="col-sm"></div>
+                  <div class="col-5">
+                     <a href="" class="text-center">Current Exercise</a>
+                  </div>
+                  <div class="col-sm"></div>
+               </div>
+               <!-- exercises done -->
+               <div class="row">
+                  <div class="">
+                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt provident quis deleniti vel ut exercitationem deserunt officia molestiae voluptatibus in nam, accusantium soluta, eligendi doloribus beatae ea inventore tempora iure.
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti harum facere ab laboriosam dolorem fugiat suscipit provident ratione, recusandae dolorum? Ad minus repellat quibusdam dolore voluptate similique, porro totam ratione?
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Probably Friends List -->
+         <div class="col-sm">
+            <div class="container-fluid overflow-auto userFriendsList">
+               <div class="row">
+                  <h3 class="text-center">Amis</h3>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
 
 
 
 
 
-<?php if (!isConnected()) {
-   header("Location: /PA/index.php");
-}
 
 
 
-?>
 
 
 <?php include "../PA/stylesheet/template/footer.php"; ?>
