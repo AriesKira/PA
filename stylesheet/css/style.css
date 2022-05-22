@@ -98,6 +98,73 @@ header {
 }
 
 
+/*-----Captcha CSS----*/
+
+#captchaBody {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+    margin: auto;
+}
+
+.captchaAnswer {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.captchaAnswer:hover {
+    border: 3px solid #EF0B0B
+}
+
+
+/*-----FIN Captcha CSS-----*/
+
+
+/*-----LOGIN CSS-----*/
+
+#loginBody {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27%;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+    margin: auto;
+}
+
+
+/*-----Fin du LOGIN CSS---*/
+
+
+/*----REGISTER CSS------*/
+
+#registerBody {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27.5%;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+}
+
+.submitButton:hover {
+    border: #EF0B0B solid 1px;
+    color: #EF0B0B;
+    background-color: #2d2d2d;
+}
+
+label {
+    color: #fff;
+}
+
+
+/*----FIN DU REGISTER----*/
+
+
 /*-----FIN MODE BUTTON-----*/
 
 header {
@@ -156,47 +223,6 @@ a.icon {
     left: 0;
     top: 0;
 }
-
-
-/*-----LOGIN CSS-----*/
-
-#loginBody {
-    position: absolute;
-    top: 7.5%;
-    right: 0%;
-    width: 27%;
-    background-color: rgb(21, 21, 20);
-    border-radius: 12px;
-    margin: auto;
-}
-
-
-/*-----Fin du LOGIN CSS---*/
-
-
-/*----REGISTER CSS------*/
-
-#registerBody {
-    position: absolute;
-    top: 7.5%;
-    right: 0%;
-    width: 27.5%;
-    background-color: rgb(21, 21, 20);
-    border-radius: 12px;
-}
-
-.submitButton:hover {
-    border: #EF0B0B solid 1px;
-    color: #EF0B0B;
-    background-color: #2d2d2d;
-}
-
-label {
-    color: #fff;
-}
-
-
-/*----FIN DU REGISTER----*/
 
 
 /*----Vidéo INDEX-----*/

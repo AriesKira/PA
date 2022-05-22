@@ -68,3 +68,7 @@ function displayCountryFlag($results)
 	$countryDisplay = '<img src="./stylesheet/images/flags/' . $countryFlag . '.png">';
 	echo '' . $countryDisplay . '';
 }
+
+function checkCaptcha() {
+
+}

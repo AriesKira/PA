@@ -2,81 +2,47 @@
 
 
 
-<body id="articles"></body>
+<?php
+if (isConnected("Admin")) {
+?>
 
-        <div id="wrapper">
-                <div>
-                    <button class="btn btn-danger" id="add-btn">
-                            <a href="addArticle.php">Ajouter un article</a>
-                    </button>
-                </div>
-        </div>
-
-
-        <div id="wrapper">
-            
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <img src="assets/images/social-networks.png" alt="réseaux sociaux">
-                        </div>
-                        <div class="col-lg-7">
-                            <p>
-                                <h2 class="article-title"> Confinement et télétravail : retours d'expériences </h2>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quo esse adipisci incidunt ullam cupiditate pariatur vel repellat, aperiam debitis velit non voluptates perferendis eum ipsam ipsa voluptas? Harum, ratione.
-                            </p>
-                            <button type="button" class="btn btn-info">Lire l'article</button>
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-
-        <div id="wrapper">
-            
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <img src="assets/images/social-networks.png" alt="réseaux sociaux">
-                        </div>
-                        <div class="col-lg-7">
-                            <p>
-                                <h2 class="article-title"> Confinement et télétravail : retours d'expériences </h2>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quo esse adipisci incidunt ullam cupiditate pariatur vel repellat, aperiam debitis velit non voluptates perferendis eum ipsam ipsa voluptas? Harum, ratione.
-                            </p>
-                            <button type="button" class="btn btn-info">Lire l'article</button>
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-
-        <div id="wrapper">
-            
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <img src="assets/images/social-networks.png" alt="réseaux sociaux">
-                    </div>
-                    <div class="col-lg-7">
-                        <p>
-                            <h2 class="article-title"> Confinement et télétravail : retours d'expériences </h2>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quo esse adipisci incidunt ullam cupiditate pariatur vel repellat, aperiam debitis velit non voluptates perferendis eum ipsam ipsa voluptas? Harum, ratione.
-                        </p>
-                        <button type="button" class="btn btn-info">Lire l'article</button>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-info" id="add-btn">
+                    <a href="addArticle.php">Ajouter un article</a>
+                </button>
             </div>
+
+        </div>
+
     </div>
 
+<?php
+}
+?>
+
+
+<div class="container">
+    <div class="row articleNav">
+        <div class="col-lg-5">
+            <img src="../PA/stylesheet/images/articles/social-networks.png" alt="réseaux sociaux">
         </div>
-
-
-        
-
+        <div class="col-lg-7">
+            <p>
+            <h2 class="article-title"> Bien sécuriser ses réseaux sociaux </h2>
+            Les réseaux sociaux sont l’un des principaux moyens d’obtenir des informations sur une cible.
+            Que ce soit légalement avec l’OSINFO (à ne pas confondre avec l’OSINT),
+            ou illégalement en obtenant des accès non autorisés à un ou plusieurs compte d’utilisateurs.
+            Les méthodes d’authentifications à deux facteurs peuvent se révéler efficaces.
+            Par contre, certaines sont à éviter. Aujourd’hui, nous tenons à vous présenter un outil qui vous
+            permettra d’obtenir le meilleur niveau d’authentification.
+            </p>
+            <button type="button" class="btn btn-info">Lire l'article</button>
+        </div>
+    </div>
 </div>
 
-</body>
 
 
 
