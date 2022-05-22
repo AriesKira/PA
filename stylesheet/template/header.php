@@ -61,10 +61,10 @@ if(isConnected()) {
 
 						<?php } else { ?>
 							<li class="nav-item">
-								<a class="nav-link" onclick="popUpRegister()">S'inscrire</a>
+								<a class="nav-link" id="registerButton" onclick="popUpRegister()">S'inscrire</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" onclick="popUpLogin()">Se connecter</a>
+								<a class="nav-link"id="loginButton" onclick="popUpLogin()">Se connecter</a>
 							</li>
 
 						<?php } ?>

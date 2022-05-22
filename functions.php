@@ -69,6 +69,3 @@ function displayCountryFlag($results)
 	echo '' . $countryDisplay . '';
 }
 
-function checkCaptcha() {
-
-}

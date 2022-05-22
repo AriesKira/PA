@@ -3,6 +3,7 @@
 <div id="animatedBackground" class="bloc">
    <video autoplay="autoplay" muted="" loop="infinite" src="stylesheet/videos/earth.mp4"></video>
    <?php
+   echo '<div id="infoPanel">';
    if (!empty($_SESSION['errors']) && isset($_SESSION['errors'])) {
       echo '<div class="alert alert-danger mt-4 pb-1" role="alert">';
 
@@ -12,7 +13,9 @@
       }
       echo '</div>';
       unset($_SESSION['errors']);
-   } ?>
+   } 
+   echo '</div>';
+   ?>
    <div id="pageIconsSelection">
       <a href="./articles.php">
          <i id="articlePageIcon" class="fa-solid fa-book fa-7x zoom-box"></i>
