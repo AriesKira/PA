@@ -70,14 +70,13 @@ function displayCaptchaChoices(validImage) {
     for (let imageIndex = 0; imageIndex < captchaChoices.length; imageIndex++) {
         let rdmNumber = getFilteredRandomNumber(captchaChoices.length, generatedNumbers) + 1;
         generatedNumbers.push(rdmNumber - 1);
+        console.log(generatedNumbers);
         captchaChoices[imageIndex].setAttribute('src', "/PA/stylesheet/images/captcha_images/captcha" + rdmNumber + ".jpeg");
     }
 
-    if (generatedNumbers.includes(validImage) > 1) {
-        return displayCaptchaChoices();
+    if (generatedNumbers.includes(validImage)) {
+        return;
     }
-    const validIndex = getRandomNumber(captchaChoices.length);
-    captchaChoices[validIndex].setAttribute('src', "/PA/stylesheet/images/captcha_images/captcha" + validImage + ".jpeg");
 }
 
 function getFilteredRandomNumber(limit, ignoredNumbers) {
