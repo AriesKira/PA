@@ -20,8 +20,7 @@ a {
 
 #pageIconsSelection {
     position: absolute;
-    top: 45%;
-    left: 100px;
+    top: 40%;
 }
 
 .zoom-box {
@@ -34,7 +33,6 @@ a {
 
 #articlePageIcon {
     color: #fff;
-    margin-left: 30px;
 }
 
 #articlePageIcon:hover {
@@ -43,7 +41,6 @@ a {
 
 #trainingPageIcon {
     color: #fff;
-    margin-left: 250px;
 }
 
 #trainingPageIcon:hover {
@@ -52,25 +49,14 @@ a {
 
 #forumPageIcon {
     color: #fff;
-    margin-left: 240px;
 }
 
 #forumPageIcon:hover {
     color: #EF0B0B;
 }
 
-#advicePageIcon {
-    color: #fff;
-    margin-left: 250px;
-}
-
-#advicePageIcon:hover {
-    color: #EF0B0B;
-}
-
 #userProfilePageIcon {
     color: #fff;
-    margin-left: 280px;
 }
 
 #userProfilePageIcon:hover {
@@ -83,6 +69,21 @@ a {
 header {
     background-color: #2d2d2d;
 }
+
+
+/*-----BURGER MENUS-----*/
+
+#burger1Body {
+    position: absolute;
+    top: 7.5%;
+    right: 0%;
+    width: 27.5%;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+}
+
+
+/*----FIN BURGER MENUS-----*/
 
 
 /*---MODE BUTTON----*/
@@ -175,6 +176,24 @@ header:hover {
     border-bottom: #EF0B0B solid 1px;
 }
 
+@media screen and (max-width:900px) {
+    .nav-link {
+        display: none;
+    }
+    .logs-links {
+        display: none;
+    }
+}
+
+@media screen and (min-width:900px) {
+    #burgerMenu {
+        display: none;
+    }
+    .pageBurgers {
+        display: none;
+    }
+}
+
 .nav-link {
     color: #fff;
     border: #fff solid 1px;
@@ -189,13 +208,6 @@ header:hover {
 
 nav {
     background-color: #2d2d2d;
-    margin-left: 0%;
-    margin-right: 0%;
-}
-
-#homebutton {
-    background-color: #2d2d2d;
-    color: #2d2d2d;
 }
 
 #searchbar {
@@ -211,17 +223,6 @@ nav {
 
 #searchbar::placeholder {
     color: #fff;
-}
-
-.navbar#burgerMenu {
-    display: none;
-}
-
-a.icon {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 

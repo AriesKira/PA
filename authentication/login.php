@@ -9,7 +9,7 @@
                     //Récupérer en bdd le mot de passe hashé pour l'email provenant du formulaire
 
                     $pdo = connectDB();
-                    $queryPrepared = $pdo->prepare("SELECT * FROM aroots_user WHERE email=:email");
+                    $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_USERS WHERE email=:email");
                     $queryPrepared->execute(["email" => $_POST['email']]);
                     $results = $queryPrepared->fetch();
 
@@ -17,10 +17,10 @@
 
 
                         $token = createToken();
-                        updateToken($results["id"], $token);
+                        updateToken($results["idUser"], $token);
                         //Insertion dans la session du token
                         $_SESSION['email'] = $_POST['email'];
-                        $_SESSION['id'] = $results["id"];
+                        $_SESSION['idUser'] = $results["idUser"];
                         $_SESSION['token'] = $token;
                         header("location: /PA/index.php");
                     } else {

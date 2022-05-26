@@ -57,7 +57,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 	//Vérification l'unicité de l'email
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT id from aroots_user WHERE email=:email");
+	$queryPrepared = $pdo->prepare("SELECT idUser from AROOTS_USERS WHERE email=:email");
 
 	$queryPrepared->execute(["email" => $email]);
 
@@ -81,7 +81,7 @@ if (strlen($pseudo) < 4 || strlen($pseudo) > 60) {
 	$errors[] = "Votre pseudo doit faire entre 4 et 60 caractères";
 }else{
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT id from aroots_user WHERE pseudo=:pseudo");
+	$queryPrepared = $pdo->prepare("SELECT idUser from AROOTS_USERS WHERE pseudo=:pseudo");
 
 	$queryPrepared->execute(["pseudo" => $pseudo]);
 
@@ -134,7 +134,7 @@ if (count($errors) == 0) {
 	//$email = "y.skrzypczy@gmail.com";
 	//$firstname = "');DELETE FROM users;";
 
-	$queryPrepared = $pdo->prepare("INSERT INTO aroots_user (email, firstname, lastname, pseudo, country, birthday, pwd) 
+	$queryPrepared = $pdo->prepare("INSERT INTO AROOTS_USERS (email, firstname, lastname, pseudo, country, birthday, pwd) 
 		VALUES ( :email , :firstname, :lastname, :pseudo, :country, :birthday, :pwd );");
 
 

@@ -13,27 +13,35 @@
       }
       echo '</div>';
       unset($_SESSION['errors']);
-   } 
+   }
    echo '</div>';
    ?>
-   <div id="pageIconsSelection">
-      <a href="./articles.php">
-         <i id="articlePageIcon" class="fa-solid fa-book fa-7x zoom-box"></i>
-      </a>
-      <a href="">
-         <i id="trainingPageIcon" class="fa-solid fa-gamepad fa-7x zoom-box"></i>
-      </a>
-      <a href="">
-         <i id="forumPageIcon" class="fa-solid fa-people-group fa-7x zoom-box"></i>
-      </a>
-      <a href="">
-         <i id="advicePageIcon" class="fa-solid fa-comment-medical fa-7x zoom-box"></i>
-      </a>
-      <?php if (isConnected()) { ?>
-         <a href="./myProfile.php">
-            <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
-         </a>
-      <?php } ?>
+   <div id="pageIconsSelection" class="container-fluid">
+      <div class="row">
+         <div class="col text-center">
+            <a href="./articles.php">
+               <i id="articlePageIcon" class="fa-solid fa-book fa-7x zoom-box"></i>
+            </a>
+         </div>
+         <div class="col text-center">
+            <a href="">
+               <i id="trainingPageIcon" class="fa-solid fa-gamepad fa-7x zoom-box"></i>
+            </a>
+         </div>
+         <div class="col text-center">
+            <a href="">
+               <i id="forumPageIcon" class="fa-solid fa-people-group fa-7x zoom-box"></i>
+            </a>
+         </div>
+
+         <?php if (isConnected()) { ?>
+            <div class="col text-center">
+               <a href="./myProfile.php">
+                  <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
+               </a>
+            <?php } ?>
+            </div>
+      </div>
    </div>
 </div>
 
@@ -47,6 +55,11 @@
 <div hidden id="captchaBody">
    <?php include "./authentication/captcha.php" ?>
 </div>
-
+<div hidden id="burgerMenuContent1">
+   <?php include "./authentication/login.php" ?>
+</div>
+<div hidden id="burgerMenuContent2">
+   <?php include "./authentication/login.php" ?>
+</div>
 
 <?php include "../PA/stylesheet/template/footer.php"; ?>

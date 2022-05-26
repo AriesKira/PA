@@ -33,8 +33,8 @@ function updateToken($userId, $token)
 {
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("UPDATE aroots_user SET token=:token WHERE id=:id");
-	$queryPrepared->execute(["token" => $token, "id" => $userId]);
+	$queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET token=:token WHERE idUser=:idUser");
+	$queryPrepared->execute(["token" => $token, "idUser" => $userId]);
 }
 
 
@@ -46,7 +46,7 @@ function isConnected()
 	}
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT id FROM aroots_user WHERE email=:email AND token=:token");
+	$queryPrepared = $pdo->prepare("SELECT idUser FROM AROOTS_USERS WHERE email=:email AND token=:token");
 	$queryPrepared->execute(["email" => $_SESSION["email"], "token" => $_SESSION["token"]]);
 
 	return $queryPrepared->fetch();
