@@ -20,7 +20,7 @@ $burger2 = "burgerMenuContent2";
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link type="text/css" rel="stylesheet" href="./stylesheet/css/style.css">
+	<link type="text/css" rel="stylesheet" href="../css/style.css">
 	<script src="./authentication/authentification.js"></script>
 	<script src="./stylesheet/burgersMenus/animations.js"></script>
 	<script src="https://kit.fontawesome.com/ae4e8edb66.js" crossorigin="anonymous"></script>
@@ -40,10 +40,10 @@ $burger2 = "burgerMenuContent2";
 					<!-- AFFICHER POUR PC--->
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" alt="Page d'accueil" href="/PA/index.php">Accueil</a>
+							<a class="nav-link" alt="Page d'accueil" href="../../index.php">Accueil</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" alt="Page articles" href="/PA/articles.php">Articles</a>
+							<a class="nav-link" alt="Page articles" href="../../articles.php">Articles</a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" alt="Page d'entrainement" href="">Entrainement</a>
@@ -62,7 +62,7 @@ $burger2 = "burgerMenuContent2";
 
 						<?php if (isConnected()) { ?>
 							<li class="nav-item">
-								<a class="nav-link logs-links" href="/PA/authentication/logout.php">Se deconnecter</a>
+								<a class="nav-link logs-links" href="../../authentication/logout.php">Se deconnecter</a>
 							</li>
 
 						<?php } else { ?>
