@@ -65,7 +65,7 @@ function displayCountryFlag($results)
 		$countryFlag = 'mali';
 	}
 
-	$countryDisplay = '<img src="./stylesheet/images/flags/' . $countryFlag . '.png">';
+	$countryDisplay = '<img src="stylesheet/images/flags/' . $countryFlag . '.png">';
 	echo '' . $countryDisplay . '';
 }
 
