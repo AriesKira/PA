@@ -8,7 +8,7 @@
 <?php
 $pdo = connectDB();
 
-$queryPrepared = $pdo->prepare("SELECT idUser FROM AROOTS_USER where idUser= ?");
+$queryPrepared = $pdo->prepare("SELECT idUser FROM AROOTS_USERS where idUser= ?");
 $queryPrepared->execute(array($_SESSION['idUser']));
 $results = $queryPrepared->fetch();
 ?>
