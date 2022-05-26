@@ -1,4 +1,4 @@
-<footer>
+<footer class="bg-dark">
     <div id="footerIcons">
         <a id="twitterIcon" class="btn btn-outline-light btn-floating m-1 footerIcons" href="#!" role="button"><i class="fab fa-twitter"></i></a>
         <a id="discordIcon" class="btn btn-outline-light btn-floating m-1 footerIcons" href="" role="button"><i class="fab fa-discord"></i></a>

@@ -55,11 +55,5 @@
 <div hidden id="captchaBody">
    <?php include "./authentication/captcha.php" ?>
 </div>
-<div hidden id="burgerMenuContent1">
-   <?php include "./authentication/login.php" ?>
-</div>
-<div hidden id="burgerMenuContent2">
-   <?php include "./authentication/login.php" ?>
-</div>
 
 <?php include "./stylesheet/template/footer.php"; ?>
