@@ -176,24 +176,6 @@ header:hover {
     border-bottom: #EF0B0B solid 1px;
 }
 
-@media screen and (max-width:900px) {
-    .nav-link {
-        display: none;
-    }
-    .logs-links {
-        display: none;
-    }
-}
-
-@media screen and (min-width:900px) {
-    #burgerMenu {
-        display: none;
-    }
-    .pageBurgers {
-        display: none;
-    }
-}
-
 .nav-link {
     color: #fff;
     border: #fff solid 1px;
@@ -237,6 +219,7 @@ nav {
     height: 100vh;
     width: 100%;
     overflow: hidden;
+    z-index: -100;
 }
 
 .bloc video {

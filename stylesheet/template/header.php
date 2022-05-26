@@ -17,7 +17,9 @@ $burger2 = "burgerMenuContent2";
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<link type="text/css" rel="stylesheet" href="stylesheet/css/style.css">
 	<script src="./authentication/authentification.js"></script>
 	<script src="./stylesheet/burgersMenus/animations.js"></script>
@@ -28,58 +30,40 @@ $burger2 = "burgerMenuContent2";
 
 <body>
 	<header>
-		<div class="container-fluid">
-			<nav class="navbar navbar-expand-lg ">
-				<button class="pageBurgers" onclick="burgerPopUp1()">
-					<i class="fa-solid fa-bars"></i>
-				</button>
-				<div class="col-sm">
-					<!-- AFFICHER POUR PC--->
-					<ul class="navbar-nav mr-auto">
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+			<div class="container-fluid">
+				<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+					<ul class="navbar-nav me-auto">
 						<li class="nav-item active">
-							<a class="nav-link" alt="Page d'accueil" href="../../index.php">Accueil</a>
+							<a class="nav-link" href="../../index.php">Acceuil</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" alt="Page articles" href="../../articles.php">Articles</a>
+						<li class="nav-item">
+							<a class="nav-link" href="../../articles.php">Articles</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" alt="Page d'entrainement" href="">Entrainement</a>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Entrainements</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" alt="Page forum" href="">Forum</a>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Forum</a>
 						</li>
 					</ul>
 				</div>
-				<div class="col-sm">
-					<input id="searchbar" alt="Barre de recherche" type="text" name="search" placeholder="     ---Recherche---">
+				<div class="mx-auto order-0">
+					<a class="navbar-brand mx-auto" href="../../index.php">ARoots</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 				</div>
-				<div class="col-sm ">
-
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
-
-						<?php if (isConnected()) { ?>
-							<li class="nav-item">
-								<a class="nav-link logs-links" href="../../authentication/logout.php">Se deconnecter</a>
-							</li>
-
-						<?php } else { ?>
-							<li class="nav-item">
-								<a class="nav-link logs-links" id="registerButton" onclick="popUpRegister()">S'inscrire</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link logs-link" id="loginButton" onclick="popUpLogin()">Se connecter</a>
-							</li>
-
-						<?php } ?>
-						<a id="ModeButton" type="button" class="btn btn-outline-light nav-link">
-							<i id="modeSwitch" class="fa-solid fa-sun fa-2x"></i>
-						</a>
-
+				<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" onclick="popUpRegister()">S'inscrire</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" onclick="popUpLogin()">Se connecter</a>
+						</li>
 					</ul>
 				</div>
-				<button class="pageBurgers" onclick="burgerPopUp2()">
-					<i class="fa-solid fa-bars"></i>
-				</button>
-			</nav>
-		</div>
+			</div>
+		</nav>
 	</header>
