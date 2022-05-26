@@ -59,7 +59,7 @@ function displayCaptchaAnswer() {
     const imageNumber = getRandomNumber(3) + 1; //captcha start at 1
 
     const image = document.getElementById("answerImage");
-    image.setAttribute('src', "/PA/stylesheet/images/captcha_images/captcha" + imageNumber + ".jpeg");
+    image.setAttribute('src', "../stylesheet/images/captcha_images/captcha" + imageNumber + ".jpeg");
 
     return imageNumber;
 }
@@ -71,7 +71,7 @@ function displayCaptchaChoices(validImage) {
         let rdmNumber = getFilteredRandomNumber(captchaChoices.length, generatedNumbers) + 1;
         generatedNumbers.push(rdmNumber - 1);
         console.log(generatedNumbers);
-        captchaChoices[imageIndex].setAttribute('src', "/PA/stylesheet/images/captcha_images/captcha" + rdmNumber + ".jpeg");
+        captchaChoices[imageIndex].setAttribute('src', "../stylesheet/images/captcha_images/captcha" + rdmNumber + ".jpeg");
     }
 
     if (generatedNumbers.includes(validImage)) {
