@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+
+header("Content-type: text/css");
 require "functions.php";
 if (isConnected()) {
 	$userID = $_SESSION['idUser'];
@@ -8,6 +10,9 @@ if (isConnected()) {
 
 $burger1 = "burgerMenuContent1";
 $burger2 = "burgerMenuContent2";
+
+
+
 
 ?>
 <!doctype html>
@@ -25,7 +30,6 @@ $burger2 = "burgerMenuContent2";
 	<script src="./stylesheet/burgersMenus/animations.js"></script>
 	<script src="https://kit.fontawesome.com/ae4e8edb66.js" crossorigin="anonymous"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>aROOTS - Home</title>
 </head>
 
