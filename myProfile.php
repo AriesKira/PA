@@ -1,14 +1,14 @@
-<?php include "../PA/stylesheet/template/header.php"; ?>
+<?php include "stylesheet/template/header.php"; ?>
 
 <?php if (!isConnected()) {
-   header("Location: /PA/index.php");
+   header("Location: index.php");
 }
 
 ?>
 <?php
 $pdo = connectDB();
 
-$queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_USER where idUser= ?");
+$queryPrepared = $pdo->prepare("SELECT idUser FROM AROOTS_USER where idUser= ?");
 $queryPrepared->execute(array($_SESSION['idUser']));
 $results = $queryPrepared->fetch();
 ?>
@@ -114,4 +114,4 @@ $results = $queryPrepared->fetch();
 
 
 
-<?php include "../PA/stylesheet/template/footer.php"; ?>
+<?php include "stylesheet/template/footer.php"; ?>
