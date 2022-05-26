@@ -22,7 +22,7 @@
                         $_SESSION['email'] = $_POST['email'];
                         $_SESSION['idUser'] = $results["idUser"];
                         $_SESSION['token'] = $token;
-                        header("location: /PA/index.php");
+                        header("location: ../index.php");
                     } else {
                         echo '<div class="alert alert-danger mt-4 pb-1 " role="alert"><h5 class="fw-bold">Identifiants Incorrects</h5></div>';
                     }
