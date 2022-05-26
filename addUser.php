@@ -67,8 +67,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 //prénom : Min 2, Max 45 ou empty
-if (strlen($firstname) == 1 || strlen($firstname) > 45) {
-	$errors[] = "Votre prénom doit faire plus de 2 caractères";
+if (strlen($firstname) == 1 || strlen($firstname) > 40) {
+	$errors[] = "Votre prénom doit faire plus de 2 caractères et moins de 40";
 }
 
 //nom : Min 2, Max 100 ou empty
@@ -77,8 +77,8 @@ if (strlen($lastname) == 1 || strlen($lastname) > 100) {
 }
 
 //pseudo : Min 4 Max 60 et uicité
-if (strlen($pseudo) < 4 || strlen($pseudo) > 60) {
-	$errors[] = "Votre pseudo doit faire entre 4 et 60 caractères";
+if (strlen($pseudo) < 4 || strlen($pseudo) > 40) {
+	$errors[] = "Votre pseudo doit faire entre 4 et 40 caractères";
 }else{
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT idUser from AROOTS_USERS WHERE pseudo=:pseudo");
