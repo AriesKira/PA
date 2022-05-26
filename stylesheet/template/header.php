@@ -3,7 +3,7 @@
 session_start();
 require "functions.php";
 if (isConnected()) {
-	$userID = $_SESSION['id'];
+	$userID = $_SESSION['idUser'];
 }
 
 $burger1 = "burgerMenuContent1";
