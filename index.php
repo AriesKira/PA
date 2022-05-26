@@ -1,7 +1,7 @@
 <?php include "../PA/stylesheet/template/header.php"; ?>
 
 <div id="animatedBackground" class="bloc">
-   <video autoplay="autoplay" muted="" loop="infinite" src="stylesheet/videos/earth.mp4"></video>
+   <video autoplay="autoplay" muted="" loop="infinite" src="/stylesheet/videos/earth.mp4"></video>
    <?php
    echo '<div id="infoPanel">';
    if (!empty($_SESSION['errors']) && isset($_SESSION['errors'])) {
