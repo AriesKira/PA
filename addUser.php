@@ -150,11 +150,11 @@ if (count($errors) == 0) {
 		"pwd" => $pwd,
 	]);
 
-	header("Location: /PA/index.php");
+	header("Location: ./index.php");
 } else {
 
 	$_SESSION['errors'] = $errors;
-	header("Location: /PA/index.php");
+	header("Location: ./index.php");
 }
 
 
