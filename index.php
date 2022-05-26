@@ -1,4 +1,4 @@
-<?php include "../PA/stylesheet/template/header.php"; ?>
+<?php include "./stylesheet/template/header.php"; ?>
 
 <div id="animatedBackground" class="bloc">
    <video autoplay="autoplay" muted="" loop="infinite" src="/stylesheet/videos/earth.mp4"></video>
@@ -62,4 +62,4 @@
    <?php include "./authentication/login.php" ?>
 </div>
 
-<?php include "../PA/stylesheet/template/footer.php"; ?>
+<?php include "./stylesheet/template/footer.php"; ?>
