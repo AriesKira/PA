@@ -112,7 +112,6 @@ function verifyCaptcha(userChoice) {
     const alertColor = isValid ? 'alert-success' : 'alert-danger';
 
     info.innerHTML = '<div class="alert mt-4 pb-1 ' + alertColor + '" role="alert">' + error + '</div>'
-    executeCaptcha();
 
 }
 
