@@ -107,6 +107,7 @@ function verifyCaptcha(userChoice) {
 
 function executeCaptcha() {
     const answerImageNumber = displayCaptchaAnswer();
-    displayCaptchaChoices(answerImageNumber);
     document.getElementById("registerButton").setAttribute("onclick", "");
+    displayCaptchaChoices(answerImageNumber);
+
 }
