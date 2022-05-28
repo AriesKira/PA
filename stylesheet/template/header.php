@@ -10,11 +10,11 @@ $burger1 = "burgerMenuContent1";
 $burger2 = "burgerMenuContent2";
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<!-- Required meta tags -->
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -38,7 +38,7 @@ $burger2 = "burgerMenuContent2";
 							<a class="nav-link" href="../../index.php">Acceuil</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="../../articles.php">Articles</a>
+							<a class="nav-link" href="/PA/articles.php">Articles</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Entrainements</a>

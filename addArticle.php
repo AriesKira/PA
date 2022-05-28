@@ -1,18 +1,19 @@
 <?php include "../PA/stylesheet/template/header.php"; ?>
 
 <div class="container">
-
-    <div>
-        <form method="POST" action="addArticle.php">
-             Illustration de l'article
-            <input type="file" class="form-control" name="article-illustration" required="required"><br>
-            <input type="text" class="form-control" name="article-title" placeholder="Titre de l'article" required="required"><br>
-            <input type="text" class="form-control" name="article-presentation" placeholder="Paragraphe de prÃ©sentation"><br>
-            <input type="text" class="form-control" name="article-body" placeholder="Corps de l'article"><br>
-            <input type="submit" class="btn btn-info" placeholder="Envoyer">
-        </form>
+    <div class="row mt-4">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form method="POST" action="newArticle.php">
+                <input type="text" class="form-control" name="title" placeholder="Titre de l'article" require="required"><br>
+                <input type="text" class="form-control" name="theme" placeholder="Thème de l'article" required="required"><br>
+                <input type="text" class="form-control" name="texte" placeholder="Corps de l'article" required="required"><br>
+                <input type="file" accept=".jpg, .png, .jpeg, .gif" class="form-control" name="picture" placeholder="Choisir une image"><br>
+                <input type="submit" class="btn btn-outline-dark mb-4 mt-4 submitButton" value="Mettre en ligne">
+            </form>
+        </div>
     </div>
-
 </div>
 
 <?php include "../PA/stylesheet/template/footer.php"; ?>
+

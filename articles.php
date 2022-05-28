@@ -13,45 +13,60 @@ if (isConnected("Admin")) {
                     <a href="addArticle.php">Ajouter un article</a>
                 </button>
             </div>
-
         </div>
-
     </div>
 
 <?php
 }
 ?>
 
+<?php
 
-<div class="container">
-    <div class="row articleNav">
-        <div class="col-lg-5">
-            <img src="../PA/stylesheet/images/articles/social-networks.png" alt="réseaux sociaux">
-        </div>
-        <div class="col-lg-7">
-            <p>
-            <h2 class="article-title"> Bien sécuriser ses réseaux sociaux </h2>
-            Les réseaux sociaux sont l’un des principaux moyens d’obtenir des informations sur une cible.
-            Que ce soit légalement avec l’OSINFO (à ne pas confondre avec l’OSINT),
-            ou illégalement en obtenant des accès non autorisés à un ou plusieurs compte d’utilisateurs.
-            Les méthodes d’authentifications à deux facteurs peuvent se révéler efficaces.
-            Par contre, certaines sont à éviter. Aujourd’hui, nous tenons à vous présenter un outil qui vous
-            permettra d’obtenir le meilleur niveau d’authentification.
-            </p>
-            <button type="button" class="btn btn-info">Lire l'article</button>
-        </div>
-    </div>
-</div>
+    $pdo = connectDB();
 
-<div hidden id="loginBody">
-   <?php include "./authentication/login.php" ?>
-</div>
-<div hidden id="registerBody">
-   <?php include "./authentication/register.html" ?>
-</div>
-<div hidden id="captchaBody">
-   <?php include "./authentication/captcha.php" ?>
-</div>
+            $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES");
+            $queryPrepared->execute();
+            $results = $queryPrepared->fetchAll();
+?>
+
+
+
+<table class="table" id="articles-table">
+			<thead>
+				<tr>
+					<th>Auteur</th>
+					<th>Titre</th>
+					<th>Texte</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+				<?php
+				foreach ($results as $aroots_articles) {
+					echo
+						'<div id="articles-nav">
+								<tr>
+									<td>'.$aroots_articles["author"].'</td>
+									<td>'.$aroots_articles["title"].'</td>
+									<td>'.$aroots_articles["theme"].'</td>
+									<td>'.$aroots_articles["texte"].'</td>
+									<td>'.$aroots_articles["picture"].'</td>
+										<div class="btn-group">
+										</div>
+									</td>
+								</tr>
+						</div>'
+						;
+				}
+				?>
+
+									
+
+			</tbody>
+		</table>
+
+
 
 
 <?php include("stylesheet/template/footer.php") ?>
