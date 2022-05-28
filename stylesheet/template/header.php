@@ -6,8 +6,6 @@ if (isConnected()) {
 	$userID = $_SESSION['idUser'];
 }
 
-$burger1 = "burgerMenuContent1";
-$burger2 = "burgerMenuContent2";
 ?>
 <!doctype html>
 <html lang="fr">
