@@ -355,22 +355,25 @@ p {
 }
 
 
-/*---- page Article-----
-a {
+/*---- page Article----- a {
     text-decoration: none;
     font-style: none;
     list-style-type: none;
 }
+
 .main-logo {
     font-family: "technoid";
     font-size: 2.8em;
 }
+
 .logo-color {
     color: #A32227;
 }
+
 #register-form {
     text-align: center;
 }
+
 #wrapper {
     border-top: #A32227 2px solid;
     border-bottom: #A32227 2px solid;
@@ -379,31 +382,36 @@ a {
     padding-top: 5em;
     padding-bottom: 5em;
 }
+
 .btn-info {
     background-color: #1c1c1e;
     border: #A32227 1px solid;
     color: #fefefe;
 }
+
 .btn-info:hover {
     background-color: #A32227;
     border: #A32227 1px solid;
     color: #fefefe;
 }
+
 h2 {
     text-transform: uppercase;
 }
+
 #add-btn {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1%;
     background-color: #A32227;
 }
+
 #add-btn a {
     background-color: #A32227;
     font-weight: bold;
 }
+
 #add-btn a:hover {
     color: black;
     font-weight: bold;
 }
-*/

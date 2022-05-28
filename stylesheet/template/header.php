@@ -54,6 +54,16 @@ $burger2 = "burgerMenuContent2";
 						<span class="navbar-toggler-icon"></span>
 					</button>
 				</div>
+				<?php if(isConnected()){?>
+					<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="../../authentication/logout.php">Deconnexion</a>
+						</li>
+					</ul>
+				</div>
+				<?php
+				}else{?>
 				<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
@@ -64,6 +74,8 @@ $burger2 = "burgerMenuContent2";
 						</li>
 					</ul>
 				</div>
+				<?php
+				}; ?>
 			</div>
 		</nav>
 	</header>
