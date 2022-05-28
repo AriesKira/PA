@@ -67,7 +67,6 @@ function displayCaptchaChoices(validImage) {
     for (let imageIndex = 0; imageIndex < captchaChoices.length; imageIndex++) {
         let rdmNumber = getFilteredRandomNumber(captchaChoices.length, generatedNumbers) + 1;
         generatedNumbers.push(rdmNumber - 1);
-        console.log(generatedNumbers);
         captchaChoices[imageIndex].setAttribute("src", "../stylesheet/images/captcha_images/captcha" + rdmNumber + ".jpeg");
     }
     if (generatedNumbers.includes(validImage)) {
