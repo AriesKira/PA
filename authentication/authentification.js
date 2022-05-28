@@ -28,7 +28,6 @@ function popUpRegister() {
     const registerPopUp = getRegisterPopUp();
     hideElement(getLoginPopUp(), true);
     hideElement(registerPopUp, !registerPopUp.hidden);
-
 }
 
 function popUpCaptcha() {
@@ -57,10 +56,8 @@ function getRandomNumber(max) {
 
 function displayCaptchaAnswer() {
     const imageNumber = getRandomNumber(3) + 1; //captcha start at 1
-
     const image = document.getElementById("answerImage");
-    image.setAttribute('src', "../stylesheet/images/captcha_images/captcha" + imageNumber + ".jpeg");
-
+    image.setAttribute('src', "/PA/stylesheet/images/captcha_images/captcha" + imageNumber + ".jpeg");
     return imageNumber;
 }
 
@@ -70,9 +67,9 @@ function displayCaptchaChoices(validImage) {
     for (let imageIndex = 0; imageIndex < captchaChoices.length; imageIndex++) {
         let rdmNumber = getFilteredRandomNumber(captchaChoices.length, generatedNumbers) + 1;
         generatedNumbers.push(rdmNumber - 1);
-        captchaChoices[imageIndex].setAttribute('src', "../stylesheet/images/captcha_images/captcha" + rdmNumber + ".jpeg");
+        console.log(generatedNumbers);
+        captchaChoices[imageIndex].setAttribute('src', "/PA/stylesheet/images/captcha_images/captcha" + rdmNumber + ".jpeg");
     }
-
     if (generatedNumbers.includes(validImage)) {
         return;
     }
@@ -84,34 +81,28 @@ function getFilteredRandomNumber(limit, ignoredNumbers) {
     if (typeof(ignoredNumbers) != "object") {
         return -1;
     }
-
     const isContained = ignoredNumbers.includes(rdmNumber);
     if (!isContained) {
         return rdmNumber;
     }
-
     return getFilteredRandomNumber(limit, ignoredNumbers);
 }
-
 
 function verifyCaptcha(userChoice) {
     const answer = document.getElementById("answerImage").getAttribute("src");
     let error = "Restart"
     let isValid = false;
-
     if (userChoice.firstChild.getAttribute("src") === answer) {
         popUpCaptcha();
-        error = "Success";
+        error = "Success"
         isValid = true;
+        document.getElementById("registerButton").setAttribute("onclick", "popUpRegister()");
         popUpRegister();
     }
-
     const info = document.getElementById("infoPanel");
     const alertColor = isValid ? 'alert-success' : 'alert-danger';
-
     info.innerHTML = '<div class="alert mt-4 pb-1 ' + alertColor + '" role="alert">' + error + '</div>'
     executeCaptcha();
-
 }
 
 function executeCaptcha() {
