@@ -36,7 +36,7 @@ if (isConnected()) {
 							<a class="nav-link" href="../../index.php">Acceuil</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/PA/articles.php">Articles</a>
+							<a class="nav-link" href="../../articles.php">Articles</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Entrainements</a>
