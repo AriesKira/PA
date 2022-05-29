@@ -65,10 +65,10 @@ if (isConnected()) {
 				<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
-							<a class="nav-link" onclick="popUpRegister()">S'inscrire</a>
+							<a id="registerButton" class="nav-link" onclick="popUpRegister()">S'inscrire</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" onclick="popUpLogin()">Se connecter</a>
+							<a id="loginButton" class="nav-link" onclick="popUpLogin()">Se connecter</a>
 						</li>
 					</ul>
 				</div>
