@@ -5,4 +5,4 @@
 	unset($_SESSION['token']);
 	unset($_SESSION['pseudo']);
 	unset($_SESSION['idUser']);
-	header("Location: /PA/index.php");
+	header("Location: ../index.php");

@@ -3,7 +3,7 @@
 
 
 <?php
-if (isConnected("Admin")) {
+if (isConnected()) {
 ?>
 
     <div class="container">
