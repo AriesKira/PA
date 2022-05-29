@@ -16,6 +16,7 @@
                         $token = createToken();
                         updateToken($results["idUser"], $token);
                         //Insertion dans la session du token
+                        $_SESSION['pseudo'] = $results['pseudo'];
                         $_SESSION['email'] = $_POST['email'];
                         $_SESSION['idUser'] = $results["idUser"];
                         $_SESSION['token'] = $token;

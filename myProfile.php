@@ -13,7 +13,7 @@ $queryPrepared->execute(array($_SESSION['idUser']));
 $results = $queryPrepared->fetch();
 ?>
 
-<div class="  userProfileBody ">
+<div class=" userProfileBody ">
 
    <div class="container-fluid userProfileBody">
       <div class="row">

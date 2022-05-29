@@ -1,11 +1,13 @@
 <?php
 
 session_start();
+require "logs.php";
 require "functions.php";
 if (isConnected()) {
 	$userID = $_SESSION['idUser'];
 }
 
+generateLogs();
 ?>
 <!doctype html>
 <html lang="fr">
