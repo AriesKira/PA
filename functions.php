@@ -68,7 +68,7 @@ function displayCountryFlag($results) {
 function sendVerifyMail($email) {
 	$to = $email;
 	$subject = 'Confirmation de mail';
-	$message = 'Bienvenue sur ARoots' . "\r\n" . 'veuillez cliquez sur le lien suivant pour valider votre email :';
+	$message = 'Bienvenue sur ARoots' . "\r\n" . 'Veuillez cliquez sur le lien suivant pour valider votre email : <a href="http://http://141.94.251.167/index.php">http://141.94.251.167/index.php</a>';
 	$headers = 'From: ARoots@ARoots.com'       . "\r\n" .
 		'Reply-To: ARoots@ARoots.com' . "\r\n" .
 		'X-Mailer: PHP/' . phpversion();
