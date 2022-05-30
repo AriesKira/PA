@@ -127,7 +127,7 @@ function executeCaptcha() {
     document.getElementById("registerButton").setAttribute("onclick", "");
 }
 
-function displayValidated() {
+function displayValidate() {
     const info = getInfoPopUp();
     const alertColor = 'alert-primary';
     const infoMessage = 'Un mail de vérification vous à été envoyé.';

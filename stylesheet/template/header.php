@@ -6,7 +6,7 @@ require "functions.php";
 if (isConnected()) {
 	$userID = $_SESSION['idUser'];
 	if(!isValidated($_SESSION['idUser'])) {
-	?>displayValidate();<?php
+		echo '<script src="./authentication/authentification.js">displayValidate();</script>';
 	}
 }
 
