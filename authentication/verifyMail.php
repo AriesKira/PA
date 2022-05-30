@@ -12,7 +12,7 @@ $results = $queryPrepared->fetch();
 $mailKey = $results[0];
 
 if($mailKey == $_GET['key']) {
-    echo '4';
+    
     $queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET validated = 1 where pseudo= :pseudo");
     $queryPrepared->execute(["pseudo" => $user]);
 

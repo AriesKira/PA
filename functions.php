@@ -83,9 +83,11 @@ function rdmKeyValues() {
 function isValidated($idUser){
 	
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT validated FROM AROOTS_USERS where idUser= $idUser");
-	$queryPrepared->execute();
-	$validated = $queryPrepared->fetch();
+	$queryPrepared = $pdo->prepare("SELECT validated FROM AROOTS_USERS where idUser= :idUser");
+	$queryPrepared->execute(["idUser" => $idUser]);
+	$results = $queryPrepared->fetch();
+
+	$validated = $results[0];
 
 	if($validated == 1) {
 		return true;
