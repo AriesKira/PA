@@ -135,8 +135,8 @@ if (count($errors) == 0) {
 	//$email = "y.skrzypczy@gmail.com";
 	//$firstname = "');DELETE FROM users;";
 
-	$queryPrepared = $pdo->prepare("INSERT INTO AROOTS_USERS (email, firstname, lastname, pseudo, country, birthday, pwd, key) 
-		VALUES ( :email , :firstname, :lastname, :pseudo, :country, :birthday, :pwd, :key );");
+	$queryPrepared = $pdo->prepare("INSERT INTO AROOTS_USERS (email, firstname, lastname, pseudo, country, birthday, pwd, mailKey) 
+		VALUES ( :email , :firstname, :lastname, :pseudo, :country, :birthday, :pwd, :mailKey );");
 
 
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -149,7 +149,7 @@ if (count($errors) == 0) {
 		"country" => $country,
 		"birthday" => $birthday,
 		"pwd" => $pwd,
-		"key" => $key,
+		"mailKey" => $key,
 	]);
 
 	sendVerifyMail($email,$pseudo,$key);
