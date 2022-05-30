@@ -150,7 +150,7 @@ if (count($errors) == 0) {
 		"pwd" => $pwd,
 	]);
 
-	sendVerifyMail($email);
+	sendVerifyMail($email,$pseudo);
 
 	header("Location: ./index.php");
 } else {
