@@ -79,7 +79,7 @@ if (strlen($lastname) == 1 || strlen($lastname) > 100) {
 //pseudo : Min 4 Max 60 et uicité
 if (strlen($pseudo) < 4 || strlen($pseudo) > 40) {
 	$errors[] = "Votre pseudo doit faire entre 4 et 40 caractères";
-}else{
+} else {
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT idUser from AROOTS_USERS WHERE pseudo=:pseudo");
 
@@ -149,6 +149,8 @@ if (count($errors) == 0) {
 		"birthday" => $birthday,
 		"pwd" => $pwd,
 	]);
+
+	sendVerifyMail($email);
 
 	header("Location: ./index.php");
 } else {

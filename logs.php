@@ -1,7 +1,4 @@
 <?php 
-
-
-
 function getPageLog() {
     return $_SERVER['REQUEST_URI'];
 } 
