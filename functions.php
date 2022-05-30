@@ -99,10 +99,12 @@ function isValidated($idUser){
 
 function isWebmaster($idUser) { 
 	$pdo = connectDB();
-	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where id = $idUser") ;
-	$queryPrepared->execute();
-	$webmaster = $queryPrepared->fetch();
+	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser") ;
+	$queryPrepared->execute(["idUser" => $idUser]);
+	$results = $queryPrepared->fetch();
 	
+	$webmaster = $results[0];
+
 	if ($webmaster == 2) {
 	  return true;
 	} else {
@@ -114,10 +116,12 @@ function isWebmaster($idUser) {
 
 function isAdmin($idUser) { 
 	$pdo = connectDB();
-	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where id = $idUser") ;
-	$queryPrepared->execute();
-	$admin = $queryPrepared->fetch();
+	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser") ;
+	$queryPrepared->execute(["idUser" => $idUser]);
+	$results = $queryPrepared->fetch();
 	
+	$admin = $results[0];
+
 	if ($admin == 3) {
 	  return true;
 	} else {
