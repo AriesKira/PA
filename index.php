@@ -3,6 +3,11 @@
 <div id="animatedBackground" class="bloc">
    <video autoplay="autoplay" muted="" loop="infinite" src="stylesheet/videos/earth.mp4"></video>
    <?php
+   if (isConnected()) {
+		if (!isValidated($userID)) {
+			echo '<div id="infoPanel" class="alert mt-4 pb-1 alert-primary" role="alert">Un mail de vérification vous à été envoyé.</div>';
+		}
+	}
    echo '<div id="infoPanel">';
    if (!empty($_SESSION['errors']) && isset($_SESSION['errors'])) {
       echo '<div class="alert alert-danger mt-4 pb-1" role="alert">';

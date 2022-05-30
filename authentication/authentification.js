@@ -126,11 +126,3 @@ function executeCaptcha() {
     displayCaptchaChoices(answerImageNumber);
     document.getElementById("registerButton").setAttribute("onclick", "");
 }
-
-function displayValidate() {
-    const info = getInfoPopUp();
-    const alertColor = 'alert-primary';
-    const infoMessage = 'Un mail de vérification vous à été envoyé.';
-
-    info.innerHTML = '<div class="alert mt-4 pb-1 ' + alertColor + '" role="alert">' + infoMessage + '</div>'
-}

@@ -5,9 +5,6 @@ require "logs.php";
 require "functions.php";
 if (isConnected()) {
 	$userID = $_SESSION['idUser'];
-	if(!isValidated($_SESSION['idUser'])) {
-		echo '<script src="./authentication/authentification.js">displayValidate();</script>';
-	}
 }
 
 generateLogs();
@@ -82,3 +79,4 @@ generateLogs();
 			</div>
 		</nav>
 	</header>
+	
