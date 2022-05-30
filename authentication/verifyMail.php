@@ -11,4 +11,6 @@ $mailKey = $queryPrepared->fetch();
 if($mailKey == $_GET['key']) {
     $queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET validated = 1 where idUser= $user");
     $queryPrepared->execute(["validated" => 1]);
+
+    header("location: ../index.php");
 }
