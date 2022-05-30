@@ -77,5 +77,5 @@ function sendVerifyMail($email,$pseudo,$key) {
 }
 
 function rdmKeyValues() {
-	mt_rand(0,9999);
+	mt_rand();
 }
