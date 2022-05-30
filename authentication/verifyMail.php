@@ -1,10 +1,10 @@
 <?php
 include '../functions.php';
 echo '1';
-$user = $_GET['pseudo'];
+
 
 $pdo = connectDB();
-echo $user;
+echo $_GET['pseudo'];
 $queryPrepared = $pdo->prepare("SELECT mailKey FROM AROOTS_USERS where pseudo= $user");
 echo '2';
 $queryPrepared->execute();
