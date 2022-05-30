@@ -126,6 +126,7 @@ if (!in_array($country, $countryAuthorized)) {
 	$errors[] = "Votre pays n'existe pas";
 }
 
+$key = rdmKeyValues();
 
 if (count($errors) == 0) {
 
@@ -134,8 +135,8 @@ if (count($errors) == 0) {
 	//$email = "y.skrzypczy@gmail.com";
 	//$firstname = "');DELETE FROM users;";
 
-	$queryPrepared = $pdo->prepare("INSERT INTO AROOTS_USERS (email, firstname, lastname, pseudo, country, birthday, pwd) 
-		VALUES ( :email , :firstname, :lastname, :pseudo, :country, :birthday, :pwd );");
+	$queryPrepared = $pdo->prepare("INSERT INTO AROOTS_USERS (email, firstname, lastname, pseudo, country, birthday, pwd, key) 
+		VALUES ( :email , :firstname, :lastname, :pseudo, :country, :birthday, :pwd, :key );");
 
 
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -148,9 +149,10 @@ if (count($errors) == 0) {
 		"country" => $country,
 		"birthday" => $birthday,
 		"pwd" => $pwd,
+		"key" => $key,
 	]);
 
-	sendVerifyMail($email,$pseudo);
+	sendVerifyMail($email,$pseudo,$key);
 
 	header("Location: ./index.php");
 } else {
