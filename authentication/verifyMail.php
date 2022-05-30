@@ -5,7 +5,7 @@ $user = $_GET['pseudo'];
 
 $pdo = connectDB();
 echo $user;
-$queryPrepared = $pdo->prepare("SELECT mailKey FROM AROOTS_USERS where pseudo= :user");
+$queryPrepared = $pdo->prepare("SELECT mailKey FROM AROOTS_USERS where pseudo= :pseudo");
 $queryPrepared->execute(["pseudo" => $user]);
 echo '3';
 $mailKey = $queryPrepared->fetch();
