@@ -8,7 +8,7 @@ echo $user;
 $queryPrepared = $pdo->prepare("SELECT mailKey FROM AROOTS_USERS where pseudo= :pseudo");
 $queryPrepared->execute(["pseudo" => $user]);
 $mailKey = $queryPrepared->fetch();
-echo '3';
+echo $mailKey;
 
 if($mailKey == $_GET['key']) {
     echo '4';
