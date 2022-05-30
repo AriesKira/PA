@@ -5,6 +5,9 @@ require "logs.php";
 require "functions.php";
 if (isConnected()) {
 	$userID = $_SESSION['idUser'];
+	if(!isValidated($_SESSION['idUser'])) {
+	?>displayValidate();<?php
+	}
 }
 
 generateLogs();

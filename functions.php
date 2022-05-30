@@ -79,3 +79,17 @@ function sendVerifyMail($email,$pseudo,$key) {
 function rdmKeyValues() {
 	return mt_rand();
 }
+
+function isValidated($idUser){
+	
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT validated FROM AROOTS_USERS where idUser= $idUser");
+	$queryPrepared->execute();
+	$validated = $queryPrepared->fetch();
+
+	if($validated == 1) {
+		return true;
+	}
+
+	return false;
+}

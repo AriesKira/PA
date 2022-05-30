@@ -18,6 +18,10 @@ function getPageIcons() {
     return document.getElementById("pageIconsSelection");
 }
 
+function getInfoPopUp() {
+    return document.getElementById("infoPanel");
+}
+
 function popUpLogin() {
     const loginPopUp = getLoginPopUp();
     hideElement(getRegisterPopUp(), true);
@@ -39,6 +43,8 @@ function popUpCaptcha() {
     hideElement(getPageIcons(), !getPageIcons().hidden);
     executeCaptcha();
 }
+
+
 
 function hideElement(element, hidden) {
     element.hidden = hidden;
@@ -108,7 +114,7 @@ function verifyCaptcha(userChoice) {
         popUpRegister();
     }
 
-    const info = document.getElementById("infoPanel");
+    const info = getInfoPopUp();
     const alertColor = isValid ? 'alert-success' : 'alert-danger';
 
     info.innerHTML = '<div class="alert mt-4 pb-1 ' + alertColor + '" role="alert">' + error + '</div>'
@@ -119,4 +125,12 @@ function executeCaptcha() {
     const answerImageNumber = displayCaptchaAnswer();
     displayCaptchaChoices(answerImageNumber);
     document.getElementById("registerButton").setAttribute("onclick", "");
+}
+
+function displayValidated() {
+    const info = getInfoPopUp();
+    const alertColor = 'alert-primary';
+    const infoMessage = 'Un mail de vérification vous à été envoyé.';
+
+    info.innerHTML = '<div class="alert mt-4 pb-1 ' + alertColor + '" role="alert">' + infoMessage + '</div>'
 }
