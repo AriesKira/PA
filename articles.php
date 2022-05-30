@@ -3,7 +3,7 @@
 
 
 <?php
-if (isConnected()) {
+	if(isWebmaster($userID)) {
 ?>
 
     <div class="container">
@@ -21,7 +21,6 @@ if (isConnected()) {
 ?>
 
 <?php
-
     $pdo = connectDB();
 
             $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES");
