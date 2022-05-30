@@ -1,8 +1,7 @@
 <?php
 require "config.inc.php";
 
-function connectDB()
-{
+function connectDB() {
 	//création d'une nouvelle connexion à notre bdd
 	try {
 
@@ -22,15 +21,13 @@ function connectDB()
 	updateToken($results["id"], $token);
 */
 
-function createToken()
-{
+function createToken() {
 	$token = sha1(md5(rand(0, 100) . "gdgfm432") . uniqid());
 	return $token;
 }
 
 
-function updateToken($userId, $token)
-{
+function updateToken($userId, $token) {
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET token=:token WHERE idUser=:idUser");
@@ -38,8 +35,7 @@ function updateToken($userId, $token)
 }
 
 
-function isConnected()
-{
+function isConnected() {
 
 	if (!isset($_SESSION["email"]) || !isset($_SESSION["token"])) {
 		return false;
@@ -54,8 +50,7 @@ function isConnected()
 
 
 
-function displayCountryFlag($results)
-{
+function displayCountryFlag($results) {
 
 	if ($results["country"] == "fr") {
 		$countryFlag = 'france';
@@ -74,8 +69,9 @@ function sendVerifyMail($email) {
 	$to = $email;
 	$subject = 'Confirmation de mail';
 	$message = 'Bienvenue sur ARoots' . "\r\n" . 'veuillez cliquez sur le lien suivant pour valider votre email :';
-	$headers = 'From: ARoots@ARoots.com'       . "\r\n" .
+	$headers = "MIME-version: 1.0\r\n" . 'Date: ' . date('r') . "\r\n";
+	$headers .= 'From: ARoots@ARoots.com'       . "\r\n" .
 		'Reply-To: ARoots@ARoots.com' . "\r\n" .
-		'X-Mailer: PHP/' . phpversion();
+		"Content-Type: text/html; charset=utf-8 \r\n";
 	mail($to, $subject, $message, $headers);
 }
