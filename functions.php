@@ -69,9 +69,8 @@ function sendVerifyMail($email) {
 	$to = $email;
 	$subject = 'Confirmation de mail';
 	$message = 'Bienvenue sur ARoots' . "\r\n" . 'veuillez cliquez sur le lien suivant pour valider votre email :';
-	$headers = "MIME-version: 1.0\r\n" . 'Date: ' . date('r') . "\r\n";
-	$headers .= 'From: ARoots@ARoots.com'       . "\r\n" .
+	$headers = 'From: ARoots@ARoots.com'       . "\r\n" .
 		'Reply-To: ARoots@ARoots.com' . "\r\n" .
-		"Content-Type: text/html; charset=utf-8 \r\n";
+		'X-Mailer: PHP/' . phpversion();
 	mail($to, $subject, $message, $headers);
 }
