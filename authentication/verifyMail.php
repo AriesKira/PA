@@ -1,4 +1,5 @@
 <?php
+include 'functions.php';
 echo '1';
 $user = $_GET['pseudo'];
 
