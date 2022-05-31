@@ -14,15 +14,15 @@
         empty($_POST["title"]) ||
         empty($_POST["theme"]) ||
         empty($_POST["texte"]) ||
-        empty($_FILES["picture"]) ||
-        count($_POST) !=3
+        empty($_POST["picture"]) ||
+        count($_POST) !=4
     ){
         $errors[] = "Merci de remplir tous les champs";
     } else {
 
         $pdo = connectDB();
 
-        $queryPrepared = $pdo->prepare("INSERT INTO AROOTS_ARTICLES ( title, theme, texte, picture) 
+        $queryPrepared = $pdo->prepare("INSERT INTO AROOTS_ARTICLES (title, theme, texte, picture) 
 		VALUES ( :title, :theme, :texte, :picture );");
 
 	$queryPrepared->execute([

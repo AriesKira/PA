@@ -40,7 +40,7 @@
 
 		<div class="article-div">
 			<div class="article-image">
-				<img src="/stylesheet/images/articles/social-networks.png">
+				<img src="/stylesheet/images/articles/'.$aroots_articles["picture"].'">
 			</div>
 
 			<div class="article-item">
@@ -52,7 +52,7 @@
 		</div>
 	
 
-		<div class="modal fade" id="article-modal'.$aroots_articles["title"].'" aria-hidden="true">
+		<div class="modal fade container-fluid" id="article-modal'.$aroots_articles["title"].'" aria-hidden="true">
                   <div class="modal-dialog">
                       <div class="modal-content col-12">
                           <div class="modal-header">
@@ -63,20 +63,17 @@
 						  	<h2 class="article-title col-lg-8">'.$aroots_articles["title"].' </h2>
 						  	<p class="article-theme">'.$aroots_articles["texte"].' </p>
                           </div>
+
                           <div class="modal-footer">
+                            <i class="bi bi-hand-thumbs-up"></i>
+                            <i class="bi bi-hand-thumbs-down"></i>
                           </div>
                       </div>
                   </div>
               </div>
-		
-	
-	
+
 		';
 	}
 	?>
 
-
-
 </div>
-
-<?php include("stylesheet/template/footer.php") ?>

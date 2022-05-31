@@ -4,7 +4,7 @@
     <div class="row mt-4">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <form method="POST" action="newArticle.php" enctype="multipart/form-data">
+            <form method="POST" action="newArticle.php">
                 <input type="text" class="form-control" name="title" placeholder="Titre de l'article" require="required"><br>
                 <input type="text" class="form-control" name="theme" placeholder="Thème de l'article" required="required"><br>
                 <input type="text" class="form-control" name="texte" placeholder="Corps de l'article" required="required"><br>

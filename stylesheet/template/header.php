@@ -21,6 +21,7 @@ generateLogs();
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<link type="text/css" rel="stylesheet" href="stylesheet/css/style.css">
+	<link rel="stylesheet" href="stylesheet/bootstrap-icons/bootstrap-icons.css">
 	<script src="./authentication/authentification.js"></script>
 	<script src="./stylesheet/burgersMenus/animations.js"></script>
 	<script src="https://kit.fontawesome.com/ae4e8edb66.js" crossorigin="anonymous"></script>
