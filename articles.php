@@ -30,42 +30,51 @@
 
 
 
-<table class="table" id="articles-table">
-			<thead>
-				<tr>
-					<th>Auteur</th>
-					<th>Titre</th>
-					<th>Texte</th>
-				</tr>
-			</thead>
-
-			<tbody>
 				
-				<?php
-				foreach ($results as $aroots_articles) {
-					echo
-						'<div id="articles-nav">
-								<tr>
-									<td>'.$aroots_articles["author"].'</td>
-									<td>'.$aroots_articles["title"].'</td>
-									<td>'.$aroots_articles["theme"].'</td>
-									<td>'.$aroots_articles["texte"].'</td>
-									<td>'.$aroots_articles["picture"].'</td>
-										<div class="btn-group">
-										</div>
-									</td>
-								</tr>
-						</div>'
-						;
-				}
-				?>
-
-									
-
-			</tbody>
-		</table>
+	<?php
+	foreach ($results as $aroots_articles) {
+		echo '
 
 
+		<div class="article-div">
+			<div class="article-image">
+				<img src="/stylesheet/images/articles/social-networks.png">
+			</div>
 
+			<div class="article-item">
+				<h2 class="article-title col-lg-8">'.$aroots_articles["title"].' </h2>
+				<p class="article-theme">'.$aroots_articles["theme"].' </p>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal"data-bs-target="#article-modal'.$aroots_articles["title"].' ">Lire l\'article</button>
+				</button>
+			</div>
+		</div>
+	
+
+		<div class="modal fade" id="article-modal'.$aroots_articles["title"].'" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content col-12">
+                          <div class="modal-header">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+
+                          <div class="modal-body">
+						  	<h2 class="article-title col-lg-8">'.$aroots_articles["title"].' </h2>
+						  	<p class="article-theme">'.$aroots_articles["texte"].' </p>
+                          </div>
+                          <div class="modal-footer">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+		
+	
+	
+		';
+	}
+	?>
+
+
+
+</div>
 
 <?php include("stylesheet/template/footer.php") ?>

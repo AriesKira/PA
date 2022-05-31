@@ -48,6 +48,10 @@ generateLogs();
 						</li>
 					</ul>
 				</div>
+
+				<div class="form-check form-switch ns-d-none-mlg">
+                	<input id="ns-theme-toggle" class="form-check-input ns-them-check mx-auto" type="checkbox" role="switch">
+            	</div>
 				<div class="mx-auto order-0">
 					<a class="navbar-brand mx-auto" href="../../index.php">ARoots</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">

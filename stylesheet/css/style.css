@@ -350,68 +350,55 @@ p {
     color: #fff;
 }
 
-.table {
-    color: #2d2d2d;
+
+.article-div{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 3%;
+    padding-top: 3%;
 }
 
-
-/*---- page Article----- a {
-    text-decoration: none;
-    font-style: none;
-    list-style-type: none;
+.article-item{
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.main-logo {
-    font-family: "technoid";
-    font-size: 2.8em;
-}
-
-.logo-color {
-    color: #A32227;
-}
-
-#register-form {
-    text-align: center;
-}
-
-#wrapper {
-    border-top: #A32227 2px solid;
-    border-bottom: #A32227 2px solid;
-    font-size: small;
-    text-align: center;
-    padding-top: 5em;
-    padding-bottom: 5em;
-}
-
-.btn-info {
-    background-color: #1c1c1e;
-    border: #A32227 1px solid;
-    color: #fefefe;
-}
-
-.btn-info:hover {
-    background-color: #A32227;
-    border: #A32227 1px solid;
-    color: #fefefe;
-}
-
-h2 {
+.article-title{
+    color: brown;
+    font-size: 1.4em;
     text-transform: uppercase;
 }
 
-#add-btn {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1%;
-    background-color: #A32227;
-}
-
-#add-btn a {
-    background-color: #A32227;
-    font-weight: bold;
-}
-
-#add-btn a:hover {
+.article-theme{
     color: black;
-    font-weight: bold;
+}
+
+.article-read a, .article-read{
+    background-color: brown;
+    color: white;
+    border: none;
+}
+
+
+.article-read a, .article-read:hover{
+    background-color: brown;
+    color: white;
+}
+
+.ns-them-check {
+    height: 15px;
+    width: 30px;
+    background-color: black;
+    border: 1px solid red;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,133,161,1.0)'/></svg>") !important;
+}
+
+
+.modal-content{
+    background-color: #1c1c1e;
+    border: #A32227 1px solid;
+    color: #fefefe;
 }
