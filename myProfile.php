@@ -18,7 +18,12 @@ $results = $queryPrepared->fetch();
    <div class="container-fluid userProfileBody">
       <div class="row">
          <div class="col-sm"></div>
-         <div class="col-sm text-center">
+         <div class="col-sm text-center" id="avatarHolder">
+            <button onclick="displayAvatarHead()">click me</button>
+               <img class="avatarImg"></img>
+               <img class="avatarImg"></img>
+               <img class="avatarImg"></img>
+               <img class="avatarImg"></img>
             <?php echo '<h2 class="userNickname pt-4">' . $results["pseudo"] . '</h2>' ?>
          </div>
          <div class="col-sm"></div>
@@ -31,13 +36,13 @@ $results = $queryPrepared->fetch();
                      <tbody>
                         <tr>
                            <th scope="row">Nom</th>
-                           <td>' . $results["lastname"] . '</td>
+                           <td>' . $results["lastName"] . '</td>
                            <th scope="row">Mail</th>
                            <td>' . $results["email"] . '</td>
                         </tr>
                         <tr>
                            <th scope="row">Prénom</th>
-                           <td>' . $results["firstname"] . '</td>
+                           <td>' . $results["firstName"] . '</td>
                            <th scope="row">Pays</th>
                            <td>';
          displayCountryFlag($results);
@@ -47,7 +52,7 @@ $results = $queryPrepared->fetch();
                            <th scope="row">Date de naissance</th>
                            <td id="birthdayRow">' . $results["birthday"] . '</td>
                            <th scope="row">Date de création du compte</th>
-                           <td>' . $results["date_inserted"] . '</td>
+                           <td>' . $results["signUpDate"] . '</td>
                         </tr>
 
                      </tbody>
