@@ -96,31 +96,3 @@ function isValidated($idUser){
 	return false;
 }
 
-
-function isWebmaster($idUser) { 
-	$pdo = connectDB();
-	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where id = $idUser") ;
-	$queryPrepared->execute();
-	$webmaster = $queryPrepared->fetch();
-	
-	if ($webmaster == 2) {
-	  return true;
-	} else {
-		return(false);
-	}
-}
-
-
-
-function isAdmin($idUser) { 
-	$pdo = connectDB();
-	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where id = $idUser") ;
-	$queryPrepared->execute();
-	$admin = $queryPrepared->fetch();
-	
-	if ($admin == 3) {
-	  return true;
-	} else {
-		return(false);
-	}
-}

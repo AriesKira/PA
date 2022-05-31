@@ -3,7 +3,7 @@
 
 
 <?php
-	if(isWebmaster($userID)) {
+	if($userID == 3) {
 ?>
 
     <div class="container">
@@ -12,7 +12,7 @@
                 <button class="btn btn-info" id="add-btn">
                     <a href="addArticle.php">Ajouter un article</a>
                 </button>
-            </div>
+            </div>	
         </div>
     </div>
 
