@@ -388,15 +388,6 @@ p {
     color: white;
 }
 
-.ns-them-check {
-    height: 15px;
-    width: 30px;
-    background-color: black;
-    border: 1px solid red;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,133,161,1.0)'/></svg>") !important;
-}
-
-
 .modal-content{
     background-color: #1c1c1e;
     border: #A32227 1px solid;
