@@ -3,7 +3,8 @@
 
 
 <?php
-	if($userID == 3) {
+	if (isConnected()) {
+		if (!isAdmin($userID)) {
 ?>
 
     <div class="container">
@@ -17,6 +18,7 @@
     </div>
 
 <?php
+    }
 }
 ?>
 

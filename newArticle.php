@@ -14,8 +14,8 @@
         empty($_POST["title"]) ||
         empty($_POST["theme"]) ||
         empty($_POST["texte"]) ||
-        empty($_POST["picture"]) ||
-        count($_POST) !=4
+        empty($_FILES["picture"]) ||
+        count($_POST) !=3
     ){
         $errors[] = "Merci de remplir tous les champs";
     } else {
@@ -32,7 +32,7 @@
                                 "picture"=>$picture,
 								]);
 
-	header("Location: /PA/articles.php");	
+	header("Location: articles.php");	
 
     }
     ?>
