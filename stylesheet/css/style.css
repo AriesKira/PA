@@ -9,7 +9,6 @@
 
 body {
     color: #2d2d2d;
-    margin-bottom: 20px;
 }
 
 a {
@@ -224,10 +223,7 @@ nav {
 /*-----FOOTER-----*/
 
 footer {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+    position: relative;
     background-color: #2d2d2d;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -290,8 +286,6 @@ p {
 
 .userProfileBody {
     background-color: #2d2d2d;
-    width: 100%;
-    height: fit-content;
 }
 
 .userNickname {

@@ -30,7 +30,7 @@ generateLogs();
 	<title>aROOTS - Home</title>
 </head>
 
-<body>
+<body class="min-vh-100">
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 			<div class="container-fluid">

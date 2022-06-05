@@ -20,7 +20,7 @@
                     <option value="pl">Pologne</option>
                     <option value="ml">Mali</option>
                 </select>
-                <input type="submit" class="btn btn-primary" value="Modifier" onclick="submitUserForms()">
+                <input type="submit" class="btn btn-primary mt-3" value="Modifier" onclick="submitUserForms()">
             </form>
         </div>
         <div class="col-5 text-center">
@@ -29,6 +29,7 @@
                 <input id="userLeftEye" type="hidden" form="userAvatarForm" name="userLeftEye" value='<?php echo $userLeftEye ?>'>
                 <input id="userRightEye" type="hidden" form="userAvatarForm" name="userRightEye" value='<?php echo $userRightEye ?>'>
                 <input id="userMouth" type="hidden" form="userAvatarForm" name="userMouth" value='<?php echo $userMouth ?>'>
+                <input id="formValue" type="hidden" form="userAvatarForm" name="form" value="2">
                 <div class="row pt-3">
                     <div class="row pt-3">
                         <div class="col-2">
@@ -73,6 +74,9 @@
                         <div class="col-2">
                             <input id="mouthUp" type="button" class="btn btn-outline-light" value="<?php echo $userMouth ?>" onclick="mouthIncrement()"></input>
                         </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" class="btn btn-primary mt-3" value="Enregistrer l'avatar">
                     </div>
                 </div>
             </form>

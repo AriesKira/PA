@@ -209,8 +209,8 @@ function submitUserForms() {
     const avatarForm = getUserAvatarForm();
     const userInfoForm = getUserInfoForm();
 
-    avatarForm.setAttribute('action', './updateUserProfile.php?userHair=' + userHair + '&userLeftEye=' + userLeftEye + '&userRightEye=' + userRightEye + '&userMouth=' + userMouth);
-    userInfoForm.setAttribute('action', './updateUserProfile.php?userHair=' + userHair + '&userLeftEye=' + userLeftEye + '&userRightEye=' + userRightEye + '&userMouth=' + userMouth);
+    avatarForm.setAttribute('action', './updateUserProfile.php?userHair=' + userHair + '&userLeftEye=' + userLeftEye + '&userRightEye=' + userRightEye + '&userMouth=' + userMouth + '&form=1');
+    userInfoForm.setAttribute('action', './updateUserProfile.php?userHair=' + userHair + '&userLeftEye=' + userLeftEye + '&userRightEye=' + userRightEye + '&userMouth=' + userMouth + '&form=1');
 
     avatarForm.submit();
     userInfoForm.submit();

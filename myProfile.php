@@ -28,7 +28,7 @@ $userMouth = intval($avatar['mouth']);
    <div class="container-fluid userProfileBody">
       <?php
       if (!empty($_SESSION['errors']) && isset($_SESSION['errors'])) {
-         echo '<div class="alert alert-danger mt-4 pb-1" role="alert">';
+         echo '<div class="alert alert-danger" role="alert">';
 
          for ($i = 0; $i < count($_SESSION['errors']); $i++) {
             $element = $_SESSION['errors'][$i];
@@ -55,8 +55,8 @@ $userMouth = intval($avatar['mouth']);
       <div class="row">
          <div class="col-sm"></div>
          <?php
-         echo  '<div class=" col-sm table-responsive userInfo">
-                  <table class="table  table-borderless ">
+         echo  '<div class=" col-sm table-responsive userInfo shadow ">
+                  <table class="table  table-borderless text-white">
                      <tbody>
                         <tr>
                            <th scope="row">Nom</th>
@@ -86,9 +86,9 @@ $userMouth = intval($avatar['mouth']);
          ?>
          <div class="col-sm"></div>
       </div>
-      <div class="row">
+      <div class="row pb-5">
          <div class="col-sm">
-            <div class="container-fluid overflow-auto userLikedArticles">
+            <div class="container-fluid overflow-auto userLikedArticles shadow">
                <!-- Is going to contain liked articles: need article bdd + favorite article -->
                <div class="row">
                   <h3 class="text-center">Articles Préféré</h3>
@@ -98,7 +98,7 @@ $userMouth = intval($avatar['mouth']);
             </div>
          </div>
          <div class="col-sm">
-            <div class="container-fluid overflow-auto userStats">
+            <div class="container-fluid overflow-auto userStats shadow">
                <!-- Is going to contain user xp level-->
                <div class="row">
                   <div class="col-sm">
@@ -124,7 +124,7 @@ $userMouth = intval($avatar['mouth']);
          </div>
          <!-- Probably Friends List -->
          <div class="col-sm">
-            <div class="container-fluid overflow-auto userFriendsList">
+            <div class="container-fluid overflow-auto userFriendsList shadow">
                <div class="row">
                   <h3 class="text-center">Amis</h3>
                </div>
