@@ -39,13 +39,14 @@
             </a>
          </div>
 
-         <?php if (isConnected()) { ?>
-            <div class="col text-center">
+         <?php if (isConnected()) { 
+            echo '<div class="col text-center">
                <a href="./myProfile.php">
                   <i id="userProfilePageIcon" class="fa-solid fa-user-astronaut fa-7x zoom-box"></i>
                </a>
-            <?php } ?>
-            </div>
+         
+            </div>';
+         } ?>
       </div>
    </div>
 </div>
@@ -60,5 +61,4 @@
 <div hidden id="captchaBody">
    <?php include "./authentication/captcha.php" ?>
 </div>
-
 <?php include "./stylesheet/template/footer.php"; ?>

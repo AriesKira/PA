@@ -1,7 +1,8 @@
 <?php
 require "config.inc.php";
 
-function connectDB() {
+function connectDB()
+{
 	//création d'une nouvelle connexion à notre bdd
 	try {
 
@@ -21,13 +22,15 @@ function connectDB() {
 	updateToken($results["id"], $token);
 */
 
-function createToken() {
+function createToken()
+{
 	$token = sha1(md5(rand(0, 100) . "gdgfm432") . uniqid());
 	return $token;
 }
 
 
-function updateToken($userId, $token) {
+function updateToken($userId, $token)
+{
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET token=:token WHERE idUser=:idUser");
@@ -35,7 +38,8 @@ function updateToken($userId, $token) {
 }
 
 
-function isConnected() {
+function isConnected()
+{
 
 	if (!isset($_SESSION["email"]) || !isset($_SESSION["token"])) {
 		return false;
@@ -50,7 +54,8 @@ function isConnected() {
 
 
 
-function displayCountryFlag($results) {
+function displayCountryFlag($results)
+{
 
 	if ($results["country"] == "fr") {
 		$countryFlag = 'france';
@@ -65,23 +70,26 @@ function displayCountryFlag($results) {
 }
 
 
-function sendVerifyMail($email,$pseudo,$key) {
-	
+function sendVerifyMail($email, $pseudo, $key)
+{
+
 	$to = $email;
 	$subject = 'Confirmation de mail';
-	$message = 'Bienvenue sur ARoots' . "\r\n" . 'Veuillez cliquez sur le lien suivant pour valider votre email : http://141.94.251.167/authentication/verifyMail.php?key='.$key.'&pseudo='.$pseudo. "\r\n" .'Cordalement,'. "\r\n" ."L'équipe AROOTS";
+	$message = 'Bienvenue sur ARoots' . "\r\n" . 'Veuillez cliquez sur le lien suivant pour valider votre email : http://141.94.251.167/authentication/verifyMail.php?key=' . $key . '&pseudo=' . $pseudo . "\r\n" . 'Cordalement,' . "\r\n" . "L'équipe AROOTS";
 	$headers = 'From: <arootsverify@gmail.com>'       . "\r\n" .
 		'Reply-To: <arootsverify@gmail.com>' . "\r\n" .
 		'X-Mailer: PHP/' . phpversion();
 	mail($to, $subject, $message, $headers);
 }
 
-function rdmKeyValues() {
+function rdmKeyValues()
+{
 	return mt_rand();
 }
 
-function isValidated($idUser){
-	
+function isValidated($idUser)
+{
+
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT validated FROM AROOTS_USERS where idUser= :idUser");
 	$queryPrepared->execute(["idUser" => $idUser]);
@@ -89,7 +97,7 @@ function isValidated($idUser){
 
 	$validated = $results[0];
 
-	if($validated == 1) {
+	if ($validated == 1) {
 		return true;
 	}
 
@@ -97,34 +105,36 @@ function isValidated($idUser){
 }
 
 
-function isWebmaster($idUser) { 
+function isWebmaster($idUser)
+{
 	$pdo = connectDB();
-	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser") ;
+	$queryPrepared = $pdo->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser");
 	$queryPrepared->execute(["idUser" => $idUser]);
 	$results = $queryPrepared->fetch();
-	
+
 	$webmaster = $results[0];
 
 	if ($webmaster == 2) {
-	  return true;
-	} else {
-		return(false);
+		return true;
 	}
+
+	return false;
 }
 
 
 
-function isAdmin($idUser) { 
+function isAdmin($idUser)
+{
 	$pdo = connectDB();
-	$queryPrepared = $pdo ->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser") ;
+	$queryPrepared = $pdo->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser");
 	$queryPrepared->execute(["idUser" => $idUser]);
 	$results = $queryPrepared->fetch();
-	
+
 	$admin = $results[0];
 
 	if ($admin == 3) {
-	  return true;
-	} else {
-		return(false);
+		return true;
 	}
+
+	return false;
 }

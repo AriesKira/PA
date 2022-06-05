@@ -1,27 +1,3 @@
-function getLoginPopUp() {
-    return document.getElementById("loginBody");
-}
-
-function getRegisterPopUp() {
-    return document.getElementById("registerBody");
-}
-
-function getCaptchaPopUp() {
-    return document.getElementById("captchaBody");
-}
-
-function getVideoBody() {
-    return document.getElementById("animatedBackground");
-}
-
-function getPageIcons() {
-    return document.getElementById("pageIconsSelection");
-}
-
-function getInfoPopUp() {
-    return document.getElementById("infoPanel");
-}
-
 function popUpLogin() {
     const loginPopUp = getLoginPopUp();
     hideElement(getRegisterPopUp(), true);
@@ -44,7 +20,10 @@ function popUpCaptcha() {
     executeCaptcha();
 }
 
-
+function displayModUser() {
+    const modUser = getModUserPopUp();
+    hideElement(modUser, !modUser.hidden);
+}
 
 function hideElement(element, hidden) {
     element.hidden = hidden;
