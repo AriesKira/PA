@@ -15,10 +15,10 @@ $birthday = $_POST["birthday"];
 $country = $_POST["country"];
 
 if (isset($_POST['email'])) {
-    $email = strtolower(trim($email));
+    $email = htmlspecialchars(strtolower(trim($email)));
 }
-$firstname = ucwords(strtolower(trim($firstname)));
-$lastname = strtoupper(trim($lastname));
+$firstname = htmlspecialchars(ucwords(strtolower(trim($firstname))));
+$lastname = htmlspecialchars(strtoupper(trim($lastname)));
 
 
 $errors = [];

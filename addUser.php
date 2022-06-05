@@ -41,10 +41,10 @@ $cgu = $_POST["cgu"];
 
 //nettoyer les données
 
-$email = strtolower(trim($email));
-$firstname = ucwords(strtolower(trim($firstname)));
-$lastname = strtoupper(trim($lastname));
-$pseudo = ucwords(strtolower(trim($pseudo)));
+$email = htmlspecialchars(strtolower(trim($email)));
+$firstname = htmlspecialchars(ucwords(strtolower(trim($firstname))));
+$lastname = htmlspecialchars(strtoupper(trim($lastname)));
+$pseudo = htmlspecialchars(ucwords(strtolower(trim($pseudo))));
 
 
 //vérifier les données

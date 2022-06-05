@@ -104,7 +104,6 @@ function isValidated($idUser)
 	return false;
 }
 
-function isWebmaster($idUser) {
 
 function isWebmaster($idUser)
 {
@@ -122,11 +121,8 @@ function isWebmaster($idUser)
 	return false;
 }
 
-function isAdmin($idUser) {
 
-
-function isAdmin($idUser)
-{
+function isAdmin($idUser){
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser");
 	$queryPrepared->execute(["idUser" => $idUser]);
