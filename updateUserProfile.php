@@ -14,7 +14,7 @@ $pwdConfirm = $_POST["passwordConfirm"];
 $birthday = $_POST["birthday"];
 $country = $_POST["country"];
 
-if (isset($_POST['email'])){
+if (isset($_POST['email'])) {
     $email = strtolower(trim($email));
 }
 $firstname = ucwords(strtolower(trim($firstname)));
@@ -92,13 +92,11 @@ if (isset($_POST['email'])) {
         ]);
 
         sendVerifyMail($email, $pseudo, $key);
-
-        
     } else {
         $_SESSION['errors'] = $errors;
     }
 } else {
-    if (count($errors) == 0) { 
+    if (count($errors) == 0) {
         $pdo = connectDB();
         $queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET firstName = :firstName, lastName = :lastName, country = :country, birthday = :birthday, pwd=:pwd WHERE idUser = $userID ");
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -110,8 +108,6 @@ if (isset($_POST['email'])) {
             'birthday' => $birthday,
             'pwd' => $pwd,
         ]);
-
-        
     } else {
         $_SESSION['errors'] = $errors;
     }
@@ -121,23 +117,29 @@ if (isset($_POST['email'])) {
 //USER AVATAR FORM
 
 $userHair = $_GET['userHair'];
-echo $userHair;
+
 $userLeftEye = $_GET['userLeftEye'];
-echo $userLeftEye;
+
 $userRightEye = $_GET['userRightEye'];
-echo $userRightEye;
+
 $userMouth = $_GET['userMouth'];
-echo $userMouth; 
+
+if (is_numeric($userHair) && is_numeric($userLeftEye) && is_numeric($userRightEye) && is_numeric($userMouth)) {
 
 
-$pdo = connectDB();
-$queryPrepared2 = $pdo->prepare("UPDATE AVATARS SET hair =:hair , leftEye = :leftEye, rightEye=:rightEye, mouth=:mouth WHERE userId= $userID");
-$queryPrepared2->execute([
-    'hair'=>$userHair,
-    'leftEye'=>$userLeftEye,
-    'rightEye'=>$userRightEye,
-    'mouth'=>$userMouth,
-]);
+    $pdo = connectDB();
+    $queryPrepared2 = $pdo->prepare("UPDATE AVATARS SET hair =:hair , leftEye = :leftEye, rightEye=:rightEye, mouth=:mouth WHERE userId= $userID");
+    $queryPrepared2->execute([
+        'hair' => $userHair,
+        'leftEye' => $userLeftEye,
+        'rightEye' => $userRightEye,
+        'mouth' => $userMouth,
+    ]);
 
 
-header('location: ./myProfile.php');
+    header('location: ./myProfile.php');
+}
+
+$errors[] = "Valeur invalide";
+$_SESSION['errors'] = $errors;
+header('location : ./index.php');
