@@ -50,6 +50,8 @@ generateLogs();
 						</li>
 					</ul>
 				</div>
+
+
 				<div class="mx-auto order-0">
 					<a class="navbar-brand mx-auto" href="../../index.php">ARoots</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">

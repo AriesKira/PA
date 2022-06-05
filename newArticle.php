@@ -22,7 +22,7 @@
 
         $pdo = connectDB();
 
-        $queryPrepared = $pdo->prepare("INSERT INTO AROOTS_ARTICLES ( title, theme, texte, picture) 
+        $queryPrepared = $pdo->prepare("INSERT INTO AROOTS_ARTICLES (title, theme, texte, picture) 
 		VALUES ( :title, :theme, :texte, :picture );");
 
 	$queryPrepared->execute([
@@ -32,7 +32,7 @@
                                 "picture"=>$picture,
 								]);
 
-	header("Location: /PA/articles.php");	
+	header("Location: articles.php");	
 
     }
     ?>

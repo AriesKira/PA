@@ -104,6 +104,7 @@ function isValidated($idUser)
 	return false;
 }
 
+function isWebmaster($idUser) {
 
 function isWebmaster($idUser)
 {
@@ -121,6 +122,7 @@ function isWebmaster($idUser)
 	return false;
 }
 
+function isAdmin($idUser) {
 
 
 function isAdmin($idUser)
