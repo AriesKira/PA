@@ -344,7 +344,6 @@ p {
     color: #fff;
 }
 
-
 #modUserButton {
     background-color: #2d2d2d;
     border-radius: 100%;
@@ -352,11 +351,38 @@ p {
 }
 
 
-/********************************************************************
-ARTICLES
-******************************************************************/
+/*------modifyUserProfile----*/
 
-.article-div{
+#modifyUserProfile {
+    position: absolute;
+    top: 44%;
+    left: 20%;
+    width: 65%;
+    background-color: rgb(21, 21, 20);
+    border-radius: 12px;
+    margin: auto;
+    justify-content: center;
+}
+
+#modifyUserProfile form {
+    margin-left: 25px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    width: 65%;
+}
+
+#changeAvatar {
+    border: #000000 5px solid;
+    border-radius: 100%;
+    margin-top: 10px;
+    width: 250px;
+    height: 250px;
+}
+
+
+/*-----ARTICLES-----*/
+
+.article-div {
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -366,38 +392,39 @@ ARTICLES
     padding-top: 3%;
 }
 
-.article-item{
+.article-item {
     margin-left: auto;
     margin-right: auto;
 }
 
-.article-title{
+.article-title {
     color: brown;
     font-size: 1.4em;
     text-transform: uppercase;
 }
 
-.article-theme{
+.article-theme {
     color: black;
 }
 
-.article-read a, .article-read{
+.article-read a,
+.article-read {
     background-color: brown;
     color: white;
     border: none;
 }
 
-
-.article-read a, .article-read:hover{
+.article-read a,
+.article-read:hover {
     background-color: brown;
     color: white;
 }
 
-#article-modal{
+#article-modal {
     background-color: thistle;
 }
 
-.modal-content{
+.modal-content {
     background-color: white;
     border: #A32227 1px solid;
     color: #fefefe;
@@ -407,7 +434,7 @@ ARTICLES
     margin-right: auto;
 }
 
-.modal-footer i{
+.modal-footer i {
     color: red;
     font-size: 30px;
 }
