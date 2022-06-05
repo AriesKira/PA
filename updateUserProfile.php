@@ -137,7 +137,7 @@ if (is_numeric($userHair) && is_numeric($userLeftEye) && is_numeric($userRightEy
     ]);
 
 
-    header('location: ./myProfile.php');
+    header('location: ./index.php');
 }else {
     $errors[] = "Valeur invalide";
     $_SESSION['errors'] = $errors;
