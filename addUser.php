@@ -152,6 +152,14 @@ if (count($errors) == 0) {
 		"mailKey" => $key,
 	]);
 
+	$queryPrepared2 = $pdo->prepare("SELECT idUser FROM AROOTS_USERS WHERE email = :email");
+	$queryPrepared2-> execute(["email"=> $email]);
+	$result = $queryPrepared2->fetch();
+	
+	$queryPrepared3 = $pdo->prepare("INSERT INTO AVATARS (userId) VALUES (:userId)");
+	$queryPrepared3->execute(["userId"=> $result['idUser']]);
+
+
 	sendVerifyMail($email,$pseudo,$key);
 
 	header("Location: ./index.php");
