@@ -374,6 +374,63 @@ p {
 }
 
 
+/*------FORUM-------*/
+
+.forumBody {
+    background-color: #2d2d2d;
+}
+
+.makeThreadButton {
+    position: fixed;
+    background-color: #EF0B0B;
+    top: 10%;
+    left: 0%;
+    border-radius: 10px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.makeThreadButton:hover {
+    background-color: #fefefe;
+}
+
+#makeThreadBody {
+    position: fixed;
+    top: 15%;
+    width: 500px;
+    height: 550px;
+    background-color: #4f4d4d;
+    border-radius: 20px;
+}
+
+.formTitles {
+    color: #EF0B0B;
+}
+
+.threadsPreviews {
+    height: fit-content;
+    width: 800px;
+}
+
+.threadLink {
+    background-color: #A32227;
+    border: none;
+}
+
+.threadLink:hover {
+    background-color: #2d2d2d;
+}
+
+.userLikeButton {
+    border: none;
+    background-color: transparent;
+}
+
+
+/*------END FORUM-----*/
+
+
 /*-----ARTICLES-----*/
 
 .article-div {

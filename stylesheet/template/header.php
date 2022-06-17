@@ -25,6 +25,10 @@ generateLogs();
 	<script src="./getStuff.js"></script>
 	<script src="./avatarJS/modifyAvatar.js"></script>
 	<script src="./authentication/authentification.js"></script>
+	<script src="./setLike.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/ae4e8edb66.js" crossorigin="anonymous"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>aROOTS - Home</title>
@@ -46,7 +50,7 @@ generateLogs();
 							<a class="nav-link" href="#">Entrainements</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Forum</a>
+							<a class="nav-link" href="../../forum.php">Forum</a>
 						</li>
 					</ul>
 				</div>
@@ -58,29 +62,28 @@ generateLogs();
 						<span class="navbar-toggler-icon"></span>
 					</button>
 				</div>
-				<?php if(isConnected()){?>
+				<?php if (isConnected()) { ?>
 					<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="../../authentication/logout.php">Deconnexion</a>
-						</li>
-					</ul>
-				</div>
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="../../authentication/logout.php">Deconnexion</a>
+							</li>
+						</ul>
+					</div>
 				<?php
-				}else{?>
-				<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item">
-							<a id="registerButton" class="nav-link" onclick="popUpRegister()">S'inscrire</a>
-						</li>
-						<li class="nav-item">
-							<a id="loginButton" class="nav-link" onclick="popUpLogin()">Se connecter</a>
-						</li>
-					</ul>
-				</div>
+				} else { ?>
+					<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a id="registerButton" class="nav-link" onclick="popUpRegister()">S'inscrire</a>
+							</li>
+							<li class="nav-item">
+								<a id="loginButton" class="nav-link" onclick="popUpLogin()">Se connecter</a>
+							</li>
+						</ul>
+					</div>
 				<?php
 				}; ?>
 			</div>
 		</nav>
 	</header>
-	

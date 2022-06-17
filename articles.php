@@ -1,10 +1,9 @@
-<?php include("stylesheet/template/header.php") ?>
+<?php include("./stylesheet/template/header.php") ?>
 
 
 
 <?php
-	if (isConnected()) {
-		if (!isAdmin($userID)) {
+	if (isConnected()&&(isAdmin($userID)||isWebmaster($userID))) {
 ?>
 
     <div class="container">
@@ -18,7 +17,7 @@
     </div>
 
 <?php
-    }
+    
 }
 ?>
 
@@ -40,7 +39,7 @@
 
 		<div class="article-div">
 			<div class="article-image">
-				<img src="/stylesheet/images/articles/'.$aroots_articles["picture"].'">
+				<img src="'.$aroots_articles["picture"].'">
 			</div>
 
 			<div class="article-item">
