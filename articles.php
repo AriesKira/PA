@@ -3,7 +3,7 @@
 
 
 <?php
-	if (isConnected()&&(isAdmin($userID)||isWebmaster($userID))) {
+	if (isConnected()&&isAdmin($userID)) {
 ?>
 
     <div class="container">
