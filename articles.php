@@ -75,4 +75,13 @@
 	}
 	?>
 
+<div hidden id="loginBody">
+   <?php include "./authentication/login.php" ?>
+</div>
+<div hidden id="registerBody">
+   <?php include "./authentication/register.html" ?>
+</div>
+<div hidden id="captchaBody">
+   <?php include "./authentication/captcha.php" ?>
+</div>
 </div>
