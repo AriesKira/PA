@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
 require "config.inc.php";
 
 function connectDB()
@@ -108,11 +111,11 @@ function isValidated($idUser)
 function isWebmaster($idUser)
 {
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser");
+	$queryPrepared = $pdo->prepare("SELECT userRole FROM AROOTS_USERS where idUser = :idUser");
 	$queryPrepared->execute(["idUser" => $idUser]);
 	$results = $queryPrepared->fetch();
 
-	$webmaster = $results[0];
+	$webmaster = $results['userRole'];
 
 	if ($webmaster == 2) {
 		return true;
@@ -124,15 +127,74 @@ function isWebmaster($idUser)
 
 function isAdmin($idUser){
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT role FROM AROOTS_USERS where idUser = :idUser");
+	$queryPrepared = $pdo->prepare("SELECT userRole FROM AROOTS_USERS where idUser = :idUser");
 	$queryPrepared->execute(["idUser" => $idUser]);
 	$results = $queryPrepared->fetch();
 
-	$admin = $results[0];
+	$admin = $results['userRole'];
 
 	if ($admin == 3) {
 		return true;
 	}
 
 	return false;
+}
+
+function getAuthor($authorID) {
+
+	$pdo = connectDB();
+	$getAuthorName = $pdo -> prepare("SELECT pseudo FROM AROOTS_USERS WHERE idUser =:idUser");
+	$getAuthorName ->execute(["idUser" => $authorID]);
+	$authorName = $getAuthorName -> fetch();
+
+	return $authorName[0];
+}
+
+function hasLiked($userId,$therdId) {
+	
+	$pdo = connectDB();
+	$verifyLike = $pdo ->prepare("SELECT count(idThread) FROM THREAD_LIKE WHERE idThread = :idThread AND idUser=:idUser");
+	$verifyLike->execute(['idThread'=>$therdId,'idUser'=>$userId]);
+	$isLiked = $verifyLike ->fetch();
+
+	if ($isLiked[0] != 0) {
+		return true;
+	}
+	return false;
+}
+
+function likeThread($userId,$threadId) {
+
+	$pdo = connectDB();
+	$setLike = $pdo->prepare("INSERT INTO THREAD_LIKE (idUser,idThread) VALUES (:idUser,:idThread)");
+	$setLike -> execute(['idUser'=>$userId,'idThread'=>$threadId]);
+
+}
+
+function unLikeThread($userId,$threadId) {
+
+	$pdo = connectDB();
+	$unsetLike = $pdo->prepare("DELETE FROM THREAD_LIKE WHERE idUser=:idUser AND idThread=:idThread");
+	$unsetLike->execute(['idUser'=>$userId,'idThread'=>$threadId]);
+
+}
+
+function setLike($userId,$contentId) {
+	if(hasLiked($userId,$contentId)) {
+		unLikeThread($userId,$contentId);
+	}else{
+		likeThread($userId,$contentId);
+	}
+}
+
+function hasImage($threadId) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT picture FROM AROOTS_THREAD WHERE idThread=:idThread");
+	$queryPrepared ->execute(['idThread'=> $threadId]);
+	$results = $queryPrepared->fetch();
+
+	if ($results[0]== null) {
+		return false;
+	}
+	return true;
 }
