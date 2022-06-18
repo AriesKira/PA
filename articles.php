@@ -3,7 +3,7 @@
 
 
 <?php
-	if (isConnected()&&isAdmin($userID)) {
+	if (isConnected()&&(isAdmin($userID)||isWebmaster($userID))) {
 ?>
 
     <div class="container">
@@ -19,20 +19,17 @@
 <?php
     
 }
-?>
 
-<?php
     $pdo = connectDB();
 
             $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES");
             $queryPrepared->execute();
             $results = $queryPrepared->fetchAll();
-?>
+
 
 
 
 				
-	<?php
 	foreach ($results as $aroots_articles) {
 		echo '
 
