@@ -18,7 +18,9 @@
     $picture = $uploadfile;
 
     $extension = pathinfo($uploadfile, PATHINFO_EXTENSION);
-
+if ($extension != 'png' || $extension != 'jpg' || $extension != 'jpeg' || $extension != 'gif'){
+    die('image incorrecte');
+}else{
 
     echo '<pre>';
     if (move_uploaded_file($_FILES['picture']['tmp_name'], $uploadfile)) {
@@ -38,9 +40,6 @@
         resizeImageGif($uploadfile, $picture, 200, 100, 100);
     } elseif($extension == 'jpeg' || $extension == 'jpg') {
         resizeImageJpeg($uploadfile, $picture, 200, 100, 100);
-    } else{
-        die("L'extension de l'image n'a pas été reconnue. Insérer uniquement des fichiers PNG, GIF ou JPEG");
-        header("Location: ./articles.php");
     }
 
 
@@ -75,5 +74,5 @@
         header("Location: ./articles.php");	
 
         }
-
+}
     ?>
