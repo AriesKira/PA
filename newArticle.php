@@ -25,17 +25,6 @@
     die('image incorrecte');
 }else{
 
-    echo '<pre>';
-    if (move_uploaded_file($_FILES['picture']['tmp_name'], $uploadfile)) {
-        echo "Le fichier est valide, et a été téléchargé
-            avec succès. Voici le lien de l'image :\n" .$picture;
-    } else {
-        echo "Attaque potentielle par téléchargement de fichiers.
-            Voici le lien de l'image :\n" .$picture;
-    }
-
-    echo '</pre>';
-
 
     if($extension == 'png'){
         resizeImagePng($uploadfile, $picture, 200, 100, 100);
