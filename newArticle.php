@@ -18,7 +18,7 @@
     $picture = $uploadfile;
 
     $extension = pathinfo($uploadfile, PATHINFO_EXTENSION);
-if ($extension != 'png' || $extension != 'jpg' || $extension != 'jpeg' || $extension != 'gif'){
+if ($extension != 'png' || $extension != 'jpg' || $extension != 'jpeg' || $extension != 'gif' ||$extension != 'PNG' || $extension != 'JPG' || $extension != 'JPEG' || $extension != 'GIF'){
     die('image incorrecte');
 }else{
 
