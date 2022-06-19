@@ -18,7 +18,7 @@
     $picture = $uploadfile;
 
     $allowedExtension = array('jpg', 'png', 'jpeg', 'gif');
-    $tmp =(explode(".", $$picture));
+    $tmp =(explode(".", $picture));
     $extension = end($tmp);
     
     if (!in_array($extension, $allowedExtension)){
