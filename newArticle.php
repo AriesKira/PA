@@ -17,8 +17,11 @@
     $uploadfile = strtolower($uploaddir .substr(basename($_FILES['picture']['name']), -20, 20));
     $picture = $uploadfile;
 
-    $extension = pathinfo($uploadfile, PATHINFO_EXTENSION);
-if ($extension != 'png' || $extension != 'jpg' || $extension != 'jpeg' || $extension != 'gif' ||$extension != 'PNG' || $extension != 'JPG' || $extension != 'JPEG' || $extension != 'GIF'){
+    $allowedExtension = array('jpg', 'png', 'jpeg', 'gif');
+    $tmp =(explode(".", $$picture));
+    $extension = end($tmp);
+    
+    if (!in_array($extension, $allowedExtension)){
     die('image incorrecte');
 }else{
 
