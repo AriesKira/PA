@@ -17,21 +17,20 @@
     $uploadfile = strtolower($uploaddir .substr(basename($_FILES['picture']['name']), -20, 20));
     $picture = $uploadfile;
 
-    $allowedExtension = array('jpg', 'png', 'jpeg', 'gif');
-    $tmp =(explode(".", $picture));
-    $extension = end($tmp);
-    
-    if (!in_array($extension, $allowedExtension)){
-    die('image incorrecte');
-}else{
+    $extension = pathinfo($uploadfile, PATHINFO_EXTENSION);
+
+
 
 
     if($extension == 'png'){
-        resizeImagePng($uploadfile, $picture, 200, 100, 100);
+        resizeImagePng($uploadfile, $picture, 200, 100, 9);
     } elseif($extension == 'gif'){
         resizeImageGif($uploadfile, $picture, 200, 100, 100);
     } elseif($extension == 'jpeg' || $extension == 'jpg') {
         resizeImageJpeg($uploadfile, $picture, 200, 100, 100);
+    } else{
+        die("L'extension de l'image n'a pas été reconnue. Insérer uniquement des fichiers PNG, GIF ou JPEG");
+        header("Location: ./articles.php");
     }
 
 
@@ -66,5 +65,5 @@
         header("Location: ./articles.php");	
 
         }
-}
+
     ?>
