@@ -22,7 +22,7 @@
 
     $pdo = connectDB();
 
-            $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES");
+            $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES ORDER BY idArticles");
             $queryPrepared->execute();
             $results = $queryPrepared->fetchAll();
 

@@ -13,9 +13,10 @@
 
 /* VERIFICATION DE L'IMAGE */
 
-    $uploaddir = 'stylesheet/images/articles/';
+    $uploaddir = './stylesheet/images/articles/';
     $uploadfile = strtolower($uploaddir .substr(basename($_FILES['picture']['name']), -20, 20));
     $picture = $uploadfile;
+    move_uploaded_file($_FILES['picture']['tmp_name'], $picture);
 
     $extension = pathinfo($uploadfile, PATHINFO_EXTENSION);
 
