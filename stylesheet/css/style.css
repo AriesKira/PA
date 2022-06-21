@@ -409,7 +409,7 @@ p {
 }
 
 .threadsPreviews {
-    height: fit-content;
+    height: 250;
     width: 800px;
 }
 

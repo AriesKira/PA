@@ -1,6 +1,5 @@
 <?php
 
-use LDAP\Result;
 
 require "config.inc.php";
 
@@ -90,8 +89,7 @@ function rdmKeyValues()
 	return mt_rand();
 }
 
-function isValidated($idUser)
-{
+function isValidated($idUser) {
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT validated FROM AROOTS_USERS where idUser= :idUser");
@@ -197,4 +195,42 @@ function hasImage($threadId) {
 		return false;
 	}
 	return true;
+}
+
+function threadLikes($threadId) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT count(idThread) FROM THREAD_LIKE WHERE idThread = :idThread");
+	$queryPrepared ->execute(['idThread'=> $threadId]);
+	$likes = $queryPrepared ->fetch();
+	return $likes[0];
+}
+
+ /* Fonctions de redimension des images */
+
+ function resizeImageJpeg($source, $dst, $width, $height, $quality) {
+	$imageSize = getimagesize($source);
+	$imageRessource = imagecreatefromjpeg($source);
+	$imageFinal = imagecreatetruecolor($width, $height);
+	$final = imagecopyresampled($imageFinal, $imageRessource, 0, 0, 0, 0, $width, $height, $imageSize[0], $imageSize[1]);
+
+	imagejpeg($imageFinal, $dst, $quality);
+}
+
+
+function resizeImagePng($source, $dst, $width, $height, $quality) {
+	$imageSize = getimagesize($source);
+	$imageRessource = imagecreatefrompng($source);
+	$imageFinal = imagecreatetruecolor($width, $height);
+	$final = imagecopyresampled($imageFinal, $imageRessource, 0, 0, 0, 0, $width, $height, $imageSize[0], $imageSize[1]);
+
+	imagepng($imageFinal, $dst, $quality);
+}
+
+function resizeImageGif($source, $dst, $width, $height, $quality) {
+	$imageSize = getimagesize($source);
+	$imageRessource = imagecreatefromgif($source);
+	$imageFinal = imagecreatetruecolor($width, $height);
+	$final = imagecopyresampled($imageFinal, $imageRessource, 0, 0, 0, 0, $width, $height, $imageSize[0], $imageSize[1]);
+
+	imagegif($imageFinal, $dst, $quality);
 }

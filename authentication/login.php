@@ -20,7 +20,18 @@
                         $_SESSION['email'] = $_POST['email'];
                         $_SESSION['idUser'] = $results["idUser"];
                         $_SESSION['token'] = $token;
-                        header("location: ../index.php");
+                        ?>
+                        <script>
+                            if (window.localStorage) {
+                                if (!localStorage.getItem('reload')) {
+                                    localStorage['reload'] = true;
+                                    window.location.reload();
+                                }else{
+                                localStorage.removeItem('reload');
+                                }
+                            }
+                        </script>
+                        <?php
                     } else {
                         echo '<div class="alert alert-danger mt-4 pb-1 " role="alert"><h5 class="fw-bold">Identifiants Incorrects</h5></div>';
                     }
@@ -29,7 +40,7 @@
                 <form method="POST" action="">
                     <input type="email" class="form-control" name="email" placeholder="Votre email" required="required"><br>
                     <input type="password" class="form-control" name="pwd" placeholder="Votre mot de passe" required="required"><br>
-                    <input type="submit"  class="btn btn-outline-light mb-4 submitButton" value="Se connecter">
+                    <input type="submit" class="btn btn-outline-light mb-4 submitButton" value="Se connecter">
                 </form>
             </div>
         </div>
