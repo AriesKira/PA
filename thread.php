@@ -12,16 +12,7 @@ $queryPrepared2 = $pdo->prepare("SELECT * FROM THREAD_COMMENT WHERE idThread=:id
 $queryPrepared2->execute(["idThread"=>$threadId]);
 $comments = $queryPrepared2->fetchAll();
 
-//AVATAR
-$avatarQuery = $pdo->prepare("SELECT * FROM AVATARS WHERE userId = :userId");
-$avatarQuery -> execute(['userId'=>$userID]);
-$avatar = $avatarQuery->fetch();
 
-
-$userHair =intval($avatar['hair']);
-$userLeftEye = intval($avatar['leftEye']);
-$userRightEye = intval($avatar['rightEye']);
-$userMouth = intval($avatar['mouth']);
 
 $authorID = $thread['author'];
 $threadLikes = threadLikes($thread['idThread']);

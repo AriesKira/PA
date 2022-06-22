@@ -16,7 +16,7 @@ $userID = $_SESSION['idUser'];
 
 $errors = [];
 
-$userThreadComment = $_POST['userComment'];
+$userThreadComment = htmlspecialchars($_POST['userComment']);
 $userThreadCommentImgName = $_FILES['commentImage']['name'];
 
 if (empty($userThreadCommentImgName)&&empty($userThreadComment)) {

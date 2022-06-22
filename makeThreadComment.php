@@ -13,7 +13,7 @@
                 <div class="col"></div>
                 <div class="col-10">
                     <div class="row" style="height: 100px;">
-                        <textarea form="userThreadComment" name="userComment" placeholder="..." style="border-radius: 20px;"></textarea>
+                        <textarea form="userThreadComment" required="required" name="userComment" placeholder="..." style="border-radius: 20px;"></textarea>
                     </div>
                 </div>
                 <div class="col"></div>

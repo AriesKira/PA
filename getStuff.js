@@ -93,3 +93,7 @@ function getLikeImage(contentId) {
 function getMakeThreadComment() {
     return document.getElementById('makeThreadComment');
 }
+
+function getSearchResultSpace() {
+    return document.getElementById('searchResults');
+}
