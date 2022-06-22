@@ -138,7 +138,17 @@ function isAdmin($idUser){
 	return false;
 }
 
-function getAuthor($authorID) {
+function getThreadAuthor($authorID) {
+
+	$pdo = connectDB();
+	$getAuthorName = $pdo -> prepare("SELECT pseudo FROM AROOTS_USERS WHERE idUser =:idUser");
+	$getAuthorName ->execute(["idUser" => $authorID]);
+	$authorName = $getAuthorName -> fetch();
+
+	return $authorName[0];
+}
+
+function getThreadCommentAuthor($authorID) {
 
 	$pdo = connectDB();
 	$getAuthorName = $pdo -> prepare("SELECT pseudo FROM AROOTS_USERS WHERE idUser =:idUser");
@@ -160,6 +170,18 @@ function hasLiked($userId,$therdId) {
 	}
 	return false;
 }
+function hasLikedThreadComment($userId,$commentId) {
+	
+	$pdo = connectDB();
+	$verifyLike = $pdo ->prepare("SELECT count(commentId) FROM THREAD_COMMENT_LIKE WHERE commentId = :commentId AND userId=:userId");
+	$verifyLike->execute(['commentId'=>$commentId,'userId'=>$userId]);
+	$isLiked = $verifyLike ->fetch();
+
+	if ($isLiked[0] != 0) {
+		return true;
+	}
+	return false;
+}
 
 function likeThread($userId,$threadId) {
 
@@ -168,12 +190,26 @@ function likeThread($userId,$threadId) {
 	$setLike -> execute(['idUser'=>$userId,'idThread'=>$threadId]);
 
 }
+function likeThreadComment($userId,$commentId) {
+
+	$pdo = connectDB();
+	$setLike = $pdo->prepare("INSERT INTO THREAD_COMMENT_LIKE (userId,commentId) VALUES (:userId,:commentId)");
+	$setLike -> execute(['userId'=>$userId,'commentId'=>$commentId]);
+
+}
 
 function unLikeThread($userId,$threadId) {
 
 	$pdo = connectDB();
 	$unsetLike = $pdo->prepare("DELETE FROM THREAD_LIKE WHERE idUser=:idUser AND idThread=:idThread");
 	$unsetLike->execute(['idUser'=>$userId,'idThread'=>$threadId]);
+
+}
+function unLikeThreadComment($userId,$commentId) {
+
+	$pdo = connectDB();
+	$unsetLike = $pdo->prepare("DELETE FROM THREAD_COMMENT_LIKE WHERE userId=:userId AND commentId=:commentId");
+	$unsetLike->execute(['userId'=>$userId,'commentId'=>$commentId]);
 
 }
 
@@ -185,10 +221,29 @@ function setLike($userId,$contentId) {
 	}
 }
 
+function setLikeComment($userId,$contentId) {
+	if(hasLikedThreadComment($userId,$contentId)) {
+		unLikeThreadComment($userId,$contentId);
+	}else{
+		likeThreadComment($userId,$contentId);
+	}
+}
+
 function hasImage($threadId) {
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT picture FROM AROOTS_THREAD WHERE idThread=:idThread");
 	$queryPrepared ->execute(['idThread'=> $threadId]);
+	$results = $queryPrepared->fetch();
+
+	if ($results[0]== null) {
+		return false;
+	}
+	return true;
+}
+function commentHasImage($idThreadComment) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT picture FROM THREAD_COMMENT WHERE idThreadComment=:idThreadComment");
+	$queryPrepared ->execute(['idThreadComment'=> $idThreadComment]);
 	$results = $queryPrepared->fetch();
 
 	if ($results[0]== null) {
@@ -204,6 +259,21 @@ function threadLikes($threadId) {
 	$likes = $queryPrepared ->fetch();
 	return $likes[0];
 }
+function threadCommentLikes($commentId) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT count(commentId) FROM THREAD_COMMENT_LIKE WHERE commentId = :commentId");
+	$queryPrepared ->execute(['commentId'=> $commentId]);
+	$likes = $queryPrepared ->fetch();
+	return $likes[0];
+}
+
+/*function commentLikes($commentId) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT count(idThread) FROM THREAD_LIKE WHERE idThread = :idThread");
+	$queryPrepared ->execute(['idThread'=> $threadId]);
+	$likes = $queryPrepared ->fetch();
+	return $likes[0];
+}*/
 
  /* Fonctions de redimension des images */
 

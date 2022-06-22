@@ -16,6 +16,11 @@ $queryPrepared2 = $pdo->prepare("SELECT * FROM AVATARS WHERE userId = :userId");
 $queryPrepared2 -> execute(['userId'=>$userID]);
 $avatar = $queryPrepared2->fetch();
 
+
+$queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_THREAD WHERE author=:author ORDER BY postDate DESC");
+$queryPrepared->execute(["author"=>$_SESSION['idUser']]);
+$threads = $queryPrepared->fetchAll();
+
 $userHair =intval($avatar['hair']);
 $userLeftEye = intval($avatar['leftEye']);
 $userRightEye = intval($avatar['rightEye']);
@@ -86,6 +91,56 @@ $userMouth = intval($avatar['mouth']);
          ?>
          <div class="col-sm"></div>
       </div>
+      <?php
+      foreach ($threads as $thread) {
+         $authorID = $thread['author'];
+         $threadLikes = threadLikes($thread['idThread']);
+         echo '
+         <hr>
+         <div class="row">
+             <div class="col"></div>
+             <div class="col">
+                 <div class="card threadsPreviews">
+                     <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6>
+                     </div>
+                     <div class="card-title card-header text-center"><h5>
+                     ' . substr($thread['title'], 0, 49) . '</h5>
+                     </div>
+                     <div class="card-body">
+                         <div class="card-text text-muted">
+                             ';
+                             if (hasImage($thread['idThread'])&& empty($thread['texte'])){echo '
+                                 <div class="threadPreviewImage text-center">
+                                     <img src="'.$thread["picture"].'">
+                                 </div>
+                             ';}else{echo'
+                                 <div>
+                                 ' . substr($thread['texte'], 0, 49) . '...
+                                 </div>
+                             ';}echo'
+                         </div>
+                         
+                     </div>
+                     <div class="card-footer">
+                         <h6 class="text-start text-muted">' . getAuthor($thread['author']) . '</h6>
+                         <div class="text-center" id="like_'.$thread['idThread'].'">
+                             <a class="btn btn-primary mt-2 threadLink" href="./thread.php?id='.$thread['idThread'].'&title='.$thread['title'].'">Suivre ce thread</a>
+                                 <button type="button" class="userLikeButton" onclick="setLike('.$thread['idThread'].','.$userID.')">';if(hasLiked($userID,$thread['idThread'])){echo '<img id="likeImage_'.$thread['idThread'].'" src="./stylesheet/images/logo/liked.png">';}else{echo'<img id="likeImage_'.$thread['idThread'].'" src="./stylesheet/images/logo/notLiked.png">';} echo'</button>
+                                 <span id="likeCounter_'.$thread['idThread'].'" style=" color:black">
+                                     '.$threadLikes.'
+                                 </span>
+                                 
+                         </div>
+                         <h6 class="text-end text-muted">' . $thread['postDate'] . '</h6>
+                     </div>
+                 </div>
+             </div>
+             <div class="col"></div>
+         </div>
+ 
+         ';
+     }
+      ?>
       <div class="row pb-5">
          <div class="col-sm">
             <div class="container-fluid overflow-auto userLikedArticles shadow">

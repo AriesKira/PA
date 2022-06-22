@@ -20,6 +20,16 @@ function popUpCaptcha() {
     executeCaptcha();
 }
 
+function PopUpMakeThread() {
+    const makeThreadPopUp = getMakeThread();
+    hideElement(makeThreadPopUp, !makeThreadPopUp.hidden);
+}
+
+function PopUpMakeThreadComment() {
+    const makeThreadCommentPopUp = getMakeThreadComment();
+    hideElement(makeThreadCommentPopUp, !makeThreadCommentPopUp.hidden);
+}
+
 function displayModUser() {
     const modUser = getModUserPopUp();
     hideElement(modUser, !modUser.hidden);

@@ -34,7 +34,7 @@
             </a>
          </div>
          <div class="col text-center">
-            <a href="./forum.php">
+            <a href="./forum/forum.php">
                <i id="forumPageIcon" class="fa-solid fa-people-group fa-7x zoom-box"></i>
             </a>
          </div>

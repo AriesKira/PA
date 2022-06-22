@@ -177,21 +177,6 @@ nav {
     background-color: #2d2d2d;
 }
 
-#searchbar {
-    margin-left: 25%;
-    border: #fff solid 1px;
-    border-radius: 12px;
-    background-color: #2d2d2d;
-}
-
-#searchbar:hover {
-    border: #EF0B0B solid 1px;
-}
-
-#searchbar::placeholder {
-    color: #fff;
-}
-
 
 /*----Vidéo INDEX-----*/
 
@@ -400,6 +385,15 @@ p {
     top: 15%;
     width: 500px;
     height: 550px;
+    background-color: #4f4d4d;
+    border-radius: 20px;
+}
+
+#makeThreadCommentBody {
+    position: fixed;
+    top: 15%;
+    width: 300px;
+    height: 425px;
     background-color: #4f4d4d;
     border-radius: 20px;
 }

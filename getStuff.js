@@ -81,3 +81,15 @@ function getUserRightEyeFormValue() {
 function getUserMouthFormValue() {
     return document.getElementById('userMouth');
 }
+
+function getMakeThread() {
+    return document.getElementById('makeThread');
+}
+
+function getLikeImage(contentId) {
+    return document.getElementById("likeImage_" + contentId);
+}
+
+function getMakeThreadComment() {
+    return document.getElementById('makeThreadComment');
+}
