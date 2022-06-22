@@ -6,7 +6,6 @@ require "functions.php";
 $currentPage = $_GET['current'];
 $tmp = explode("/",$currentPage);
 $currentPage = end($tmp);
-
 $tmp2 = end(explode('?',$currentPage));
 $tmp2 = str_split($tmp2,1);
 $tmp2 = $tmp2[3].$tmp2[4];
