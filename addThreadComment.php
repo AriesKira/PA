@@ -100,7 +100,7 @@ if (empty($userThreadCommentImgName)) {
 
     if (count($errors) == 0) {
         $pdo = connectDB();
-        $queryPrepared = $pdo->prepare("INSERT INTO AROOTS_THREAD (idThread,author,texte) VALUES (:idThread,:author,:texte)");
+        $queryPrepared = $pdo->prepare("INSERT INTO THREAD_COMMENT (idThread,author,texte) VALUES (:idThread,:author,:texte)");
         $queryPrepared->execute([
             "idThread"=>$threadId,
             "author" => $userID,
