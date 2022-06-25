@@ -139,7 +139,7 @@
 </div>
 <script src="./avatarJS/avatar.js"></script>
 <script>
-   window.onload = showUserAvatar();
+   window.onload = showUsersAvatar();
 </script>
 
 <?php include "stylesheet/template/footer.php"; ?>
