@@ -41,7 +41,7 @@ let pageLink = window.location.href;
 let currentPage = pageLink.split("/");
 currentPage = currentPage[4];
 
-if (currentPage !== "myProfile.php") {
+if (currentPage != "myProfile.php") {
 
     //Set vars
     let userHair = parseInt(getUserHair(currentPage));
@@ -172,7 +172,7 @@ if (currentPage !== "myProfile.php") {
     avatarMouth.src = avatarMouthSource;
 
 
-    function showUserAvatar() {
+    function showUsersAvatar() {
 
         // building
 
