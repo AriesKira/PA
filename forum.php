@@ -48,7 +48,7 @@
                             ';
                             if (hasImage($thread['idThread'])&& empty($thread['texte'])){echo '
                                 <div class="threadPreviewImage text-center">
-                                    <img src="'.$thread["picture"].'">
+                                    <img class="img-fluid" src="'.$thread["picture"].'">
                                 </div>
                             ';}else{echo'
                                 <div>
@@ -78,6 +78,12 @@
     }
     ?>
     <a class="btn makeThreadButton" onclick="PopUpMakeThread()">Crée ton Thread</a>
+</div>
+<div class="searchbarDiv">
+	<form >
+		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
+	</form>
+   <div id="searchResults"></div>
 </div>
 
 <div hidden id="makeThread">

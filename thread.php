@@ -50,7 +50,7 @@ echo '
                         ';
                         if (hasImage($thread['idThread'])&& empty($thread['texte'])){echo '
                             <div class="threadPreviewImage text-center">
-                                <img src="'.$thread["picture"].'">
+                                <img class="img-fluid" src="'.$thread["picture"].'">
                             </div>
                         ';}else{echo'
                             <div>
@@ -58,7 +58,7 @@ echo '
                                     <p style="color:black">' . $thread['texte'] . '</p>
                                 </div>
                                 <div class="threadPreviewImage text-center pt-3">
-                                    <img src="'.$thread["picture"].'">
+                                    <img class="img-fluid" src="'.$thread["picture"].'">
                                 </div>
                             </div>
                         ';}echo'
@@ -107,7 +107,7 @@ foreach($comments as $comment) {
                         ';
                         if (commentHasImage($comment['idThreadComment'])&& empty($comment['texte'])){echo '
                             <div class="threadPreviewImage text-center">
-                                <img src="'.$comment["picture"].'">
+                                <img class="img-fluid" src="'.$comment["picture"].'">
                             </div>
                         ';}else{echo'
                             <div>
@@ -115,7 +115,7 @@ foreach($comments as $comment) {
                                     <p style="color:black">' . $comment['texte'] . '</p>
                                 </div>
                                 <div class="threadPreviewImage text-center pt-3">
-                                    <img src="'.$comment["picture"].'">
+                                    <img class="img-fluid" src="'.$comment["picture"].'">
                                 </div>
                             </div>
                         ';}echo'
@@ -128,6 +128,12 @@ foreach($comments as $comment) {
     ';
 } 
 ?>
+<div class="searchbarDiv">
+	<form >
+		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
+	</form>
+   <div id="searchResults"></div>
+</div>
 
 <div hidden id="makeThreadComment">
     <?php include "./makeThreadComment.php" ?>

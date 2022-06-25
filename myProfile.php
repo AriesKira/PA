@@ -1,6 +1,7 @@
 <?php include "stylesheet/template/header.php"; ?>
 
 <?php if (!isConnected()) {
+
    header("Location: ./index.php");
 }
 
@@ -101,8 +102,7 @@ $userMouth = intval($avatar['mouth']);
              <div class="col"></div>
              <div class="col">
                  <div class="card threadsPreviews">
-                     <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6>
-                     </div>
+                     <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6></div>
                      <div class="card-title card-header text-center"><h5>
                      ' . substr($thread['title'], 0, 49) . '</h5>
                      </div>
@@ -122,7 +122,7 @@ $userMouth = intval($avatar['mouth']);
                          
                      </div>
                      <div class="card-footer">
-                         <h6 class="text-start text-muted">' . getAuthor($thread['author']) . '</h6>
+                         <h6 class="text-start text-muted">' . getThreadAuthor($thread['author']) . '</h6>
                          <div class="text-center" id="like_'.$thread['idThread'].'">
                              <a class="btn btn-primary mt-2 threadLink" href="./thread.php?id='.$thread['idThread'].'&title='.$thread['title'].'">Suivre ce thread</a>
                                  <button type="button" class="userLikeButton" onclick="setLike('.$thread['idThread'].','.$userID.')">';if(hasLiked($userID,$thread['idThread'])){echo '<img id="likeImage_'.$thread['idThread'].'" src="./stylesheet/images/logo/liked.png">';}else{echo'<img id="likeImage_'.$thread['idThread'].'" src="./stylesheet/images/logo/notLiked.png">';} echo'</button>
@@ -188,7 +188,12 @@ $userMouth = intval($avatar['mouth']);
       </div>
    </div>
 </div>
-
+<div class="searchbarDiv">
+	<form >
+		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
+	</form>
+   <div id="searchResults"></div>
+</div>
 <div hidden id="modifyUserProfile">
    <?php include "./modMyProfile.php" ?>
 </div>

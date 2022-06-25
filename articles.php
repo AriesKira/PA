@@ -71,6 +71,12 @@
 		';
 	}
 	?>
+<div class="searchbarDiv">
+	<form >
+		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
+	</form>
+   <div id="searchResults"></div>
+</div>
 
 <div hidden id="loginBody">
    <?php include "./authentication/login.php" ?>

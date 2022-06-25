@@ -97,3 +97,19 @@ function getMakeThreadComment() {
 function getSearchResultSpace() {
     return document.getElementById('searchResults');
 }
+
+function getUserProfileHair() {
+    return document.getElementById('userProfileHair');
+}
+
+function getUserProfileLeftEye() {
+    return document.getElementById('userProfileLeftEye');
+}
+
+function getUserProfileRightEye() {
+    return document.getElementById('userProfileRightEye');
+}
+
+function getUserProfileMouth() {
+    return document.getElementById('userProfileMouth');
+}

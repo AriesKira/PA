@@ -177,6 +177,46 @@ nav {
     background-color: #2d2d2d;
 }
 
+.searchbarDiv {
+    position: fixed;
+    top: 15px;
+    right: 300px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+#searchResults {
+    position: fixed;
+    background-color: #2d2d2d;
+    top: 50px;
+    right: 310px;
+    width: 190px;
+}
+
+.searchResult {
+    background-color: #4f4d4d;
+    color: #EF0B0B;
+    text-align: center;
+    height: 35px;
+}
+
+@media screen and (max-width:1000px) {
+    .searchbarDiv {
+        position: fixed;
+        top: 60px;
+        left: 100px;
+        width: 200px;
+        border-radius: 10px;
+    }
+    #searchResults {
+        position: fixed;
+        background-color: #2d2d2d;
+        top: 95px;
+        left: 100px;
+        width: 190px;
+    }
+}
+
 
 /*----Vidéo INDEX-----*/
 

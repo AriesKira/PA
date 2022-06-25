@@ -267,13 +267,6 @@ function threadCommentLikes($commentId) {
 	return $likes[0];
 }
 
-/*function commentLikes($commentId) {
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT count(idThread) FROM THREAD_LIKE WHERE idThread = :idThread");
-	$queryPrepared ->execute(['idThread'=> $threadId]);
-	$likes = $queryPrepared ->fetch();
-	return $likes[0];
-}*/
 
  /* Fonctions de redimension des images */
 
