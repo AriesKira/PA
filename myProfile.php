@@ -199,7 +199,7 @@ $userMouth = intval($avatar['mouth']);
 </div>
 <script src="./avatarJS/avatar.js"></script>
 <script>
-   window.onload = showUsersAvatar();
+   window.onload = showUserAvatar();
 </script>
 
 

@@ -172,7 +172,7 @@ if (currentPage != "myProfile.php") {
     avatarMouth.src = avatarMouthSource;
 
 
-    function showUsersAvatar() {
+    function showUserAvatar() {
 
         // building
 
