@@ -1,3 +1,8 @@
+let pageLink = window.location.href;
+
+let currentPage = pageLink.split("/");
+currentPage = currentPage[3];
+
 //RETURN CURRENT VALUES
 function getUserHair(page) {
     if (page == "myProfile.php") {
@@ -36,10 +41,6 @@ function getUserMouth(page) {
 }
 
 
-let pageLink = window.location.href;
-
-let currentPage = pageLink.split("/");
-currentPage = currentPage[4];
 
 if (currentPage != "myProfile.php") {
 
