@@ -99,5 +99,5 @@ generateLogs();
 				}; ?>
 			</div>
 		</nav>
-		<div id="searchResults"></div>
 	</header>
+	<div id="searchResults"></div>
