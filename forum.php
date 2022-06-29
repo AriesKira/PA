@@ -36,8 +36,8 @@
         echo '
         <hr>
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col"></div>
+            <div class="col">
                 <div class="card threadsPreviews shadow">
                     <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6>
                     </div>
@@ -72,13 +72,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col"></div>
         </div>
 
         ';
     }
     ?>
     <a class="btn makeThreadButton" onclick="PopUpMakeThread()">Crée ton Thread</a>
+</div>
+<div class="searchbarDiv">
+	<form >
+		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
+	</form>
+   <div id="searchResults"></div>
 </div>
 
 <div hidden id="makeThread">

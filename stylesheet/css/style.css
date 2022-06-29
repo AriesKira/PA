@@ -178,15 +178,18 @@ nav {
 }
 
 .searchbarDiv {
-    padding-right: 10px;
-    padding-top: 5px;
+    position: fixed;
+    top: 15px;
+    right: 300px;
+    width: 200px;
+    border-radius: 10px;
 }
 
 #searchResults {
     position: fixed;
     background-color: #2d2d2d;
     top: 50px;
-    right: 275px;
+    right: 310px;
     width: 190px;
 }
 
@@ -198,11 +201,18 @@ nav {
 }
 
 @media screen and (max-width:1000px) {
+    .searchbarDiv {
+        position: fixed;
+        top: 60px;
+        left: 100px;
+        width: 200px;
+        border-radius: 10px;
+    }
     #searchResults {
         position: fixed;
         background-color: #2d2d2d;
-        top: 250px;
-        left: 150px;
+        top: 95px;
+        left: 100px;
         width: 190px;
     }
 }
@@ -326,6 +336,33 @@ p {
     }
 }
 
+.userLikedArticles {
+    margin-top: 60px;
+    height: 200px;
+    border: #000000 2px solid;
+    border-radius: 15px;
+    background-color: #4f4d4d;
+    color: #fff;
+}
+
+.userStats {
+    margin-top: 60px;
+    height: 200px;
+    border: #000000 2px solid;
+    border-radius: 15px;
+    background-color: #4f4d4d;
+    color: #fff;
+}
+
+.userFriendsList {
+    margin-top: 60px;
+    height: 200px;
+    border: #000000 2px solid;
+    border-radius: 15px;
+    background-color: #4f4d4d;
+    color: #fff;
+}
+
 #modUserButton {
     background-color: #2d2d2d;
     border-radius: 100%;
@@ -407,6 +444,7 @@ p {
 
 .threadsPreviews {
     height: 250;
+    width: 800px;
 }
 
 .threadLink {

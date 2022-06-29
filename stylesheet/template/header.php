@@ -64,21 +64,18 @@ generateLogs();
 						<span class="navbar-toggler-icon"></span>
 					</button>
 				</div>
-				<?php if (isConnected()) { ?>
-					
+				<?php if (isConnected()) { 
+					if (isAdmin($userID)) {?>
 					<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 						<ul class="navbar-nav ms-auto">
-							<li class="nav-item text-center">
-								<form class="searchbarDiv">
-									<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
-								</form>
-							</li>
-							<?php 
-							if (isAdmin($userID)) {?>
 							<li class="nav-item">
 								<a class="nav-link" href="../../admin.php">Administration</a>
 							</li>
-							<?php }?>
+						</ul>
+					</div>
+					<?php }?>
+					<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+						<ul class="navbar-nav ms-auto">
 							<li class="nav-item">
 								<a class="nav-link" href="../../authentication/logout.php">Deconnexion</a>
 							</li>
@@ -100,5 +97,4 @@ generateLogs();
 				}; ?>
 			</div>
 		</nav>
-		<div id="searchResults"></div>
 	</header>

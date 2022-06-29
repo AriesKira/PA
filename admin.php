@@ -27,7 +27,7 @@
     if (isset($_SESSION['success'])) {
             $nbSuccess = intval($_SESSION['success']);
             echo '<div class="alert alert-success pb-1" role="alert">';
-            echo '<h5 class="fw-bold">'.$nbSuccess.' changements appliqué avec succès</h5>';
+            echo '<h5 class="fw-bold">'.$nbSuccess.'changements appliqué avec succès</h5>';
             echo '</div>';
             unset($_SESSION['success']);
         }
@@ -54,8 +54,8 @@
         <div class="col"></div>
     </div>
     <div class="row pt-5">
-        <div class="col-1"></div>
-        <div class="col-10 usersTable overflow-auto">
+        <div class="col-2"></div>
+        <div class="col-8 usersTable overflow-auto">
             <table class="table">
                 <thead>
                     <tr>
@@ -109,7 +109,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-1"></div>
+        <div class="col-2"></div>
     </div>
     <div class="row pt-5">
         <div class="col"></div>
@@ -121,7 +121,12 @@
 </div>
 
 
-
+<div class="searchbarDiv">
+	<form >
+		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
+	</form>
+   <div id="searchResults"></div>
+</div>
 <div hidden id="roleChoice">
    <?php include "./roleChoice.php" ?>
 </div>

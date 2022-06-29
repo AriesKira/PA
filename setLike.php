@@ -1,17 +1,14 @@
 <?php include "./functions.php"; 
 
-$userId = htmlspecialchars(intval($_GET['userId']));
+$userId = intval($_GET['userId']);
 
-$threadId = htmlspecialchars(intval($_GET['thread']));
+$threadId = intval($_GET['thread']);
 
-$commentId= htmlspecialchars(intval($_GET['comment']));
-
-
+$commentId=intval($_GET['comment']);
 
 if (isset($threadId)){
     setLike($userId,$threadId);
-}
-if (isset($commentId)) {
+}elseif (isset($commentId)) {
     setLikeComment($userId,$commentId);
 }
 
