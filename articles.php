@@ -22,7 +22,7 @@
 
     $pdo = connectDB();
 
-            $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES ORDER BY idArticles");
+            $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_ARTICLES ORDER BY idArticles DESC");
             $queryPrepared->execute();
             $results = $queryPrepared->fetchAll();
 
@@ -71,12 +71,6 @@
 		';
 	}
 	?>
-<div class="searchbarDiv">
-	<form >
-		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
-	</form>
-   <div id="searchResults"></div>
-</div>
 
 <div hidden id="loginBody">
    <?php include "./authentication/login.php" ?>
