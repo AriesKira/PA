@@ -170,10 +170,10 @@
         }
 
         $_SESSION['success'] = $success;
-        header("Location : ./admin.php");
+        header("Location: ./admin.php");
     }else {
         $_SESSION['errors'] = $errors;
-        header("Location : ./admin.php");
+        header("Location: ./admin.php");
     }
 
 ?>
