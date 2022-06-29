@@ -4,11 +4,13 @@ $userId = intval($_GET['userId']);
 
 $threadId = intval($_GET['thread']);
 
-$commentId=intval($_GET['comment']);
+$commentId = intval($_GET['comment']);
 
-if (isset($threadId)){
-    setLike($userId,$threadId);
-}elseif (isset($commentId)) {
+if ($commentId) {
     setLikeComment($userId,$commentId);
 }
+if ($threadId){
+    setLike($userId,$threadId);
+}
+
 

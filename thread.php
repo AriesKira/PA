@@ -11,6 +11,7 @@ $thread = $queryPrepared->fetch();
 $queryPrepared2 = $pdo->prepare("SELECT * FROM THREAD_COMMENT WHERE idThread=:idThread");
 $queryPrepared2->execute(["idThread"=>$threadId]);
 $comments = $queryPrepared2->fetchAll();
+$nbComment = $queryPrepared2->rowCount();
 
 
 
@@ -37,8 +38,8 @@ echo '
         <div class="col"></div>
     </div>
     <div class="row pt-5">
-        <div class="col"></div>
-        <div class="col">
+        <div class="col-2"></div>
+        <div class="col-8">
             <div class="card threadsPreviews">
                 <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6>
                 </div>
@@ -76,7 +77,7 @@ echo '
                 </div>
             </div>
         </div>
-        <div class="col"></div>
+        <div class="col-2"></div>
     </div>                        
 <hr>
 <div class="row">
@@ -86,54 +87,66 @@ echo '
 </div>
 <hr>
 ';
-foreach($comments as $comment) {
-    echo '
-    <div class="row">
-        <div class="col"></div>
-        <div class="col">
-            <div class="card" style="width:800px">
-                <div class="card-header text-start">
-                    <button type="button" class="userLikeButton" onclick="setLikeComment('.$comment['idThreadComment'].','.$userID.')">';if(hasLiked($userID,$comment['idThreadComment'])){echo '<img id="likeImage_'.$comment['idThreadComment'].'" src="./stylesheet/images/logo/liked.png">';}else{echo'<img id="likeImage_'.$comment['idThreadComment'].'" src="./stylesheet/images/logo/notLiked.png">';} echo'</button>
-                    <span id="likeCounter_'.$comment['idThreadComment'].'" style=" color:black">
-                        '.$commentLikes = threadCommentLikes($comment['idThreadComment']).'
-                    </span>
-                    <div class="text-center">
-                        <h5>'.getThreadCommentAuthor($comment['author']).'</h5>
+
+if ($nbComment != 0) {
+    foreach($comments as $comment) {
+        echo '
+        <div class="row pb-4">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header text-start">
+                        <button type="button" class="userLikeButton" onclick="setLikeComment('.$comment['idThreadComment'].','.$userID.')">';if(hasLikedThreadComment($userID,$comment['idThreadComment'])){echo '<img id="likeImage_'.$comment['idThreadComment'].'" src="./stylesheet/images/logo/liked.png">';}else{echo'<img id="likeImage_'.$comment['idThreadComment'].'" src="./stylesheet/images/logo/notLiked.png">';} echo'</button>
+                        <span id="likeCounter_'.$comment['idThreadComment'].'" style=" color:black">
+                            '.$commentLikes = threadCommentLikes($comment['idThreadComment']).'
+                        </span>
+                        <div class="text-center">
+                            <h5>'.getThreadCommentAuthor($comment['author']).'</h5>
+                        </div>
+                        <div class="text-end">'.$comment['postDate'].'</div>
                     </div>
-                    <div class="text-end">'.$comment['postDate'].'</div>
-                </div>
-                <div class="card-body">
-                    <div class="card-text text-muted">
-                        ';
-                        if (commentHasImage($comment['idThreadComment'])&& empty($comment['texte'])){echo '
-                            <div class="threadPreviewImage text-center">
-                                <img class="img-fluid" src="'.$comment["picture"].'">
-                            </div>
-                        ';}else{echo'
-                            <div>
-                                <div class="pt-4">
-                                    <p style="color:black">' . $comment['texte'] . '</p>
-                                </div>
-                                <div class="threadPreviewImage text-center pt-3">
+                    <div class="card-body">
+                        <div class="card-text text-muted">
+                            ';
+                            if (commentHasImage($comment['idThreadComment'])&& empty($comment['texte'])){echo '
+                                <div class="threadPreviewImage text-center">
                                     <img class="img-fluid" src="'.$comment["picture"].'">
                                 </div>
-                            </div>
-                        ';}echo'
-                    </div>                    
+                            ';}else{echo'
+                                <div>
+                                    <div class="pt-4">
+                                        <p style="color:black">' . $comment['texte'] . '</p>
+                                    </div>
+                                    <div class="threadPreviewImage text-center pt-3">
+                                        <img class="img-fluid" src="'.$comment["picture"].'">
+                                    </div>
+                                </div>
+                            ';}echo'
+                        </div>                    
+                    </div>
                 </div>
             </div>
+            <div class="col-2"></div>
         </div>
-        <div class="col"></div>
-    </div>
+        ';
+    } 
+}else {
+    echo '
+      <div class="row pt-2 pb-4">
+          <div class="col-2"></div>
+          <div class="col-8">
+              <div class="row">
+                  <h4 class="text-center" style="color:aliceblue;">Aucune réponse pour le moment</h4>
+              </div>
+              <div class="row">
+                  <img src="./stylesheet/images/threadImages/noCommentYet.gif">
+              </div>
+          </div>
+          <div class="col-2"></div>
+      </div>
     ';
-} 
-?>
-<div class="searchbarDiv">
-	<form >
-		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
-	</form>
-   <div id="searchResults"></div>
-</div>
+}
+    ?>
 
 <div hidden id="makeThreadComment">
     <?php include "./makeThreadComment.php" ?>

@@ -29,10 +29,12 @@ function setLike(threadId, userId) {
 
 function setLikeComment(commentId, userId) {
     const likeCounter = document.getElementById("likeCounter_" + commentId);
-    let count = parseInt(likeCounter.textContent)
+    console.log(likeCounter);
+    let count = parseInt(likeCounter.textContent);
     const likeImage = getLikeImage(commentId);
     const request = new XMLHttpRequest();
     request.onload = function() {
+
         if (hasLikedJS(commentId)) {
             likeImage.setAttribute('src', './stylesheet/images/logo/notLiked.png');
             likeCounter.textContent = count - 1;

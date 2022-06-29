@@ -18,9 +18,10 @@ $queryPrepared2 -> execute(['userId'=>$userID]);
 $avatar = $queryPrepared2->fetch();
 
 
-$queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_THREAD WHERE author=:author ORDER BY postDate DESC");
-$queryPrepared->execute(["author"=>$_SESSION['idUser']]);
-$threads = $queryPrepared->fetchAll();
+$queryPrepared3 = $pdo->prepare("SELECT * FROM AROOTS_THREAD WHERE author=:author ORDER BY postDate DESC");
+$queryPrepared3->execute(["author"=>$_SESSION['idUser']]);
+$threads = $queryPrepared3->fetchAll();
+$nbThreads = $queryPrepared3->rowCount();
 
 $userHair =intval($avatar['hair']);
 $userLeftEye = intval($avatar['leftEye']);
@@ -59,9 +60,9 @@ $userMouth = intval($avatar['mouth']);
          </div>
       </div>
       <div class="row">
-         <div class="col-sm"></div>
+         <div class="col-4"></div>
          <?php
-         echo  '<div class=" col-sm table-responsive userInfo shadow ">
+         echo  '<div class=" col-4 table-responsive userInfo shadow ">
                   <table class="table  table-borderless text-white">
                      <tbody>
                         <tr>
@@ -90,17 +91,18 @@ $userMouth = intval($avatar['mouth']);
                </div>
                ';
          ?>
-         <div class="col-sm"></div>
+         <div class="col-4"></div>
       </div>
       <?php
+      if ($nbThreads != 0) {
       foreach ($threads as $thread) {
          $authorID = $thread['author'];
          $threadLikes = threadLikes($thread['idThread']);
          echo '
          <hr>
          <div class="row">
-             <div class="col"></div>
-             <div class="col">
+             <div class="col-2"></div>
+             <div class="col-8">
                  <div class="card threadsPreviews">
                      <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6></div>
                      <div class="card-title card-header text-center"><h5>
@@ -111,7 +113,7 @@ $userMouth = intval($avatar['mouth']);
                              ';
                              if (hasImage($thread['idThread'])&& empty($thread['texte'])){echo '
                                  <div class="threadPreviewImage text-center">
-                                     <img src="'.$thread["picture"].'">
+                                     <img class="img-fluid" src="'.$thread["picture"].'">
                                  </div>
                              ';}else{echo'
                                  <div>
@@ -135,65 +137,29 @@ $userMouth = intval($avatar['mouth']);
                      </div>
                  </div>
              </div>
-             <div class="col"></div>
+             <div class="col-2"></div>
          </div>
  
          ';
-     }
-      ?>
-      <div class="row pb-5">
-         <div class="col-sm">
-            <div class="container-fluid overflow-auto userLikedArticles shadow">
-               <!-- Is going to contain liked articles: need article bdd + favorite article -->
-               <div class="row">
-                  <h3 class="text-center">Articles Préféré</h3>
-               </div>
-
-
-            </div>
-         </div>
-         <div class="col-sm">
-            <div class="container-fluid overflow-auto userStats shadow">
-               <!-- Is going to contain user xp level-->
-               <div class="row">
-                  <div class="col-sm">
-                     <h3 class="text-center">Niveau 0</h3>
-                  </div>
-               </div>
-               <!-- current exercise-->
-               <div class="row">
-                  <div class="col-sm"></div>
-                  <div class="col-5">
-                     <a href="" class="text-center">Current Exercise</a>
-                  </div>
-                  <div class="col-sm"></div>
-               </div>
-               <!-- exercises done -->
-               <div class="row">
-                  <div class="">
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt provident quis deleniti vel ut exercitationem deserunt officia molestiae voluptatibus in nam, accusantium soluta, eligendi doloribus beatae ea inventore tempora iure.
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti harum facere ab laboriosam dolorem fugiat suscipit provident ratione, recusandae dolorum? Ad minus repellat quibusdam dolore voluptate similique, porro totam ratione?
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Probably Friends List -->
-         <div class="col-sm">
-            <div class="container-fluid overflow-auto userFriendsList shadow">
-               <div class="row">
-                  <h3 class="text-center">Amis</h3>
-               </div>
-            </div>
-         </div>
+      }
+   }else{
+      echo '
+      <div class="row pt-5">
+          <div class="col-sm"></div>
+          <div class="col-sm">
+              <div class="row">
+                  <h4 class="text-center" style="color:aliceblue;">Cette utilisateur n\'a rien posté pour le moment</h4>
+              </div>
+              <div class="row">
+                  <img src="./stylesheet/images/threadImages/noPostYet.gif">
+              </div>
+          </div>
+          <div class="col-sm"></div>
       </div>
-   </div>
-</div>
-<div class="searchbarDiv">
-	<form >
-		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
-	</form>
-   <div id="searchResults"></div>
-</div>
+      ';
+      }
+      ?>
+
 <div hidden id="modifyUserProfile">
    <?php include "./modMyProfile.php" ?>
 </div>
@@ -201,10 +167,6 @@ $userMouth = intval($avatar['mouth']);
 <script>
    window.onload = showUserAvatar();
 </script>
-
-
-
-
 
 
 

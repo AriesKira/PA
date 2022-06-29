@@ -63,8 +63,8 @@
                                 echo '
                                 <hr>
                                 <div class="row">
-                                    <div class="col"></div>
-                                    <div class="col">
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
                                         <div class="card threadsPreviews">
                                             <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6></div>
                                             <div class="card-title card-header text-center"><h5>
@@ -75,7 +75,7 @@
                                                     ';
                                                     if (hasImage($thread['idThread'])&& empty($thread['texte'])){echo '
                                                         <div class="threadPreviewImage text-center">
-                                                            <img src="'.$thread["picture"].'">
+                                                            <img class="img-fluid" src="'.$thread["picture"].'">
                                                         </div>
                                                     ';}else{echo'
                                                         <div>
@@ -99,7 +99,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col"></div>
+                                    <div class="col-2"></div>
                                 </div>
                         
                                 ';
@@ -131,12 +131,6 @@
 
 
 
-<div class="searchbarDiv">
-	<form >
-		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
-	</form>
-   <div id="searchResults"></div>
-</div>
 <script src="./avatarJS/avatar.js"></script>
 <script>
    window.onload = showUsersAvatar();

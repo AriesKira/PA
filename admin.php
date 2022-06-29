@@ -13,7 +13,7 @@
     }
 
     $pdo = connectDB();
-    $queryPrepared = $pdo -> prepare("SELECT * FROM AROOTS_USERS");
+    $queryPrepared = $pdo -> prepare("SELECT * FROM AROOTS_USERS LIMIT 10");
     $queryPrepared -> execute();
     $users = $queryPrepared->fetchALL();
 
@@ -27,7 +27,7 @@
     if (isset($_SESSION['success'])) {
             $nbSuccess = intval($_SESSION['success']);
             echo '<div class="alert alert-success pb-1" role="alert">';
-            echo '<h5 class="fw-bold">'.$nbSuccess.'changements appliqué avec succès</h5>';
+            echo '<h5 class="fw-bold">'.$nbSuccess.' changements appliqué avec succès</h5>';
             echo '</div>';
             unset($_SESSION['success']);
         }
@@ -121,12 +121,6 @@
 </div>
 
 
-<div class="searchbarDiv">
-	<form >
-		<input type="text" placeholder="Recherche ..."  id="searchbar" name="searchbar" onkeyup="searchResponse(this.value)">
-	</form>
-   <div id="searchResults"></div>
-</div>
 <div hidden id="roleChoice">
    <?php include "./roleChoice.php" ?>
 </div>
