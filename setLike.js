@@ -27,7 +27,7 @@ function setLike(threadId, userId) {
     request.send();
 }
 
-function setLikeComment(commentId, userId) {
+function setLikeComment(userId, commentId) {
     const likeCounter = document.getElementById("likeCounter_" + commentId);
     let count = parseInt(likeCounter.textContent)
     const likeImage = getLikeImage(commentId);
