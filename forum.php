@@ -1,5 +1,6 @@
 <?php include "./stylesheet/template/header.php"; ?>
 <?php if (!isConnected()) {
+    $errors = [];
     $errors[]="Vous devez être inscrit pour pouvoir accéder à cette page.";
     $_SESSION['errors'] = $errors;
     header("Location: ./index.php");

@@ -113,3 +113,24 @@ function getUserProfileRightEye() {
 function getUserProfileMouth() {
     return document.getElementById('userProfileMouth');
 }
+
+function getRoleChoice() {
+    return document.getElementById('roleChoice');
+}
+
+
+function getSetNormalUserButton() {
+    return document.getElementById('setNormalUser');
+}
+
+function getSetWebmasterUserButton() {
+    return document.getElementById('setWebmasterUser');
+}
+
+function getSetAdminUserButton() {
+    return document.getElementById('setAdminUser');
+}
+
+function getSetRoleButtonValue(user) {
+    return document.getElementById('setRoleButton_' + user).getAttribute('value');
+}

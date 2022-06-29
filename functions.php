@@ -297,3 +297,87 @@ function resizeImageGif($source, $dst, $width, $height, $quality) {
 
 	imagegif($imageFinal, $dst, $quality);
 }
+
+
+
+function validateUser($user) {
+
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("UPDATE AROOTS_USERS SET validated = 1 WHERE idUser = :idUser");
+    $queryPrepared -> execute(['idUser'=> $user]);
+
+}
+
+function deleteAvatar($user) {
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("DELETE FROM AVATARS WHERE userId = :userId");
+    $queryPrepared -> execute(['userId'=> $user]);
+}
+
+function deleteUserThreads($user) {
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("DELETE FROM AROOTS_THREAD WHERE author = :author");
+    $queryPrepared -> execute(['author'=> $user]);
+}
+
+function deleteLikedUserThread($user) {
+	$pdo = connectDB();
+	$getUserThreads = $pdo -> prepare("SELECT idThread FROM AROOTS_THREAD WHERE author= :author");
+	$getUserThreads -> execute(['author'=>$user]);
+	$threads = $getUserThreads->fetchAll();
+
+	foreach ($threads as $thread) {
+		$deleteLikes = $pdo ->prepare("DELETE FROM THREAD_LIKE WHERE idThread = :idThread ");
+		$deleteLikes ->execute(['idThread'=> $thread['idThread']]);
+	}
+
+}
+
+function deleteUserLikes($user) {
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("DELETE FROM THREAD_LIKE WHERE idUser = :idUser");
+    $queryPrepared -> execute(['idUser'=> $user]);
+}
+
+function deleteUserComments($user) {
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("DELETE FROM THREAD_COMMENT WHERE author = :author");
+    $queryPrepared -> execute(['author'=> $user]);
+}
+
+function deleteUserLikedComments($user) {
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("DELETE FROM THREAD_COMMENT_LIKE WHERE userId = :userId");
+    $queryPrepared -> execute(['userId'=> $user]);
+}
+function deleteUser($user) {
+
+	deleteAvatar($user);
+	deleteUserLikes($user);
+	deleteUserLikedComments($user);
+	deleteUserComments($user);
+	deleteLikedUserThread($user);
+	deleteUserThreads($user);
+	
+	
+	$pdo = connectDB();
+    $queryPrepared = $pdo->prepare("DELETE FROM AROOTS_USERS WHERE idUser = :idUser");
+    $queryPrepared -> execute(['idUser'=> $user]);
+}
+
+function setNormalUser($user) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo ->prepare("UPDATE AROOTS_USERS SET userRole = 1 WHERE idUser =:idUser");
+	$queryPrepared -> execute(['idUser'=>$user]);
+}
+function setWebmasterUser($user) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo ->prepare("UPDATE AROOTS_USERS SET userRole = 2 WHERE idUser =:idUser");
+	$queryPrepared -> execute(['idUser'=>$user]);
+}
+
+function setAdminUser($user) {
+	$pdo = connectDB();
+	$queryPrepared = $pdo ->prepare("UPDATE AROOTS_USERS SET userRole = 3 WHERE idUser =:idUser");
+	$queryPrepared -> execute(['idUser'=>$user]);
+}

@@ -35,6 +35,16 @@ function displayModUser() {
     hideElement(modUser, !modUser.hidden);
 }
 
+
+
+function displayRoleChoice(user) {
+    const roleChoice = getRoleChoice();
+    hideElement(roleChoice, !roleChoice.hidden);
+    getSetNormalUserButton().setAttribute('onclick', 'setNormal(' + user + ')');
+    getSetWebmasterUserButton().setAttribute('onclick', 'setWebmaster(' + user + ')');
+    getSetAdminUserButton().setAttribute('onclick', 'setAdmin(' + user + ')');
+}
+
 function hideElement(element, hidden) {
     element.hidden = hidden;
     element.style.zIndex = hidden ? -1 : 100;

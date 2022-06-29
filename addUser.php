@@ -81,7 +81,7 @@ if (strlen($pseudo) < 4 || strlen($pseudo) > 40) {
 	$errors[] = "Votre pseudo doit faire entre 4 et 40 caractères";
 } else {
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT idUser from AROOTS_USERS WHERE pseudo=:pseudo");
+	$queryPrepared = $pdo->prepare("SELECT pseudo from AROOTS_USERS WHERE pseudo=:pseudo");
 
 	$queryPrepared->execute(["pseudo" => $pseudo]);
 
@@ -130,10 +130,6 @@ $key = rdmKeyValues();
 
 if (count($errors) == 0) {
 
-
-
-	//$email = "y.skrzypczy@gmail.com";
-	//$firstname = "');DELETE FROM users;";
 
 	$queryPrepared = $pdo->prepare("INSERT INTO AROOTS_USERS (email, firstname, lastname, pseudo, country, birthday, pwd, mailKey) 
 		VALUES ( :email , :firstname, :lastname, :pseudo, :country, :birthday, :pwd, :mailKey );");

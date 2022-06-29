@@ -465,6 +465,37 @@ p {
 /*------END FORUM-----*/
 
 
+/*------ADMINISTRATION---------*/
+
+.adminPage {
+    background-color: #2d2d2d;
+}
+
+#adminPageTitle {
+    color: #EF0B0B;
+}
+
+.usersTable {
+    background-color: #fefefe;
+    border-radius: 20px;
+    height: 500px;
+    border: #EF0B0B 2px solid;
+}
+
+#roleChoice {
+    position: absolute;
+    background-color: #000000;
+    width: fit-content;
+    height: 50px;
+    top: 50%;
+    right: 0%;
+    border-radius: 10px;
+}
+
+
+/*-----END AMINISTRATION------*/
+
+
 /*-----ARTICLES-----*/
 
 .article-div {
