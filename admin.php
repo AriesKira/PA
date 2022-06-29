@@ -120,7 +120,7 @@
     </div>
 </div>
 
-
+<div id="searchResults"></div>
 <div hidden id="roleChoice">
    <?php include "./roleChoice.php" ?>
 </div>

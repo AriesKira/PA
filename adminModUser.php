@@ -77,5 +77,5 @@ $userInfos = $getUserInfos ->fetch();
         </div>
     </div>
 </div>
-
+<div id="searchResults"></div>
 <?php include "./stylesheet/template/footer.php"; ?>

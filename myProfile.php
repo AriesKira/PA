@@ -159,7 +159,7 @@ $userMouth = intval($avatar['mouth']);
       ';
       }
       ?>
-
+<div id="searchResults"></div>
 <div hidden id="modifyUserProfile">
    <?php include "./modMyProfile.php" ?>
 </div>

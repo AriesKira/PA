@@ -71,7 +71,7 @@
 		';
 	}
 	?>
-
+<div id="searchResults"></div>
 <div hidden id="loginBody">
    <?php include "./authentication/login.php" ?>
 </div>

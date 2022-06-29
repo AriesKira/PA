@@ -130,7 +130,7 @@
    <?php }?>
 
 
-
+<div id="searchResults"></div>
 <script src="./avatarJS/avatar.js"></script>
 <script>
    window.onload = showUsersAvatar();

@@ -50,7 +50,7 @@
       </div>
    </div>
 </div>
-
+<div id="searchResults"></div>
 
 <div hidden id="loginBody">
    <?php include "./authentication/login.php" ?>

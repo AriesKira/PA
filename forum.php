@@ -80,7 +80,7 @@
     ?>
     <a class="btn makeThreadButton" onclick="PopUpMakeThread()">Crée ton Thread</a>
 </div>
-
+<div id="searchResults"></div>
 <div hidden id="makeThread">
     <?php include "./makeThread.php" ?>
 </div>

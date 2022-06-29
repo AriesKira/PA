@@ -147,7 +147,7 @@ if ($nbComment != 0) {
     ';
 }
     ?>
-
+<div id="searchResults"></div>
 <div hidden id="makeThreadComment">
     <?php include "./makeThreadComment.php" ?>
 </div>

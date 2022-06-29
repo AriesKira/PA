@@ -100,5 +100,4 @@ generateLogs();
 			</div>
 		</nav>
 	</header>
-	
-	<div id="searchResults"></div>
+
