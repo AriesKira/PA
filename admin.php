@@ -46,7 +46,7 @@
 <div class="adminPage">
     <?php
         echo '<div>';
-    if (isset($_SESSION['success'])) {
+        if (isset($_SESSION['success'])) {
             $nbSuccess = intval($_SESSION['success']);
             echo '<div class="alert alert-success pb-1" role="alert">';
             echo '<h5 class="fw-bold">'.$nbSuccess.' changements appliqué avec succès</h5>';

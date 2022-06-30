@@ -1,8 +1,9 @@
 <?php include "./stylesheet/template/header.php"; ?>
 <?php 
+
+    $errors = [];
     if (!isConnected()) {
-        $errors = [];
-        $errors[]="Vous devez être inscrit pour pouvoir accéder à cette page.";
+        $errors[] = "Vous devez êtres connecté";
         $_SESSION['errors'] = $errors;
         header("Location: ./index.php");
     }
@@ -37,18 +38,27 @@
         <h1 style="color:white">FORUM</h1>
     </div>
     <?php
-    echo '<div id="infoPanel">';
-    if (!empty($_SESSION['errors']) && isset($_SESSION['errors'])) {
-        echo '<div class="alert alert-danger mt-4 pb-1" role="alert">';
+        echo '<div>';
+        if (isset($_SESSION['success'])) {
+                $nbSuccess = intval($_SESSION['success']);
+                echo '<div class="alert alert-success pb-1" role="alert">';
+                echo '<h5 class="fw-bold">'.$nbSuccess.' thread supprimé avec succès</h5>';
+                echo '</div>';
+                unset($_SESSION['success']);
+            }
+        echo '</div>';
+        echo '<div id="infoPanel">';
+        if (!empty($_SESSION['errors']) && isset($_SESSION['errors'])) {
+            echo '<div class="alert alert-danger mt-4 pb-1" role="alert">';
 
-        for ($i = 0; $i < count($_SESSION['errors']); $i++) {
-            $element = $_SESSION['errors'][$i];
-            echo '<h5 class="fw-bold">- ' . $element . '</h5>';
+            for ($i = 0; $i < count($_SESSION['errors']); $i++) {
+                $element = $_SESSION['errors'][$i];
+                echo '<h5 class="fw-bold">- ' . $element . '</h5>';
+            }
+            echo '</div>';
+            unset($_SESSION['errors']);
         }
         echo '</div>';
-        unset($_SESSION['errors']);
-    }
-    echo '</div>';
 
 
     foreach ($threads as $thread) {
@@ -60,10 +70,16 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <div class="card threadsPreviews shadow">
-                    <div class="card-header text-center"><h6>Theme : ' . $thread['theme'] . '</h6>
+                    <div class="card-header text-center">
+                    <h6>Theme : ' . $thread['theme'] . '</h6>
+                    ';
+                    if (isAdmin($userID) || $userID == $thread['author']) {
+                        echo '<a type="button" class="btn btn-danger btn-sm" href="./deletePost.php?delete='.$thread['idThread'].'">Supprimer</a>';
+                    }
+                    echo'
                     </div>
-                    <div class="card-title card-header text-center"><h5>
-                    ' . substr($thread['title'], 0, 49) . '</h5>
+                    <div class="card-title card-header text-center">
+                    <h5>' . substr($thread['title'], 0, 49) . '</h5>
                     </div>
                     <div class="card-body">
                         <div class="card-text text-muted">

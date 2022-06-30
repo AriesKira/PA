@@ -307,7 +307,7 @@ function validateUser($user) {
     $queryPrepared -> execute(['idUser'=> $user]);
 
 }
-
+//DELETE USER
 function deleteAvatar($user) {
 	$pdo = connectDB();
     $queryPrepared = $pdo->prepare("DELETE FROM AVATARS WHERE userId = :userId");
@@ -364,7 +364,45 @@ function deleteUser($user) {
     $queryPrepared = $pdo->prepare("DELETE FROM AROOTS_USERS WHERE idUser = :idUser");
     $queryPrepared -> execute(['idUser'=> $user]);
 }
+//DELET THREAD
+function deleteThreadLikes($threadId)  {
+	$pdo = connectDB();
+	$deleteThread = $pdo -> prepare("DELETE FROM THREAD_LIKE WHERE idThread =:idThread");
+	$deleteThread -> execute(['idThread'=>$threadId]);
+}
 
+function deleteThreadComments($threadId) {
+	$pdo = connectDB();
+	$deleteThread = $pdo -> prepare("DELETE FROM THREAD_COMMENT WHERE idThread =:idThread");
+	$deleteThread -> execute(['idThread'=>$threadId]);
+}
+
+function deleteThreadCommentsLikes($commentId) {
+	$pdo = connectDB();
+	$deleteThread = $pdo -> prepare("DELETE FROM THREAD_COMMENT_LIKE WHERE commentId =:commentId");
+	$deleteThread -> execute(['commentId'=>$commentId]);
+}
+function deleteThread($threadId) {
+	$pdo = connectDB();
+	
+
+	$getCommentsId = $pdo -> prepare("SELECT idThreadComment FROM THREAD_COMMENT WHERE idThread = :idThread");
+	$getCommentsId -> execute(['idThread'=>$threadId]);
+	$commentsId = $getCommentsId->fetchAll(PDO::FETCH_COLUMN, 0);
+
+	foreach($commentsId as $commentId) {
+		$commentId = intval($commentId);
+		deleteThreadCommentsLikes($commentId);
+	}
+	deleteThreadComments($threadId);
+	deleteThreadLikes($threadId);
+
+	$deleteThread = $pdo -> prepare("DELETE FROM AROOTS_THREAD WHERE idThread =:idThread");
+	$deleteThread -> execute(['idThread'=>$threadId]);
+}
+
+
+//ROLE
 function setNormalUser($user) {
 	$pdo = connectDB();
 	$queryPrepared = $pdo ->prepare("UPDATE AROOTS_USERS SET userRole = 1 WHERE idUser =:idUser");
