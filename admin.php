@@ -1,6 +1,14 @@
 <?php include "./stylesheet/template/header.php"; ?>
 <?php
+
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $currentPage = intval($_GET['page']);
+    }else{
+        $currentPage = 1;
+    };
+
     $errors = [];
+
     if (!isConnected()) {
         $errors[] = "Vous devez êtres connecté";
         $_SESSION['errors'] = $errors;
@@ -13,7 +21,21 @@
     }
 
     $pdo = connectDB();
-    $queryPrepared = $pdo -> prepare("SELECT * FROM AROOTS_USERS LIMIT 10");
+
+    $countUsers = $pdo->prepare("SELECT count(pseudo) FROM AROOTS_USERS");
+    $countUsers->execute();
+    $userCount = $countUsers->fetch();
+
+    $nbUsers = intval($userCount[0]);
+    $offset = 10;
+    $limit = ($currentPage * $offset)-$offset;
+    $pages = ceil($nbUsers/$offset);
+    
+    
+
+    $queryPrepared = $pdo -> prepare("SELECT * FROM AROOTS_USERS LIMIT :limite, :offset");
+    $queryPrepared->bindValue(':limite',intval(trim($limit)),PDO::PARAM_INT);
+    $queryPrepared->bindValue(':offset',intval(trim($offset)),PDO::PARAM_INT);
     $queryPrepared -> execute();
     $users = $queryPrepared->fetchALL();
 
@@ -111,7 +133,26 @@
         </div>
         <div class="col-2"></div>
     </div>
-    <div class="row pt-5">
+    <div class="row pt-4 ">
+        <div class="col"></div>
+        <div class="col">
+            <ul class="pagination">
+                <li class="page-item <?php  if ($currentPage == 1) { echo "disabled";} ?>">
+                    <a href="./admin.php?page=<?php echo $currentPage-1 ?>" class="page-link">Précedent</a>
+                </li>
+                <?php for($page = 1 ; $page <= $pages ; $page++ ) { ?>
+                <li class="page-item <?php if ($currentPage == $page) { echo "active";} ?>">
+                   <a href="./admin.php?page=<?php echo $page ?>" class="page-link"><?php echo $page ?></a>
+                </li>
+                <?php } ?>
+                <li class="page-item <?php if ($currentPage == $pages){echo 'disabled';} ?>">
+                    <a href="./admin.php?page=<?php echo $currentPage+1 ?>" class="page-link">Suivant</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row pt-3">
         <div class="col"></div>
         <div class="col">
             <img class="img-fluid" src="./stylesheet/images/threadImages/noPostYet.gif">

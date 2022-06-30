@@ -1,10 +1,36 @@
 <?php include "./stylesheet/template/header.php"; ?>
-<?php if (!isConnected()) {
-    $errors = [];
-    $errors[]="Vous devez être inscrit pour pouvoir accéder à cette page.";
-    $_SESSION['errors'] = $errors;
-    header("Location: ./index.php");
-}
+<?php 
+    if (!isConnected()) {
+        $errors = [];
+        $errors[]="Vous devez être inscrit pour pouvoir accéder à cette page.";
+        $_SESSION['errors'] = $errors;
+        header("Location: ./index.php");
+    }
+
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $currentPage = intval($_GET['page']);
+    }else{
+        $currentPage = 1;
+    };
+
+
+    $pdo = connectDB();
+
+    $countThread = $pdo->prepare("SELECT count(idThread) FROM AROOTS_THREAD");
+    $countThread->execute();
+    $threadCount = $countThread->fetch();
+
+    $nbThread = intval($threadCount[0]);
+    $offset = 10;
+    $limit = ($currentPage * $offset)-$offset;
+    $pages = ceil($nbThread/$offset);
+    
+    $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_THREAD ORDER BY postDate DESC LIMIT :limite, :offset");
+    $queryPrepared->bindValue(':limite',intval(trim($limit)),PDO::PARAM_INT);
+    $queryPrepared->bindValue(':offset',intval(trim($offset)),PDO::PARAM_INT);
+    $queryPrepared->execute();
+    $threads = $queryPrepared->fetchAll();
+    
 ?>
 <div class="container-fluid forumBody">
     <div class="text-center forumBody pt-3 pb-3">
@@ -24,11 +50,6 @@
     }
     echo '</div>';
 
-
-    $pdo = connectDB();
-    $queryPrepared = $pdo->prepare("SELECT * FROM AROOTS_THREAD ORDER BY postDate DESC");
-    $queryPrepared->execute();
-    $threads = $queryPrepared->fetchAll();
 
     foreach ($threads as $thread) {
         $authorID = $thread['author'];
@@ -78,6 +99,25 @@
         ';
     }
     ?>
+    <div class="row pt-4 ">
+        <div class="col"></div>
+        <div class="col">
+            <ul class="pagination list-inline">
+                <li class="page-item <?php  if ($currentPage == 1) { echo "disabled";} ?>">
+                    <a href="./forum.php?page=<?php echo $currentPage-1 ?>" class="page-link">Précedent</a>
+                </li>
+                <?php for($page = 1 ; $page <= $pages ; $page++ ) { ?>
+                <li class="page-item <?php if ($currentPage == $page) { echo "active";} ?>">
+                   <a href="./forum.php?page=<?php echo $page ?>" class="page-link"><?php echo $page ?></a>
+                </li>
+                <?php } ?>
+                <li class="page-item <?php if ($currentPage == $pages){echo 'disabled';} ?>">
+                    <a href="./forum.php?page=<?php echo $currentPage+1 ?>" class="page-link">Suivant</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
     <a class="btn makeThreadButton" onclick="PopUpMakeThread()">Crée ton Thread</a>
 </div>
 <div id="searchResults"></div>
