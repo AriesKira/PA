@@ -19,10 +19,6 @@ function connectDB()
 	return $pdo;
 }
 
-/*
-	$token = createToken();
-	updateToken($results["id"], $token);
-*/
 
 function createToken()
 {
@@ -419,3 +415,56 @@ function setAdminUser($user) {
 	$queryPrepared = $pdo ->prepare("UPDATE AROOTS_USERS SET userRole = 3 WHERE idUser =:idUser");
 	$queryPrepared -> execute(['idUser'=>$user]);
 }
+
+//MESSAGES
+function convExists($user1,$user2) {
+
+	$pdo = connectDB();
+	$findConv = $pdo->prepare("SELECT idConversation FROM CONV WHERE (user1 = :user1 AND user2 = :user2) OR (user1 = :user2 AND user2 = :user1)");
+	$findConv->execute(['user2'=>$user2,'user1'=>$user1]);
+	$result = $findConv->fetch();
+
+	if (!empty($result)) {
+		return true;
+	}
+
+	return false;
+}
+
+function createConv($user1,$user2) {
+
+	$pdo = connectDB();
+	$createConv = $pdo -> prepare("INSERT INTO CONV (user1,user2) VALUES (:user1,:user2)");
+	$createConv -> execute(['user2'=>$user2,'user1'=>$user1]);
+}
+
+function getConv($user1,$user2) {
+	$pdo = connectDB();
+	$findConv = $pdo->prepare("SELECT idConversation FROM CONV WHERE (user1 = :user1 AND user2 = :user2) OR (user1 = :user2 AND user2 = :user1)");
+	$findConv->execute(['user2'=>$user2,'user1'=>$user1]);
+	$result = $findConv->fetch();
+	
+	return $result[0];
+}
+
+
+function getUserId($pseudo) {
+	$pdo = connectDB();
+	$getUserId = $pdo -> prepare("SELECT idUser FROM AROOTS_USERS WHERE pseudo = :pseudo");
+	$getUserId-> execute(['pseudo'=>$pseudo]);
+	$userId = $getUserId -> fetch();
+
+	return intval($userId[0]);
+}
+
+function getUsersFromConv($conv) {
+
+	$pdo = connectDB();
+	$getUserId = $pdo -> prepare("SELECT user1,user2 FROM CONV WHERE idConversation = :idConversation");
+	$getUserId-> execute(['idConversation'=>$conv]);
+	$userIds = $getUserId -> fetch();
+
+	return $userIds;
+
+}
+

@@ -2,7 +2,7 @@
 
 session_start();
 require "logs.php";
-require "functions.php";
+include "functions.php";
 if (isConnected()) {
 	$userID = $_SESSION['idUser'];
 }

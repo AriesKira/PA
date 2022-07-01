@@ -39,7 +39,17 @@
 
         <div class="userProfileBody">
             <div class="row">
-                <div class="col-sm"></div>
+                <div class="col-sm text-center">
+                    <a id="createConvoButton" href="./messages.php?conv=<?php 
+                        if (convExists(getUserId($_GET['pseudo']),getUserId($_SESSION['pseudo']))) { 
+                            echo getConv(getUserId($_GET['pseudo']),getUserId($_SESSION['pseudo']));
+                        }else {
+                            createConv(getUserId($_GET['pseudo']),getUserId($_SESSION['pseudo']));
+                            echo getConv(getUserId($_GET['pseudo']),getUserId($_SESSION['pseudo']));
+                        } ?>
+                        "><lord-icon src="https://cdn.lordicon.com/uvextprq.json"trigger="hover"colors="primary:#ef0b0b"style="width:150px;height:150px"></lord-icon>
+                    </a>
+                </div>
                 <div class="col-sm text-center">
                     <div class="col" id="avatarHolder">
                     <canvas id="avatarCanvas"></canvas>
@@ -50,8 +60,8 @@
             </div>
             <?php if ($nbThreads != 0) {?>
                 <div class="row pt-5">
-                    <div class="col-sm"></div>
-                    <div class="col-sm">
+                    <div class="col-2"></div>
+                    <div class="col-8">
                         <div class="row">
                             <h4 class="text-center" style="color:aliceblue;">Thread de l'utilisateur :</h4>
                         </div>
@@ -124,7 +134,7 @@
                         }
                      ?>
                 </div>
-                <div class="col-sm"></div>
+                <div class="col-2"></div>
             </div>
         </div>
    <?php }?>
