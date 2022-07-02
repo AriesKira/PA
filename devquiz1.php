@@ -19,7 +19,7 @@ header("Location: ./index.php");
       Chaque question vaut 1 point
     </p>
 
-    <form name="devquiz1" method="POST" action="quizValidated.php">
+    <form name="devquiz1" method="POST" action="myProfile.php">
         <div class="quizItem">
           <h4>1. Quelle balise utilisera-t-on de préférence pour le titre principal d'une page html ?</h4>
           <input type="radio" name="q1" value="h1"> h1<br>
@@ -113,10 +113,10 @@ header("Location: ./index.php");
                 </div>
 
                 <div class="modal-footer">
-                <h5>Votre score est augmenté de <span id="scoreIncrement" name="finalScore" required="required"> </span>  points</h5><br>
+                <h5>Votre score est de <span id="scoreIncrement" name="finalScore" required="required"> </span>  points</h5><br>
                 <p id="scoreValidated"></p>
                 
-                <a href="quizValidated.php">
+                <a href="myProfile.php">
                   <button type="submit" class="btn btn-info" data-bs-dismiss="modal" aria-label="Close">OK</button>
                 </a>
 
