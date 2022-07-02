@@ -49,7 +49,7 @@ generateLogs();
 							<a class="nav-link" href="../../articles.php">Articles</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Entrainements</a>
+							<a class="nav-link" href="../../training.php">Entrainements</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="../../forum.php">Forum</a>
