@@ -19,6 +19,7 @@ function getMessages() {
         }).join('');
         const messages = document.querySelector('.messages');
         messages.innerHTML = html;
+        messages.scrollTop = messages.scrollHeight;
     }
     request.send();
 }
