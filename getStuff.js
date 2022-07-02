@@ -150,3 +150,11 @@ function getError403() {
 function get404Btn() {
     return document.getElementById('404btn');
 }
+
+function get403Btn() {
+    return document.getElementById('403btn');
+}
+
+function get500Btn() {
+    return document.getElementById('500btn');
+}
