@@ -1,6 +1,4 @@
-<?php $mainTitle = 'Aroots | Entraînement';
-include "./stylesheet/template/header.php"; 
-?>
+<?php include "./stylesheet/template/header.php"; ?>
 
 
 <?php if (!isConnected()) {
