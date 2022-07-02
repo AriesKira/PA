@@ -15,9 +15,7 @@
         header("Location: ./index.php");
     }
     if (!isAdmin($userID)) {
-        $errors[] = "Seul les administrateurs peuvent accéder à cette endroit !";
-        $_SESSION['errors'] = $errors;
-        header("Location: ./index.php");
+        header("Location: ./error403.php");
     }
 
     $pdo = connectDB();

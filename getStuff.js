@@ -134,3 +134,19 @@ function getSetAdminUserButton() {
 function getSetRoleButtonValue(user) {
     return document.getElementById('setRoleButton_' + user).getAttribute('value');
 }
+
+function getError500() {
+    return document.getElementById('error500');
+}
+
+function getError404() {
+    return document.getElementById('error404');
+}
+
+function getError403() {
+    return document.getElementById('error403');
+}
+
+function get404Btn() {
+    return document.getElementById('404btn');
+}

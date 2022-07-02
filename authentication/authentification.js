@@ -45,6 +45,24 @@ function displayRoleChoice(user) {
     getSetAdminUserButton().setAttribute('onclick', 'setAdmin(' + user + ')');
 }
 
+function display500() {
+    const error500 = getError500();
+    hideElement(error500, !error500.hidden);
+}
+
+function display404() {
+    const error404 = getError404();
+    const playButton = get404Btn();
+    hideElement(error404, !error404.hidden);
+    hideElement(playButton, !playButton.hidden);
+    playButton.setAttribute('disbled', 'true');
+    error404.play();
+}
+
+function display403() {
+
+}
+
 function hideElement(element, hidden) {
     element.hidden = hidden;
     element.style.zIndex = hidden ? -1 : 100;
