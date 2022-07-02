@@ -5,5 +5,5 @@
     <button id="404btn" type="button" class="btn btn-dark" onclick="display404()">
         <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json"trigger="click"style="width:250px;height:250px;" colors="primary:#fff"></lord-icon>
     </button>
-    <video controls loop="infinite" src="stylesheet/videos/error500.mp4" hidden id="error404"></video>
+    <video controls loop="infinite" src="stylesheet/videos/error404.mp4" hidden id="error404"></video>
 </div>
