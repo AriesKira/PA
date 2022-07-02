@@ -47,7 +47,11 @@ function displayRoleChoice(user) {
 
 function display500() {
     const error500 = getError500();
+    const playButton = get500Btn();
     hideElement(error500, !error500.hidden);
+    hideElement(playButton, !playButton.hidden);
+    playButton.setAttribute('disbled', 'true');
+    error500.play();
 }
 
 function display404() {
@@ -60,7 +64,12 @@ function display404() {
 }
 
 function display403() {
-
+    const error403 = getError403();
+    const playButton = get403Btn();
+    hideElement(error403, !error403.hidden);
+    hideElement(playButton, !playButton.hidden);
+    playButton.setAttribute('disbled', 'true');
+    error403.play();
 }
 
 function hideElement(element, hidden) {
